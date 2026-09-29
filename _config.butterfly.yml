@@ -796,7 +796,8 @@ category_ui:
 tag_ui:
 
 # Rounded corners for UI elements
-rounded_corners_ui: true
+# false = 所有卡片 / 控件直角
+rounded_corners_ui: false
 
 # Stretches the lines so that each line has equal width
 text_align_justify: false

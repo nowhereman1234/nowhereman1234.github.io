@@ -1,6 +1,7 @@
 /* ===========================================================
    全局 UI 微调
    - 卡片 / 面板半透明，让背景图透出来
+   - 全部卡片直角
    - 配套的毛玻璃（backdrop blur）
    =========================================================== */
 
@@ -13,6 +14,24 @@
 [data-theme="dark"] {
   --card-bg: rgba(18, 18, 18, .74);
   --btn-bg: rgba(45, 45, 45, .55);
+}
+
+/* ---- 全部卡片直角 ----
+   主题的 rounded_corners_ui 已设为 false，这里再兜一层底：
+   少数硬编码圆角的地方（分页、标签云、代码块、引用等）也一起压平。 */
+.card-widget,
+.recent-post-item,
+#pagination .page-number,
+#pagination .extend,
+.tag-cloud a,
+.category-list a,
+.post-copyright,
+figure.highlight,
+blockquote,
+#footer,
+#rightside > div > button,
+.search-dialog {
+  border-radius: 0 !important;
 }
 
 /* 卡片本体加毛玻璃，背景图透过来时更耐看、文字也更好读 */
