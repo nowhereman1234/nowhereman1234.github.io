@@ -2,7 +2,7 @@
    全局 UI 微调
    - 卡片 / 面板半透明，让背景图透出来
    - 全部卡片直角
-   - 配套的毛玻璃（backdrop blur）
+   - 背景图完整显示 + 两侧磨砂补边
    =========================================================== */
 
 /* ---- 半透明卡片 ---- */
@@ -44,7 +44,42 @@ blockquote,
   backdrop-filter: blur(9px);
 }
 
-/* 移动端顶部导航条同样半透明 */
+/* ===========================================================
+   背景图：完整显示 + 两侧磨砂补边
+   =========================================================== */
+
+/* 磨砂填充层 —— 同一张图放大模糊后铺满，压在 #web_bg 后面。
+   background-image 由 blog\scripts\inject-bg-blur.js 从配置注入。 */
+#bg-blur {
+  position: fixed;
+  inset: -100px;              /* 外扩，避免模糊后边缘露白 */
+  z-index: -1000;             /* 比 #web_bg 的 -999 更靠后 */
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  filter: blur(38px) saturate(1.25) brightness(1.02);
+  pointer-events: none;
+}
+
+/* 暗色模式下跟主图一起压暗，保持一致 */
+[data-theme="dark"] #bg-blur::after {
+  position: absolute;
+  inset: 0;
+  content: '';
+  background-color: rgba(0, 0, 0, .7);
+}
+
+/* 宽屏横屏：主图 contain 完整显示，左右把磨砂层露出来。
+   窄屏 / 竖屏仍然用主题默认的 cover，避免画面上下一大片空档。 */
+@media screen and (min-width: 1024px) {
+  #web_bg {
+    background-size: contain !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+  }
+}
+
+/* ---- 移动端顶部导航条半透明 ---- */
 @media screen and (max-width: 899px) {
   #page-header.not-top-img #nav {
     background: rgba(255, 255, 255, .74);
@@ -57,7 +92,7 @@ blockquote,
   }
 }
 
-/* 桌面端没有顶部条，正文卡片区域也别太贴边 */
+/* ---- 桌面端没有顶部条，正文区域别太贴边 ---- */
 @media screen and (min-width: 900px) {
   #content-inner {
     padding-top: 22px;
