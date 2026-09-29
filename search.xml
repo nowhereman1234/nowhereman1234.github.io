@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>你好，世界</title>
+    <url>/2026/09/29/hello-world/</url>
+    <content><![CDATA[<h2 id="为什么要有这个博客"><a href="#为什么要有这个博客" class="headerlink" title="为什么要有这个博客"></a>为什么要有这个博客</h2><p>想法这种东西，放在脑子里会慢慢蒸发。写下来，它才真正属于你。</p>
+<p>所以有了这里。不为流量，不为更新频率，只为一个能长期存放和检索自己想法的地方。</p>
+<h2 id="以后会写什么"><a href="#以后会写什么" class="headerlink" title="以后会写什么"></a>以后会写什么</h2><p>大致三类：</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>技术笔记</strong></td>
+<td>踩过的坑、读过的源码、想明白的原理</td>
+</tr>
+<tr>
+<td><strong>读书摘要</strong></td>
+<td>读完之后还想再翻一遍的部分</td>
+</tr>
+<tr>
+<td><strong>随笔</strong></td>
+<td>没什么用，但想说</td>
+</tr>
+</tbody></table>
+<h2 id="它是怎么运作的"><a href="#它是怎么运作的" class="headerlink" title="它是怎么运作的"></a>它是怎么运作的</h2><p>这个站点用 <a href="https://hexo.io/">Hexo</a> 生成，主题是 <a href="https://butterfly.js.org/">Butterfly</a>，托管在 GitHub Pages 上。</p>
+<p>发布流程很短：</p>
+<ol>
+<li>把文章交给 AI 助手</li>
+<li>助手写入 Markdown 并运行发布脚本</li>
+<li>GitHub Pages 自动构建，一两分钟后上线</li>
+</ol>
+<p>没有后台，没有数据库，也没有需要维护的服务器。</p>
+<h2 id="开始吧"><a href="#开始吧" class="headerlink" title="开始吧"></a>开始吧</h2><pre class="line-numbers language-text" data-language="text"><code class="language-text">Stay hungry, stay foolish.<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>—— 就用这句话开个头。</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>随笔</tag>
+      </tags>
+  </entry>
+</search>
