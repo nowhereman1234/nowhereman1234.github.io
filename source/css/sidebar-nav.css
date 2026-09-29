@@ -2,24 +2,41 @@
    左侧竖排导航（自定义补丁）
    - 桌面端隐藏 Butterfly 顶部导航条，改用侧栏竖排菜单
    - 移动端（<900px）保持主题原样：顶部条 + 汉堡菜单
+   - 直角边、半透明、小字号、整体左移
    =========================================================== */
 
-/* ---- 侧栏导航卡片 ---- */
-.sidenav-card {
+/* 配色（柔和绿），与 _config.butterfly.yml 的 theme_color 呼应 */
+:root {
+  --sidenav-green: #6FAF8C;
+  --sidenav-green-deep: #4F8E6E;
+  --sidenav-card-bg: rgba(255, 255, 255, .62);
+  --sidenav-title-bg: rgba(111, 175, 140, .90);
+}
+
+[data-theme="dark"] {
+  --sidenav-card-bg: rgba(18, 18, 18, .62);
+  --sidenav-title-bg: rgba(79, 142, 110, .85);
+  --sidenav-green-deep: #8FC7AB;
+}
+
+/* ---- 卡片：直角 + 比其它卡片更透明 ---- */
+.card-widget.sidenav-card {
   padding: 0 !important;
   overflow: hidden;
+  border-radius: 0 !important;
+  background: var(--sidenav-card-bg) !important;
 }
 
 .sidenav-title {
-  background: #2E8B57;
-  padding: 15px 20px;
+  background: var(--sidenav-title-bg);
+  padding: 13px 16px 13px 14px;
 }
 
 .sidenav-title a {
   color: #fff;
-  font-size: 1.12rem;
+  font-size: 1.02rem;
   font-weight: 600;
-  letter-spacing: .4px;
+  letter-spacing: .3px;
 }
 
 .sidenav-title a:hover {
@@ -27,15 +44,16 @@
   opacity: .85;
 }
 
+/* ---- 菜单列表 ---- */
 .sidenav-list,
 .sidenav-sublist {
   margin: 0;
-  padding: 7px 0;
+  padding: 6px 0;
   list-style: none;
 }
 
 .sidenav-sublist {
-  padding: 0 0 4px;
+  padding: 0 0 3px;
 }
 
 .sidenav-item {
@@ -45,70 +63,60 @@
 .sidenav-link {
   display: flex;
   align-items: center;
-  gap: 11px;
-  padding: 9px 20px;
+  gap: 9px;
+  padding: 7px 14px;
   border-left: 3px solid transparent;
   color: var(--font-color);
-  font-size: .95rem;
+  font-size: .86rem;
   transition: background-color .2s, color .2s, border-color .2s;
 }
 
 .sidenav-link:hover {
-  background: rgba(60, 179, 113, .1);
-  border-left-color: #3CB371;
-  color: #2E8B57;
+  background: rgba(111, 175, 140, .14);
+  border-left-color: var(--sidenav-green);
+  color: var(--sidenav-green-deep);
 }
 
 .sidenav-link i {
-  width: 17px;
+  width: 15px;
   text-align: center;
-  opacity: .85;
+  font-size: .82rem;
+  opacity: .8;
 }
 
 .sidenav-sublist .sidenav-link {
-  padding-left: 42px;
-  font-size: .9rem;
+  padding-left: 30px;
+  font-size: .82rem;
 }
 
 .sidenav-group-label {
   display: flex;
   align-items: center;
-  gap: 11px;
-  padding: 9px 20px 4px;
+  gap: 9px;
+  padding: 8px 14px 3px;
   color: var(--font-color);
-  font-size: .78rem;
+  font-size: .72rem;
   font-weight: 600;
-  letter-spacing: .6px;
+  letter-spacing: .5px;
   text-transform: uppercase;
-  opacity: .55;
+  opacity: .5;
 }
 
 .sidenav-group-label i {
-  width: 17px;
+  width: 15px;
   text-align: center;
-}
-
-/* 暗色模式微调 */
-[data-theme="dark"] .sidenav-link:hover {
-  background: rgba(60, 179, 113, .16);
-  color: #7FD8A4;
 }
 
 /* ---- 桌面端：去掉顶部导航条 ---- */
 @media screen and (min-width: 900px) {
-  /* 顶部条整条隐藏（移动端汉堡菜单和搜索按钮的绑定不受影响，
-     隐藏元素的 .click() 依然会触发已注册的处理器） */
+  /* 顶部条整条隐藏。移动端汉堡菜单和搜索按钮的绑定不受影响 ——
+     隐藏元素上的 .click() 依然会触发已注册的处理器 */
   #page-header {
     display: none !important;
   }
-
-  /* 顶部条消失后补一点上边距，避免内容贴顶 */
-  #content-inner {
-    padding-top: 20px;
-  }
 }
 
-/* 移动端：隐藏侧栏里这份菜单，交回主题原生的顶部条 + 汉堡菜单 */
+/* 移动端：隐藏侧栏这份菜单，交回主题原生的顶部条 + 汉堡菜单 */
 @media screen and (max-width: 899px) {
   .sidenav-card {
     display: none;
