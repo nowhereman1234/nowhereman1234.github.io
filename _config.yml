@@ -4,12 +4,12 @@
 # ===========================================================
 
 # Site
-title: Nowhereman
-subtitle: '记录 · 思考 · 分享'
-description: 'Nowhereman 的个人博客，记录技术、阅读与生活。'
-keywords: '博客,技术,笔记,分享'
+title: nowhereland
+subtitle: 'mathematics · notes · code'
+description: 'Personal blog — notes on mathematics and whatever else is worth writing down.'
+keywords: 'mathematics,notes,blog,code'
 author: Nowhereman
-language: zh-CN
+language: en
 timezone: 'Asia/Shanghai'
 
 # URL

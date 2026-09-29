@@ -1,19 +1,19 @@
 ---
-title: 关于
+title: About
 date: 2026-09-29 12:00:00
 comments: false
 ---
 
-## 关于这个博客
+## About
 
-这里是 **Nowhereman** 的个人博客。
+Mathematics Student.
 
-用来存放一些不想丢掉的东西：技术笔记、读书摘要、以及偶尔冒出来的想法。
+This is where I keep things I don't want to lose — mathematics, code, and the occasional thought that seemed worth writing down.
 
-## 关于我
+## Elsewhere
 
-- GitHub：[@nowhereman1234](https://github.com/nowhereman1234)
+- GitHub — [@nowhereman1234](https://github.com/nowhereman1234)
 
-## 联系
+## Contact
 
-有想聊的，欢迎在任意文章下面留言。
+Feel free to leave a comment on any post.
