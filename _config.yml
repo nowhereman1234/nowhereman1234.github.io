@@ -1,0 +1,110 @@
+# ===========================================================
+#  Hexo 主配置  —  nowhereman1234.github.io
+#  修改站点标题 / 副标题 / 作者，只需改下面 # Site 这一段
+# ===========================================================
+
+# Site
+title: Nowhereman
+subtitle: '记录 · 思考 · 分享'
+description: 'Nowhereman 的个人博客，记录技术、阅读与生活。'
+keywords: '博客,技术,笔记,分享'
+author: Nowhereman
+language: zh-CN
+timezone: 'Asia/Shanghai'
+
+# URL
+## 用户站点（<用户名>.github.io）必须用根路径，不能带子目录
+url: https://nowhereman1234.github.io
+permalink: :year/:month/:day/:title/
+permalink_defaults:
+pretty_urls:
+  trailing_index: true # 去掉链接里的 index.html
+  trailing_html: true # 去掉链接里的 .html
+
+# Directory
+source_dir: source
+public_dir: public
+tag_dir: tags
+archive_dir: archives
+category_dir: categories
+code_dir: downloads/code
+i18n_dir: :lang
+skip_render:
+
+# Writing
+new_post_name: :title.md
+default_layout: post
+titlecase: false
+external_link:
+  enable: true
+  field: site
+  exclude: ''
+filename_case: 0
+render_drafts: false
+post_asset_folder: false
+relative_link: false
+future: true
+syntax_highlighter: prismjs
+highlight:
+  line_number: true
+  auto_detect: false
+  tab_replace: ''
+  wrap: true
+  hljs: false
+prismjs:
+  preprocess: true
+  line_number: true
+  tab_replace: ''
+
+# Home page setting
+index_generator:
+  path: ''
+  per_page: 10
+  order_by: -date
+
+# Category & Tag
+default_category: uncategorized
+category_map:
+tag_map:
+
+# Metadata elements
+meta_generator: true
+
+# Date / Time format
+date_format: YYYY-MM-DD
+time_format: HH:mm:ss
+updated_option: 'mtime'
+
+# Pagination
+per_page: 10
+pagination_dir: page
+
+# Include / Exclude file(s)
+include:
+exclude:
+ignore:
+
+# Extensions
+theme: butterfly
+
+# 本地搜索（配合 Butterfly 的 local_search）
+search:
+  path: search.xml
+  field: post
+  content: true
+  format: html
+
+# 站点地图，利于搜索引擎收录
+sitemap:
+  path: sitemap.xml
+  rel: false
+  tags: true
+  categories: true
+
+# Deployment —— 生成好的静态站点推送到 GitHub Pages 的 main 分支
+## 用户站点仓库：nowhereman1234/nowhereman1234.github.io
+deploy:
+  type: git
+  repo: https://github.com/nowhereman1234/nowhereman1234.github.io.git
+  branch: main
+  message: "Site updated: {{ now('YYYY-MM-DD HH:mm:ss') }}"
