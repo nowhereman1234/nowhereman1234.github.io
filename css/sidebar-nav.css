@@ -1,0 +1,116 @@
+/* ===========================================================
+   左侧竖排导航（自定义补丁）
+   - 桌面端隐藏 Butterfly 顶部导航条，改用侧栏竖排菜单
+   - 移动端（<900px）保持主题原样：顶部条 + 汉堡菜单
+   =========================================================== */
+
+/* ---- 侧栏导航卡片 ---- */
+.sidenav-card {
+  padding: 0 !important;
+  overflow: hidden;
+}
+
+.sidenav-title {
+  background: #2E8B57;
+  padding: 15px 20px;
+}
+
+.sidenav-title a {
+  color: #fff;
+  font-size: 1.12rem;
+  font-weight: 600;
+  letter-spacing: .4px;
+}
+
+.sidenav-title a:hover {
+  color: #fff;
+  opacity: .85;
+}
+
+.sidenav-list,
+.sidenav-sublist {
+  margin: 0;
+  padding: 7px 0;
+  list-style: none;
+}
+
+.sidenav-sublist {
+  padding: 0 0 4px;
+}
+
+.sidenav-item {
+  margin: 0;
+}
+
+.sidenav-link {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 9px 20px;
+  border-left: 3px solid transparent;
+  color: var(--font-color);
+  font-size: .95rem;
+  transition: background-color .2s, color .2s, border-color .2s;
+}
+
+.sidenav-link:hover {
+  background: rgba(60, 179, 113, .1);
+  border-left-color: #3CB371;
+  color: #2E8B57;
+}
+
+.sidenav-link i {
+  width: 17px;
+  text-align: center;
+  opacity: .85;
+}
+
+.sidenav-sublist .sidenav-link {
+  padding-left: 42px;
+  font-size: .9rem;
+}
+
+.sidenav-group-label {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 9px 20px 4px;
+  color: var(--font-color);
+  font-size: .78rem;
+  font-weight: 600;
+  letter-spacing: .6px;
+  text-transform: uppercase;
+  opacity: .55;
+}
+
+.sidenav-group-label i {
+  width: 17px;
+  text-align: center;
+}
+
+/* 暗色模式微调 */
+[data-theme="dark"] .sidenav-link:hover {
+  background: rgba(60, 179, 113, .16);
+  color: #7FD8A4;
+}
+
+/* ---- 桌面端：去掉顶部导航条 ---- */
+@media screen and (min-width: 900px) {
+  /* 顶部条整条隐藏（移动端汉堡菜单和搜索按钮的绑定不受影响，
+     隐藏元素的 .click() 依然会触发已注册的处理器） */
+  #page-header {
+    display: none !important;
+  }
+
+  /* 顶部条消失后补一点上边距，避免内容贴顶 */
+  #content-inner {
+    padding-top: 20px;
+  }
+}
+
+/* 移动端：隐藏侧栏里这份菜单，交回主题原生的顶部条 + 汉堡菜单 */
+@media screen and (max-width: 899px) {
+  .sidenav-card {
+    display: none;
+  }
+}
