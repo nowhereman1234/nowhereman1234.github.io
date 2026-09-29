@@ -1,0 +1,46 @@
+/* ===========================================================
+   全局 UI 微调
+   - 卡片 / 面板半透明，让背景图透出来
+   - 配套的毛玻璃（backdrop blur）
+   =========================================================== */
+
+/* ---- 半透明卡片 ---- */
+:root {
+  --card-bg: rgba(255, 255, 255, .74);
+  --btn-bg: rgba(255, 255, 255, .55);
+}
+
+[data-theme="dark"] {
+  --card-bg: rgba(18, 18, 18, .74);
+  --btn-bg: rgba(45, 45, 45, .55);
+}
+
+/* 卡片本体加毛玻璃，背景图透过来时更耐看、文字也更好读 */
+.card-widget,
+.recent-post-item,
+#footer,
+#pagination,
+.search-dialog {
+  -webkit-backdrop-filter: blur(9px);
+  backdrop-filter: blur(9px);
+}
+
+/* 移动端顶部导航条同样半透明 */
+@media screen and (max-width: 899px) {
+  #page-header.not-top-img #nav {
+    background: rgba(255, 255, 255, .74);
+    -webkit-backdrop-filter: blur(9px);
+    backdrop-filter: blur(9px);
+  }
+
+  [data-theme="dark"] #page-header.not-top-img #nav {
+    background: rgba(18, 18, 18, .74);
+  }
+}
+
+/* 桌面端没有顶部条，正文卡片区域也别太贴边 */
+@media screen and (min-width: 900px) {
+  #content-inner {
+    padding-top: 22px;
+  }
+}
