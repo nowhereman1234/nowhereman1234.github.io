@@ -638,13 +638,15 @@ twikoo:
 # Giscus
 # https://giscus.app/
 giscus:
-  repo:
-  repo_id:
-  category_id:
+  repo: nowhereman1234/nowhereman1234.github.io
+  repo_id: R_kgDOUxplLQ
+  category_id: DIC_kwDOUxplLc4DGoPo
   light_theme: light
   dark_theme: dark
   js:
   option:
+    data-lang: zh-CN
+    data-input-position: top
 
 # Remark42
 # https://remark42.com/docs/configuration/frontend/
