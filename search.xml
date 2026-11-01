@@ -1,48 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>你好，世界</title>
-    <url>/2026/09/29/hello-world/</url>
-    <content><![CDATA[<h2 id="为什么要有这个博客"><a href="#为什么要有这个博客" class="headerlink" title="为什么要有这个博客"></a>为什么要有这个博客</h2><p>想法这种东西，放在脑子里会慢慢蒸发。写下来，它才真正属于你。</p>
-<p>所以有了这里。不为流量，不为更新频率，只为一个能长期存放和检索自己想法的地方。</p>
-<h2 id="以后会写什么"><a href="#以后会写什么" class="headerlink" title="以后会写什么"></a>以后会写什么</h2><p>大致三类：</p>
-<table>
-<thead>
-<tr>
-<th>类型</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>技术笔记</strong></td>
-<td>踩过的坑、读过的源码、想明白的原理</td>
-</tr>
-<tr>
-<td><strong>读书摘要</strong></td>
-<td>读完之后还想再翻一遍的部分</td>
-</tr>
-<tr>
-<td><strong>随笔</strong></td>
-<td>没什么用，但想说</td>
-</tr>
-</tbody></table>
-<h2 id="它是怎么运作的"><a href="#它是怎么运作的" class="headerlink" title="它是怎么运作的"></a>它是怎么运作的</h2><p>这个站点用 <a href="https://hexo.io/">Hexo</a> 生成，主题是 <a href="https://butterfly.js.org/">Butterfly</a>，托管在 GitHub Pages 上。</p>
-<p>发布流程很短：</p>
-<ol>
-<li>把文章交给 AI 助手</li>
-<li>助手写入 Markdown 并运行发布脚本</li>
-<li>GitHub Pages 自动构建，一两分钟后上线</li>
-</ol>
-<p>没有后台，没有数据库，也没有需要维护的服务器。</p>
-<h2 id="开始吧"><a href="#开始吧" class="headerlink" title="开始吧"></a>开始吧</h2><pre class="line-numbers language-text" data-language="text"><code class="language-text">Stay hungry, stay foolish.<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>—— 就用这句话开个头。</p>
+    <title>龙利鱼和甲鱼粥</title>
+    <url>/2026/10/03/basa-and-turtle-congee/</url>
+    <content><![CDATA[<p>二食堂的孜然龙利鱼感觉是深圳蛇口甲鱼粥的下位替代。龙利鱼是配上小米粥，甲鱼粥是配上炸豆腐，都是一个炸的配上粥蘸着吃，且都有味道，不过一个主要在炸的东西上，一个主要在粥上。龙利鱼配小米粥刚开始几口特别好吃，吃饱了后就感觉腻了，而炸豆腐配甲鱼粥就算肚子饱了，嘴巴还是想吃，所以龙利鱼是甲鱼粥的下位替代。但这龙利鱼可能不是真的龙利鱼，毕竟半盘也就不到10块。</p>
 ]]></content>
       <categories>
         <category>Life</category>
       </categories>
       <tags>
-        <tag>Essay</tag>
+        <tag>Musings</tag>
       </tags>
   </entry>
   <entry>
@@ -58,6 +25,68 @@
       </categories>
       <tags>
         <tag>Essay</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>你好，世界</title>
+    <url>/2026/09/29/hello-world/</url>
+    <content><![CDATA[<h2 id="为什么要有这个博客">为什么要有这个博客</h2>
+<p>想法这种东西，放在脑子里会慢慢蒸发。写下来，它才真正属于你。</p>
+<p>所以有了这里。不为流量，不为更新频率，只为一个能长期存放和检索自己想法的地方。</p>
+<h2 id="以后会写什么">以后会写什么</h2>
+<p>大致三类：</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>技术笔记</strong></td>
+<td>踩过的坑、读过的源码、想明白的原理</td>
+</tr>
+<tr>
+<td><strong>读书摘要</strong></td>
+<td>读完之后还想再翻一遍的部分</td>
+</tr>
+<tr>
+<td><strong>随笔</strong></td>
+<td>没什么用，但想说</td>
+</tr>
+</tbody>
+</table>
+<h2 id="它是怎么运作的">它是怎么运作的</h2>
+<p>这个站点用 <a href="https://hexo.io/">Hexo</a> 生成，主题是 <a href="https://butterfly.js.org/">Butterfly</a>，托管在 GitHub Pages 上。</p>
+<p>发布流程很短：</p>
+<ol>
+<li>把文章交给 AI 助手</li>
+<li>助手写入 Markdown 并运行发布脚本</li>
+<li>GitHub Pages 自动构建，一两分钟后上线</li>
+</ol>
+<p>没有后台，没有数据库，也没有需要维护的服务器。</p>
+<h2 id="开始吧">开始吧</h2>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">Stay hungry, stay foolish.<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>—— 就用这句话开个头。</p>
+]]></content>
+      <categories>
+        <category>Life</category>
+      </categories>
+      <tags>
+        <tag>Essay</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>全聚德</title>
+    <url>/2026/10/06/quanjude/</url>
+    <content><![CDATA[<p>结果还是去吃了，全聚德家的双人【东北超】套餐，160多，避雷了，配的菜全是容易腻的，有个炸茄子，有个老式锅包肉，有个乾隆白菜，乾隆白菜里有芥末真的呛，吃到后面锅包肉都下不了嘴，太腻了，烤鸭也很慢，说是现烤，吃起来也配不上现烤的，端上来盘子也没有加热的，吃了一会就有点凉了，更腻了，最猎奇的是鸭皮蘸白糖，太难吃了。以前没吃过全聚德，不知道是不是其他店也是这样还是就这家这样，感觉还没成都家旁边开的烤鸭店好吃</p>
+]]></content>
+      <categories>
+        <category>Life</category>
+      </categories>
+      <tags>
+        <tag>Musings</tag>
       </tags>
   </entry>
   <entry>
@@ -77,33 +106,9 @@
       </tags>
   </entry>
   <entry>
-    <title>龙利鱼和甲鱼粥</title>
-    <url>/2026/10/03/basa-and-turtle-congee/</url>
-    <content><![CDATA[<p>二食堂的孜然龙利鱼感觉是深圳蛇口甲鱼粥的下位替代。龙利鱼是配上小米粥，甲鱼粥是配上炸豆腐，都是一个炸的配上粥蘸着吃，且都有味道，不过一个主要在炸的东西上，一个主要在粥上。龙利鱼配小米粥刚开始几口特别好吃，吃饱了后就感觉腻了，而炸豆腐配甲鱼粥就算肚子饱了，嘴巴还是想吃，所以龙利鱼是甲鱼粥的下位替代。但这龙利鱼可能不是真的龙利鱼，毕竟半盘也就不到10块。</p>
-]]></content>
-      <categories>
-        <category>Life</category>
-      </categories>
-      <tags>
-        <tag>Musings</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>给阿嬷的情书</title>
     <url>/2026/10/05/letter-to-grandma/</url>
     <content><![CDATA[<p>非常好看。南枝真有实力，如果我是南枝我肯定选择和那个少爷走了，很真实。幸运咖9.9的拿铁很好喝，很有性价比。本来今天想出去吃北京烤鸭，看中了全聚德，结果竟然美团团购没有单人套餐，评论区又说分量很足，点2人餐肯定吃不完，所以晚上去二食堂吃了肥牛，米饭+素材4块，肥牛14，有点凉了。</p>
-]]></content>
-      <categories>
-        <category>Life</category>
-      </categories>
-      <tags>
-        <tag>Musings</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>全聚德</title>
-    <url>/2026/10/06/quanjude/</url>
-    <content><![CDATA[<p>结果还是去吃了，全聚德家的双人【东北超】套餐，160多，避雷了，配的菜全是容易腻的，有个炸茄子，有个老式锅包肉，有个乾隆白菜，乾隆白菜里有芥末真的呛，吃到后面锅包肉都下不了嘴，太腻了，烤鸭也很慢，说是现烤，吃起来也配不上现烤的，端上来盘子也没有加热的，吃了一会就有点凉了，更腻了，最猎奇的是鸭皮蘸白糖，太难吃了。以前没吃过全聚德，不知道是不是其他店也是这样还是就这家这样，感觉还没成都家旁边开的烤鸭店好吃</p>
 ]]></content>
       <categories>
         <category>Life</category>
