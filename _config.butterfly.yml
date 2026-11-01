@@ -1071,6 +1071,7 @@ inject:
   head:
     - <link rel="stylesheet" href="/css/sidebar-nav.css">
     - <link rel="stylesheet" href="/css/custom-ui.css">
+    - <link rel="stylesheet" href="/css/katex.min.css">
   bottom:
     - <script src="/js/sidebar-nav.js"></script>
 

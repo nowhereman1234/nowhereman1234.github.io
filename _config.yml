@@ -56,6 +56,37 @@ prismjs:
   line_number: true
   tab_replace: ''
 
+# Markdown 渲染器（由 hexo-renderer-markdown-it 提供）
+#
+# 换成 markdown-it 的唯一原因：它会在 Markdown 解析「之前」就把整段 $...$ / $$...$$
+# 吃掉当成数学 token，从而保护公式里的 \\ 、\, 、_ 、* 不被当成 Markdown 语法。
+#
+# 旧的 hexo-renderer-marked 做不到这点，会把 align / cases / pmatrix 里的 \\ 吃成
+# 「一个反斜杠 + <br>」，多行公式直接报废（实测过）。单行公式和下划线反而没问题。
+markdown:
+  preset: default
+  render:
+    html: true
+    xhtmlOut: false
+    breaks: true        # 与原来 marked 的行为保持一致（换行即 <br>）
+    linkify: true
+    typographer: false  # 关掉，避免智能标点污染数学内容
+  anchors:
+    level: 2
+    collisionSuffix: ''
+    permalink: false
+    case: 0
+    separator: '-'
+
+# 数学公式（KaTeX）由 blog/scripts/markdown-math.js 挂载。
+# 不在这里用 plugins: 配置，因为 markdown-it-texmath 需要传 katex 的引擎对象，
+# YAML 无法表达；改用渲染器暴露的 markdown-it:renderer 过滤器。
+#
+# 写法约定：
+#   行内  $...$
+#   行间  $$...$$（整块包起来）
+#   ⚠️ \begin{align} / cases / pmatrix 必须包在 $$ 里，否则 \\ 会被 Markdown 吃掉
+
 # Home page setting
 index_generator:
   path: ''
