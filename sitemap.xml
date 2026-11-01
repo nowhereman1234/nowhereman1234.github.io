@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://nowhereman1234.github.io/2026/11/01/analysis-9-1-limit-superior-inferior/</loc>
+    
+    <lastmod>2026-11-01</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://nowhereman1234.github.io/2026/10/13/freshman-year-renting/</loc>
     
     <lastmod>2026-10-13</lastmod>
@@ -92,6 +101,13 @@
 
   
   <url>
+    <loc>https://nowhereman1234.github.io/tags/Analysis-Notes/</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://nowhereman1234.github.io/tags/Musings/</loc>
     <lastmod>2026-11-01</lastmod>
     <changefreq>weekly</changefreq>
@@ -113,6 +129,13 @@
   </url>
   
 
+  
+  <url>
+    <loc>https://nowhereman1234.github.io/categories/Mathematics/</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
   
   <url>
     <loc>https://nowhereman1234.github.io/categories/Life/</loc>
