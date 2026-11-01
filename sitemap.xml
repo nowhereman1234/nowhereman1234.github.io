@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://nowhereman1234.github.io/2026/11/01/analysis-10-improper-integrals/</loc>
+    <loc>https://nowhereman1234.github.io/2026/11/01/analysis-11-series-of-functions/</loc>
     
     <lastmod>2026-11-01</lastmod>
     
@@ -11,7 +11,7 @@
   </url>
   
   <url>
-    <loc>https://nowhereman1234.github.io/2026/11/01/analysis-11-series-of-functions/</loc>
+    <loc>https://nowhereman1234.github.io/2026/11/01/analysis-10-improper-integrals/</loc>
     
     <lastmod>2026-11-01</lastmod>
     
@@ -119,14 +119,14 @@
 
   
   <url>
-    <loc>https://nowhereman1234.github.io/tags/Musings/</loc>
+    <loc>https://nowhereman1234.github.io/tags/Essay/</loc>
     <lastmod>2026-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://nowhereman1234.github.io/tags/Essay/</loc>
+    <loc>https://nowhereman1234.github.io/tags/Musings/</loc>
     <lastmod>2026-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
