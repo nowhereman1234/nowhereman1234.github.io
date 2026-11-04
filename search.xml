@@ -1,235 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>数分笔记 · 第十章 反常积分</title>
-    <url>/2026/11/01/analysis-10-improper-integrals/</url>
-    <content><![CDATA[<style>
-/* 数分笔记的排版微调：只在本页生效（样式内嵌在正文里，其他文章不受影响） */
-#article-container h2 {
-  margin-top: 3.2em;
-  margin-bottom: 1.2em;
-  padding-top: .7em;
-  border-top: 1px solid var(--hr-color, #C3E3D2);
-}
-#article-container h3 {
-  margin-top: 2.6em;
-  margin-bottom: 1.1em;
-}
-#article-container p {
-  margin-bottom: 1.2em;
-}
-#article-container .katex-display {
-  margin: .95em 0;
-}
-#article-container hr {
-  margin: 2.8em 0;
-}
-</style>
-<h2 id="§1-无穷限的反常积分">§1 无穷限的反常积分</h2>
-<h3 id="定义与定理">定义与定理</h3>
-<p><strong>定义</strong>　设函数 <eq> f(x) </eq> 在 <eq> [a,+\infty) </eq> 有定义，并且对于任意的 <eq> A\ (A&gt;a) </eq> 在区间 <eq> [a,A] </eq> 上可积。当极限</p>
-<section><eqn> \lim_{A\to+\infty}\int_a^A f(x)\,\mathrm{d}x </eqn></section><p>存在时，称这极限值为 <eq> f(x) </eq> 在区间 <eq> [a,+\infty) </eq> 上（或是从 <eq> a </eq> 到 <eq> +\infty </eq>）的反常积分的积分值，记作</p>
-<section><eqn> \int_a^{+\infty}f(x)\,\mathrm{d}x=\lim_{A\to+\infty}\int_a^A f(x)\,\mathrm{d}x, </eqn></section><p>这时也称积分 <eq> \int_a^{+\infty}f(x)\,\mathrm{d}x </eq> 是收敛的，它的值就是上述极限值。有时又称函数 <eq> f(x) </eq> 在 <eq> [a,+\infty) </eq> 可积。如果上述的极限不存在，称积分 <eq> \int_a^{+\infty}f(x)\,\mathrm{d}x </eq> 是发散的。</p>
-<p>类似地可定义反常积分 <eq> \int_{-\infty}^b f(x)\,\mathrm{d}x </eq> 的收敛和发散。</p>
-<p>对反常积分 <eq> \int_{-\infty}^{+\infty}f(x)\,\mathrm{d}x </eq>，当 <eq> \int_a^{+\infty}f(x)\,\mathrm{d}x </eq> 和 <eq> \int_{-\infty}^a f(x)\,\mathrm{d}x </eq> 都收敛时（<eq> a </eq> 是一个任意固定的数），就说 <eq> \int_{-\infty}^{+\infty}f(x)\,\mathrm{d}x </eq> 收敛，并且有</p>
-<section><eqn> \int_{-\infty}^{+\infty}f(x)\,\mathrm{d}x=\int_{-\infty}^a f(x)\,\mathrm{d}x+\int_a^{+\infty}f(x)\,\mathrm{d}x, </eqn></section><p>这时，显然有</p>
-<section><eqn> \int_{-\infty}^{+\infty}f(x)\,\mathrm{d}x=\lim_{\substack{A\to+\infty\\ A&#x27;\to-\infty}}\int_{A&#x27;}^{A}f(x)\,\mathrm{d}x. </eqn></section><p>必须注意的是：这里 <eq> A\to+\infty </eq> 和 <eq> A&#x27;\to-\infty </eq> 两者之间是独立变化的。如果上式右边的极限不存在，就称 <eq> \int_{-\infty}^{+\infty}f(x)\,\mathrm{d}x </eq> 发散。</p>
-<p>由定义不难知道，如果 <eq> f(x) </eq> 在 <eq> [a,+\infty) </eq> 连续，<eq> F(x) </eq> 是 <eq> f(x) </eq> 的原函数，并且 <eq> F(+\infty)=\lim\limits_{A\to+\infty}F(A) </eq> 存在，那么</p>
-<section><eqn> \int_a^{+\infty}f(x)\,\mathrm{d}x=F(+\infty)-F(a). </eqn></section><p>对 <eq> \int_{-\infty}^a f(x)\,\mathrm{d}x </eq> 和 <eq> \int_{-\infty}^{+\infty}f(x)\,\mathrm{d}x </eq> 也有相仿的结论。</p>
-<p>由于 <eq> \int_a^{+\infty}f(x)\,\mathrm{d}x </eq> 的收敛问题就是函数 <eq> I(A)=\int_a^A f(x)\,\mathrm{d}x </eq> 当 <eq> A\to+\infty </eq> 的收敛问题，所以根据函数极限存在的充要条件就可以得到反常积分收敛的充要条件如下：</p>
-<p><strong>柯西收敛原理</strong>　<eq> \int_a^{+\infty}f(x)\,\mathrm{d}x </eq> 收敛的充要条件是：对任意给定的 <eq> \varepsilon&gt;0 </eq>，存在 <eq> A&gt;0 </eq>，当 <eq> A&#x27;,A&#x27;&#x27;&gt;A </eq> 时，总有</p>
-<section><eqn> \left|\int_{A&#x27;}^{A&#x27;&#x27;}f(x)\,\mathrm{d}x\right|&lt;\varepsilon. </eqn></section><p><strong>定义</strong>　和无穷级数相仿，在反常积分中也有绝对收敛和条件收敛的概念：设对任何 <eq> A&gt;a </eq>，<eq> f(x) </eq> 在 <eq> [a,A] </eq> 上可积，并且 <eq> \int_a^{+\infty}|f(x)|\,\mathrm{d}x </eq> 收敛，就称 <eq> \int_a^{+\infty}f(x)\,\mathrm{d}x </eq> 绝对收敛。收敛但不绝对收敛的反常积分称为条件收敛。</p>
-<p><strong>比较判别法</strong>　如果对充分大的 <eq> x </eq>（亦即存在 <eq> x_0 </eq>，当 <eq> x\ge x_0 </eq> 时）有 <eq> |f(x)|\le\varphi(x) </eq>，而积分 <eq> \int_a^{+\infty}\varphi(x)\,\mathrm{d}x </eq> 收敛，那么积分 <eq> \int_a^{+\infty}f(x)\,\mathrm{d}x </eq> 绝对收敛；又如果对充分大的 <eq> x </eq> 有 <eq> |f(x)|\ge\varphi(x)\ge 0 </eq>，而积分 <eq> \int_a^{+\infty}\varphi(x)\,\mathrm{d}x </eq> 发散，那么积分 <eq> \int_a^{+\infty}|f(x)|\,\mathrm{d}x </eq> 发散。</p>
-<p>这个判别法可直接从收敛性定义推出，同时它有下面的极限形式。</p>
-<p><strong>比较判别法的极限形式</strong>　如果</p>
-<section><eqn> \lim_{x\to+\infty}\frac{|f(x)|}{\varphi(x)}=l,\qquad 0\le l&lt;+\infty, </eqn></section><p>且 <eq> \int_a^{+\infty}\varphi(x)\,\mathrm{d}x </eq> 收敛，那么积分 <eq> \int_a^{+\infty}f(x)\,\mathrm{d}x </eq> 绝对收敛。</p>
-<p>如果</p>
-<section><eqn> \lim_{x\to+\infty}\frac{|f(x)|}{\varphi(x)}=l,\qquad 0&lt;l\le+\infty, </eqn></section><p>且 <eq> \int_a^{+\infty}\varphi(x)\,\mathrm{d}x </eq> 发散，那么积分 <eq> \int_a^{+\infty}|f(x)|\,\mathrm{d}x </eq> 发散。</p>
-<p><strong>证明</strong>　如果 <eq> \lim\limits_{x\to+\infty}\dfrac{|f(x)|}{\varphi(x)}=l\ne 0 </eq>，那么对于 <eq> \varepsilon </eq>（使 <eq> l-\varepsilon&gt;0 </eq>），存在 <eq> x_0 </eq>，当 <eq> x\ge x_0 </eq> 时</p>
-<section><eqn> 0&lt;l-\varepsilon&lt;\frac{|f(x)|}{\varphi(x)}&lt;l+\varepsilon, </eqn></section><p>即</p>
-<section><eqn> (l-\varepsilon)\varphi(x)&lt;|f(x)|&lt;(l+\varepsilon)\varphi(x) </eqn></section><p>成立，显然 <eq> \int_a^{+\infty}\varphi(x)\,\mathrm{d}x </eq> 与 <eq> \int_a^{+\infty}|f(x)|\,\mathrm{d}x </eq> 同时收敛或发散。</p>
-<p>在 <eq> l=0 </eq>，<eq> l=\infty </eq> 时可以类似地证明。</p>
-<p>在上面的比较判别法中，取 <eq> \varphi(x)=\dfrac{c}{x^p}\ (c&gt;0) </eq>，就得到柯西判别法：</p>
-<p><strong>柯西判别法</strong>　如果 <eq> |f(x)|\le\dfrac{c}{x^p} </eq>，<eq> p&gt;1 </eq>，那么 <eq> \int_a^{+\infty}f(x)\,\mathrm{d}x </eq> 绝对收敛。</p>
-<p>如果 <eq> |f(x)|\ge\dfrac{c}{x^p} </eq>，<eq> p\le 1 </eq>，那么积分 <eq> \int_a^{+\infty}|f(x)|\,\mathrm{d}x </eq> 发散。</p>
-<p><strong>柯西判别法的极限形式</strong>　如果</p>
-<section><eqn> \lim_{x\to+\infty}\frac{|f(x)|}{\dfrac{1}{x^p}}=\lim_{x\to+\infty}x^p|f(x)|=l\qquad(0\le l&lt;+\infty,\ p&gt;1), </eqn></section><p>那么积分 <eq> \int_a^{+\infty}f(x)\,\mathrm{d}x </eq> 绝对收敛。</p>
-<p>如果 <eq> \lim\limits_{x\to+\infty}x^p|f(x)|=l </eq>，而 <eq> 0&lt;l\le+\infty </eq>，<eq> p\le 1 </eq>，那么 <eq> \int_a^{+\infty}|f(x)|\,\mathrm{d}x </eq> 发散。</p>
-<p><strong>第二中值定理</strong>　设 <eq> f(x) </eq> 在 <eq> [a,b] </eq> 上可积，而 <eq> g(x) </eq> 在 <eq> [a,b] </eq> 上单调，那么在 <eq> [a,b] </eq> 上存在 <eq> \xi </eq>，使</p>
-<section><eqn> \int_a^b f(x)g(x)\,\mathrm{d}x=g(a)\int_a^\xi f(x)\,\mathrm{d}x+g(b)\int_\xi^b f(x)\,\mathrm{d}x. \tag{1} </eqn></section><p>特别，如果 <eq> g(x) </eq> 单调增加并且 <eq> g(a)\ge 0 </eq>，那么有 <eq> \xi </eq>，使</p>
-<section><eqn> \int_a^b f(x)g(x)\,\mathrm{d}x=g(b)\int_\xi^b f(x)\,\mathrm{d}x; \tag{2} </eqn></section><p>如果 <eq> g(x) </eq> 单调减少并且 <eq> g(b)\ge 0 </eq>，那么有 <eq> \xi </eq>，使</p>
-<section><eqn> \int_a^b f(x)g(x)\,\mathrm{d}x=g(a)\int_a^\xi f(x)\,\mathrm{d}x. \tag{3} </eqn></section><p><strong>证明</strong>　由假定，<eq> f(x),g(x) </eq> 在区间 <eq> [a,b] </eq> 上都是可积的，因而 <eq> f(x)g(x) </eq> 可积。我们先在 <eq> g(x) </eq> 非负、单调增加的假定下证明（2），然后再推出一般情形的公式（1）。</p>
-<p>在 <eq> [a,b] </eq> 上取一列分点 <eq> a=x_0&lt;x_1&lt;\cdots&lt;x_{i-1}&lt;x_i&lt;\cdots&lt;x_n=b </eq>，记 <eq> \Delta x_i=x_i-x_{i-1} </eq>，<eq> \omega_i </eq> 是 <eq> g(x) </eq> 在 <eq> [x_{i-1},x_i] </eq> 上的振幅，即 <eq> \omega_i=g(x_i)-g(x_{i-1}) </eq>，把所讨论的积分作如下改变：</p>
-<section><eqn> \begin{aligned}
-\int_a^b f(x)g(x)\,\mathrm{d}x&amp;=\sum_{i=1}^{n}\int_{x_{i-1}}^{x_i}f(x)g(x)\,\mathrm{d}x\\
-&amp;=\sum_{i=1}^{n}g(x_i)\int_{x_{i-1}}^{x_i}f(x)\,\mathrm{d}x+\sum_{i=1}^{n}\int_{x_{i-1}}^{x_i}f(x)\left[g(x)-g(x_i)\right]\mathrm{d}x,
-\end{aligned} </eqn></section><p>记上式右端的和为 <eq> \sigma+\rho </eq>，因为 <eq> f(x) </eq> 在 <eq> [a,b] </eq> 上有界：<eq> |f(x)|\le L </eq>。估计</p>
-<section><eqn> \begin{aligned}
-|\rho|&amp;=\left|\sum_{i=1}^{n}\int_{x_{i-1}}^{x_i}f(x)\left[g(x)-g(x_i)\right]\mathrm{d}x\right|\\
-&amp;\le\sum_{i=1}^{n}\int_{x_{i-1}}^{x_i}|f(x)|\,|g(x)-g(x_i)|\,\mathrm{d}x\\
-&amp;\le L\sum_{i=1}^{n}\int_{x_{i-1}}^{x_i}\omega_i\,\mathrm{d}x=L\sum_{i=1}^{n}\omega_i\Delta x_i,
-\end{aligned} </eqn></section><p>由于 <eq> g(x) </eq> 可积，所以当 <eq> \lambda=\max\Delta x_i\to 0 </eq> 时，<eq> \sum\limits_{i=1}^{n}\omega_i\Delta x_i\to 0 </eq>；因此，<eq> \lim\limits_{\lambda\to 0}\rho=0 </eq>，从而</p>
-<section><eqn> \int_a^b f(x)g(x)\,\mathrm{d}x=\lim_{\lambda\to 0}\sigma=\lim_{\lambda\to 0}\sum_{i=1}^{n}g(x_i)\int_{x_{i-1}}^{x_i}f(x)\,\mathrm{d}x. </eqn></section><p>记 <eq> F(x)=\int_x^b f(x)\,\mathrm{d}x </eq>，那么 <eq> F(x) </eq> 是 <eq> [a,b] </eq> 上的连续函数，有最大值 <eq> M </eq> 和最小值 <eq> m </eq>，<eq> m\le F(x)\le M </eq>，显然有</p>
-<section><eqn> \int_{x_{i-1}}^{x_i}f(x)\,\mathrm{d}x=F(x_{i-1})-F(x_i),\qquad F(x_n)=F(b)=0, </eqn></section><p>从而</p>
-<section><eqn> \begin{aligned}
-\sigma&amp;=\sum_{i=1}^{n}g(x_i)\left[F(x_{i-1})-F(x_i)\right]\\
-&amp;=\sum_{i=1}^{n}g(x_i)F(x_{i-1})-\sum_{i=1}^{n}g(x_i)F(x_i)\\
-&amp;=g(x_1)F(x_0)+\sum_{i=2}^{n}g(x_i)F(x_{i-1})-\sum_{i=1}^{n-1}g(x_i)F(x_i)\\
-&amp;=g(x_1)F(x_0)+\sum_{i=1}^{n-1}\left[g(x_{i+1})-g(x_i)\right]F(x_i).
-\end{aligned} </eqn></section><p>因为 <eq> g(x_1)\ge g(x_0)=g(a)\ge 0 </eq>，<eq> g(x_{i+1})-g(x_i)\ge 0 </eq>，所以</p>
-<section><eqn> \begin{aligned}
-&amp;m\left\{g(x_1)+\sum_{i=1}^{n-1}\left(g(x_{i+1})-g(x_i)\right)\right\}\\
-&amp;\qquad\le\sigma\le M\left\{g(x_1)+\sum_{i=1}^{n-1}\left(g(x_{i+1})-g(x_i)\right)\right\},
-\end{aligned} </eqn></section><section><eqn> mg(b)\le\sigma\le Mg(b), </eqn></section><p>因此 <eq> \lim\limits_{\lambda\to 0}\sigma=\mu g(b) </eq>，而 <eq> \mu </eq> 在 <eq> m,M </eq> 之间。因为 <eq> F(x) </eq> 连续，在 <eq> [a,b] </eq> 内必存在 <eq> \xi </eq>，使 <eq> \mu=F(\xi)=\int_\xi^b f(x)\,\mathrm{d}x </eq>，从而公式（2）</p>
-<section><eqn> \int_a^b f(x)g(x)\,\mathrm{d}x=g(b)\int_\xi^b f(x)\,\mathrm{d}x </eqn></section><p>得到证明。对 <eq> g(x) </eq> 单调减少且 <eq> g(b)\ge 0 </eq> 情形的公式（3）的证明是相仿的。</p>
-<p>在 <eq> g(x) </eq> 是一般的单调增加情形，作 <eq> \psi(x)=g(x)-g(a) </eq>，<eq> \psi(x) </eq> 为单调增加且 <eq> \psi(a)\ge 0 </eq>，公式（2）对 <eq> \psi(x) </eq> 成立，即有 <eq> \xi </eq>，使</p>
-<section><eqn> \int_a^b f(x)\left[g(x)-g(a)\right]\mathrm{d}x=\left[g(b)-g(a)\right]\int_\xi^b f(x)\,\mathrm{d}x </eqn></section><p>成立，这就是公式（1）</p>
-<section><eqn> \int_a^b f(x)g(x)\,\mathrm{d}x=g(a)\int_a^\xi f(x)\,\mathrm{d}x+g(b)\int_\xi^b f(x)\,\mathrm{d}x, </eqn></section><p>当 <eq> g(x) </eq> 是一般的单调减少情形，这时应用公式（3），同样可得公式（1）。</p>
-<p><strong>阿贝尔判别法</strong>　如果 <eq> f(x) </eq> 在 <eq> [a,+\infty) </eq> 上可积，<eq> g(x) </eq> 单调有界，那么积分 <eq> \int_a^{+\infty}f(x)g(x)\,\mathrm{d}x </eq> 收敛。</p>
-<p><strong>证明</strong>　依假定，可以利用第二中值定理，在任何 <eq> [A,A&#x27;] </eq> 上，存在 <eq> \xi </eq>，使</p>
-<section><eqn> \int_A^{A&#x27;}f(x)g(x)\,\mathrm{d}x=g(A)\int_A^\xi f(x)\,\mathrm{d}x+g(A&#x27;)\int_\xi^{A&#x27;}f(x)\,\mathrm{d}x, </eqn></section><p>因为 <eq> \int_a^{+\infty}f(x)\,\mathrm{d}x </eq> 收敛，所以对于任何 <eq> \varepsilon&gt;0 </eq>，存在 <eq> A_0\ge a </eq>，使得当 <eq> A&#x27;,A\ge A_0 </eq> 时，成立</p>
-<section><eqn> \left|\int_A^\xi f(x)\,\mathrm{d}x\right|&lt;\varepsilon,\qquad\left|\int_\xi^{A&#x27;}f(x)\,\mathrm{d}x\right|&lt;\varepsilon, </eqn></section><p>又 <eq> g(x) </eq> 有界，设 <eq> |g(x)|&lt;L </eq>，所以当 <eq> A&#x27;,A\ge A_0 </eq> 时，有</p>
-<section><eqn> \begin{aligned}
-\left|\int_A^{A&#x27;}f(x)g(x)\,\mathrm{d}x\right|&amp;\le|g(A)|\left|\int_A^\xi f(x)\,\mathrm{d}x\right|+|g(A&#x27;)|\left|\int_\xi^{A&#x27;}f(x)\,\mathrm{d}x\right|\\
-&amp;\le 2L\varepsilon,
-\end{aligned} </eqn></section><p>根据柯西收敛原理推知积分 <eq> \int_a^{+\infty}f(x)g(x)\,\mathrm{d}x </eq> 收敛。</p>
-<p><strong>狄利克雷判别法</strong>　如果对任何 <eq> A&gt;a </eq>，<eq> F(A)=\int_a^A f(x)\,\mathrm{d}x </eq> 有界：<eq> \left|\int_a^A f(x)\,\mathrm{d}x\right|\le K </eq>，<eq> g(x) </eq> 单调且当 <eq> x\to+\infty </eq> 时趋向于零，那么积分 <eq> \int_a^{+\infty}f(x)g(x)\,\mathrm{d}x </eq> 收敛。</p>
-<p><strong>证明</strong>　因为 <eq> g(x)\to 0\ (x\to+\infty) </eq>，故对任何 <eq> \varepsilon&gt;0 </eq>，有 <eq> A_0 </eq>，当 <eq> A&#x27;&gt;A\ge A_0 </eq> 时，<eq> |g(A)|&lt;\varepsilon </eq>，<eq> |g(A&#x27;)|&lt;\varepsilon </eq>。又因 <eq> \left|\int_a^A f(x)\,\mathrm{d}x\right|\le K </eq>，所以</p>
-<section><eqn> \left|\int_A^\xi f(x)\,\mathrm{d}x\right|=\left|\int_a^\xi f(x)\,\mathrm{d}x-\int_a^A f(x)\,\mathrm{d}x\right|\le 2K, </eqn></section><p>同样有</p>
-<section><eqn> \left|\int_\xi^{A&#x27;}f(x)\,\mathrm{d}x\right|\le 2K, </eqn></section><p>利用第二中值定理，得到只要 <eq> A&#x27;,A\ge A_0 </eq>，就有</p>
-<section><eqn> \begin{aligned}
-\left|\int_A^{A&#x27;}f(x)g(x)\,\mathrm{d}x\right|&amp;\le|g(A)|\left|\int_A^\xi f(x)\,\mathrm{d}x\right|+|g(A&#x27;)|\left|\int_\xi^{A&#x27;}f(x)\,\mathrm{d}x\right|\\
-&amp;\le 4K\varepsilon,
-\end{aligned} </eqn></section><p>所以积分 <eq> \int_a^{+\infty}f(x)g(x)\,\mathrm{d}x </eq> 收敛。</p>
-<h3 id="例题">例题</h3>
-<p><strong>例 1</strong>　讨论积分 <eq> \int_0^{+\infty}\dfrac{\mathrm{d}x}{1+x^2} </eq>，<eq> \int_{-\infty}^0\dfrac{\mathrm{d}x}{1+x^2} </eq>，<eq> \int_{-\infty}^{+\infty}\dfrac{\mathrm{d}x}{1+x^2} </eq> 的收敛性。</p>
-<p><strong>解</strong></p>
-<section><eqn> \int_0^A\frac{\mathrm{d}x}{1+x^2}=\arctan x\Big|_0^A=\arctan A-\arctan 0=\arctan A\to\frac{\pi}{2}\qquad(A\to+\infty), </eqn></section><p>所以积分 <eq> \int_0^{+\infty}\dfrac{\mathrm{d}x}{1+x^2} </eq> 收敛，数值等于 <eq> \dfrac{\pi}{2} </eq>。</p>
-<p>同样</p>
-<section><eqn> \int_{-\infty}^0\frac{\mathrm{d}x}{1+x^2}=\lim_{A&#x27;\to-\infty}(\arctan 0-\arctan A&#x27;)=-\left(-\frac{\pi}{2}\right)=\frac{\pi}{2}, </eqn></section><p>因此</p>
-<section><eqn> \int_{-\infty}^{+\infty}\frac{\mathrm{d}x}{1+x^2}=\int_{-\infty}^0\frac{\mathrm{d}x}{1+x^2}+\int_0^{+\infty}\frac{\mathrm{d}x}{1+x^2}=\frac{\pi}{2}+\frac{\pi}{2}=\pi. </eqn></section><p><strong>例 2</strong>　讨论 <eq> \int_a^{+\infty}\dfrac{\mathrm{d}x}{x^p}\ (a&gt;0) </eq> 的收敛情形，这里 <eq> p </eq> 是实数。</p>
-<p><strong>解</strong>　设 <eq> p\ne 1 </eq>，</p>
-<section><eqn> \int_a^A\frac{\mathrm{d}x}{x^p}=\frac{1}{1-p}x^{1-p}\Big|_a^A=\frac{1}{1-p}\left(A^{1-p}-a^{1-p}\right)=I_p(A), </eqn></section><p>可见</p>
-<section><eqn> \lim_{A\to+\infty}I_p(A)=\begin{cases}+\infty, &amp; p&lt;1,\\[2mm] \dfrac{1}{1-p}a^{1-p}, &amp; p&gt;1.\end{cases} </eqn></section><p>当 <eq> p=1 </eq> 时，<eq> \int_a^A\dfrac{\mathrm{d}x}{x}=\ln A-\ln a\to+\infty\ (A\to+\infty) </eq>，</p>
-<p>所以积分 <eq> \int_a^{+\infty}\dfrac{\mathrm{d}x}{x^p} </eq> 当 <eq> p&gt;1 </eq> 时收敛，并且有</p>
-<section><eqn> \int_a^{+\infty}\frac{\mathrm{d}x}{x^p}=\frac{1}{p-1}a^{1-p}, </eqn></section><p>当 <eq> p\le 1 </eq> 时积分发散。</p>
-<p><strong>例 3</strong>　<eq> \int_{-\infty}^{+\infty}\sin x\,\mathrm{d}x </eq> 是发散的积分。这是因为对任何 <eq> A </eq> 和 <eq> A&#x27; </eq>，</p>
-<section><eqn> \int_{A&#x27;}^A\sin x\,\mathrm{d}x=-\cos A+\cos A&#x27;, </eqn></section><p>当 <eq> A </eq> 与 <eq> A&#x27; </eq> 独立，并且 <eq> A\to+\infty </eq>，<eq> A&#x27;\to-\infty </eq> 时，上述极限显然不存在。</p>
-<p>但如果取 <eq> A&#x27;=-A </eq>，这时有</p>
-<section><eqn> \int_{-A}^A\sin x\,\mathrm{d}x=0, </eqn></section><p>从而又有</p>
-<section><eqn> \lim_{A\to+\infty}\int_{-A}^A\sin x\,\mathrm{d}x=0, </eqn></section><p>却不能断言 <eq> \int_{-\infty}^{+\infty}\sin x\,\mathrm{d}x </eq> 收敛。这是因为 <eq> A\to+\infty </eq> 和 <eq> A&#x27;\to-\infty </eq> 不是独立的。</p>
-<p><strong>例 4</strong>　判定 <eq> \int_1^{+\infty}\dfrac{\sin x}{x\sqrt{1+x^2}}\,\mathrm{d}x </eq> 的收敛性。</p>
-<p><strong>解</strong>　因为</p>
-<section><eqn> \left|\frac{\sin x}{x\sqrt{1+x^2}}\right|\le\frac{1}{x^{\frac{3}{2}}}, </eqn></section><p>所以积分绝对收敛。</p>
-<p><strong>例 5</strong>　对于任何 <eq> \alpha </eq>，<eq> \int_1^{+\infty}x^{\alpha}\mathrm{e}^{-x}\,\mathrm{d}x </eq> 收敛。</p>
-<p>因为对于任何固定的 <eq> \alpha </eq>，<eq> \lim\limits_{x\to+\infty}x^2\left(x^{\alpha}\mathrm{e}^{-x}\right)=0 </eq>，由柯西判别法的极限形式知积分收敛。</p>
-<p><strong>例 6</strong>　讨论积分 <eq> \int_2^{+\infty}\dfrac{\mathrm{d}x}{x^{\lambda}\ln x} </eq> 的收敛性。</p>
-<p><strong>解</strong>　当 <eq> \lambda&gt;1 </eq> 时，有 <eq> \dfrac{1}{x^{\lambda}\ln x}&lt;\dfrac{1}{x^{\lambda}} </eq>（其中 <eq> x&gt;\mathrm{e} </eq>），而 <eq> \int_2^{+\infty}\dfrac{\mathrm{d}x}{x^{\lambda}} </eq> 收敛，所以 <eq> \int_2^{+\infty}\dfrac{\mathrm{d}x}{x^{\lambda}\ln x} </eq> 收敛。</p>
-<p>当 <eq> \lambda&lt;1 </eq> 时，存在 <eq> \beta </eq> 满足 <eq> \lambda&lt;\beta&lt;1 </eq>，由 <eq> \lim\limits_{x\to+\infty}x^{\beta}\cdot\dfrac{1}{x^{\lambda}\ln x}=+\infty </eq>，得出 <eq> \int_2^{+\infty}\dfrac{\mathrm{d}x}{x^{\lambda}\ln x} </eq> 发散。</p>
-<p>当 <eq> \lambda=1 </eq> 时，<eq> \int_2^{+\infty}\dfrac{\mathrm{d}x}{x\ln x}=\ln\ln x\Big|_2^{+\infty}=+\infty </eq>，所以积分发散。综合起来，<eq> \int_2^{+\infty}\dfrac{\mathrm{d}x}{x^{\lambda}\ln x} </eq> 当 <eq> \lambda&gt;1 </eq> 时收敛，当 <eq> \lambda\le 1 </eq> 时发散。</p>
-<p><strong>例 7</strong>　积分 <eq> \int_1^{+\infty}\dfrac{\sin x}{x}\,\mathrm{d}x </eq> 收敛，而不绝对收敛。</p>
-<p>因为 <eq> \left|\int_1^A\sin x\,\mathrm{d}x\right|=|\cos A-\cos 1|\le 2 </eq>，又由 <eq> \dfrac{1}{x} </eq> 单调而且当 <eq> x\to+\infty </eq> 时趋于零，由狄利克雷判别法知 <eq> \int_1^{+\infty}\dfrac{\sin x}{x}\,\mathrm{d}x </eq> 收敛。但</p>
-<section><eqn> \left|\frac{\sin x}{x}\right|\ge\frac{\sin^2 x}{x}=\frac{1}{2x}-\frac{\cos 2x}{2x}, </eqn></section><p>考虑 <eq> \int_1^{+\infty}\dfrac{\cos 2x}{2x}\,\mathrm{d}x </eq>，因为 <eq> \left|\int_1^A\cos 2x\,\mathrm{d}x\right|=\dfrac{1}{2}|\sin 2A-\sin 2|\le 1 </eq> 以及 <eq> \dfrac{1}{2x}\to 0 </eq>（<eq> x\to+\infty </eq> 时，单调地趋于 <eq> 0 </eq>），应用狄利克雷判别法得 <eq> \int_1^{+\infty}\dfrac{\cos 2x}{2x}\,\mathrm{d}x </eq> 收敛，然而 <eq> \int_1^{+\infty}\dfrac{\mathrm{d}x}{2x} </eq> 发散，所以 <eq> \int_1^{+\infty}\dfrac{|\sin x|}{x}\,\mathrm{d}x </eq> 发散。</p>
-<p>作为习题，请读者证明 <eq> \int_1^{+\infty}\dfrac{\sin x}{x^{\lambda}}\,\mathrm{d}x </eq> 和 <eq> \int_1^{+\infty}\dfrac{\cos x}{x^{\lambda}}\,\mathrm{d}x </eq> 当 <eq> 0&lt;\lambda&lt;1 </eq> 时收敛，但非绝对收敛。</p>
-<p><strong>例 8</strong>　积分 <eq> \int_1^{+\infty}\dfrac{\sin x\cdot\arctan x}{x^{\lambda}}\,\mathrm{d}x\ (0&lt;\lambda\le 1) </eq> 收敛。</p>
-<p>因为 <eq> \int_1^{+\infty}\dfrac{\sin x}{x^{\lambda}}\,\mathrm{d}x </eq> 收敛，又 <eq> \arctan x </eq> 在 <eq> [1,+\infty) </eq> 上单调有界，由阿贝尔判别法知道所讨论的积分是收敛的。</p>
-<p><strong>例 9</strong>　积分 <eq> \int_0^{+\infty}\sin(x^2)\,\mathrm{d}x </eq> 和 <eq> \int_0^{+\infty}\cos(x^2)\,\mathrm{d}x </eq> 都收敛。</p>
-<p>考虑第一个积分。作代换 <eq> t=x^2 </eq>，</p>
-<section><eqn> \int_0^{+\infty}\sin(x^2)\,\mathrm{d}x=\frac{1}{2}\int_0^{+\infty}\frac{\sin t}{\sqrt{t}}\,\mathrm{d}t, </eqn></section><p>对任何 <eq> A&gt;0 </eq>，<eq> \left|\int_0^A\sin t\,\mathrm{d}t\right|\le 2 </eq>，并且 <eq> \dfrac{1}{\sqrt{t}} </eq> 在 <eq> [0,+\infty) </eq> 内单调，<eq> \dfrac{1}{\sqrt{t}}\to 0\ (t\to+\infty) </eq>，由狄利克雷判别法，得 <eq> \int_0^{+\infty}\dfrac{\sin t}{\sqrt{t}}\,\mathrm{d}t </eq> 收敛，所以 <eq> \int_0^{+\infty}\sin(x^2)\,\mathrm{d}x </eq> 也收敛。</p>
-<p>同样可以得到 <eq> \int_0^{+\infty}\cos(x^2)\,\mathrm{d}x </eq> 收敛。</p>
-<p>这个例子还表明一个事实：若 <eq> \int_0^{+\infty}f(x)\,\mathrm{d}x </eq> 收敛，但未必有 <eq> \lim\limits_{x\to+\infty}f(x)=0 </eq>。</p>
-<hr>
-<h2 id="§2-无界函数的反常积分">§2 无界函数的反常积分</h2>
-<h3 id="定义与定理-2">定义与定理</h3>
-<p><strong>定义</strong>　设函数 <eq> f(x) </eq> 在 <eq> x=b </eq> 点的任一左邻域无界（称 <eq> b </eq> 点为 <eq> f(x) </eq> 的奇点），但对于任意充分小的正数 <eq> \eta </eq>，<eq> f(x) </eq> 在 <eq> [a,b-\eta] </eq> 上可积，则称积分</p>
-<section><eqn> \int_a^b f(x)\,\mathrm{d}x </eqn></section><p>是无界函数 <eq> f(x) </eq> 在 <eq> [a,b] </eq> 上的反常积分。这一积分是否存在，以及它的积分值是多少，现在讨论如下。令</p>
-<section><eqn> \phi(\eta)=\int_a^{b-\eta}f(x)\,\mathrm{d}x, </eqn></section><p>如果 <eq> \lim\limits_{\eta\to 0}\phi(\eta) </eq> 存在，则称此极限是上述反常积分的积分值，亦即</p>
-<section><eqn> \int_a^b f(x)\,\mathrm{d}x=\lim_{\eta\to 0}\int_a^{b-\eta}f(x)\,\mathrm{d}x. </eqn></section><p>并称无界函数 <eq> f(x) </eq> 在 <eq> [a,b] </eq> 上可积，又称反常积分 <eq> \int_a^b f(x)\,\mathrm{d}x </eq> 收敛。如果上述的极限不存在，就说积分 <eq> \int_a^b f(x)\,\mathrm{d}x </eq> 发散。</p>
-<p>如果 <eq> x=a </eq> 是 <eq> f(x) </eq> 的奇点，可以相仿地给出定义。另外，如果 <eq> f(x) </eq> 在 <eq> [a,b] </eq> 内部有一个奇点 <eq> c </eq>，<eq> a&lt;c&lt;b </eq>，就分别考察 <eq> \int_a^c f(x)\,\mathrm{d}x </eq> 和 <eq> \int_c^b f(x)\,\mathrm{d}x </eq>，如果后两者都收敛，就称 <eq> \int_a^b f(x)\,\mathrm{d}x </eq> 收敛，并且 <eq> \int_a^b f(x)\,\mathrm{d}x=\int_a^c f(x)\,\mathrm{d}x+\int_c^b f(x)\,\mathrm{d}x </eq>。即</p>
-<section><eqn> \int_a^b f(x)\,\mathrm{d}x=\lim_{\eta\to+0}\int_a^{c-\eta}f(x)\,\mathrm{d}x+\lim_{\eta&#x27;\to+0}\int_{c+\eta&#x27;}^b f(x)\,\mathrm{d}x, </eqn></section><p>其中 <eq> \eta </eq> 和 <eq> \eta&#x27; </eq> 是相互独立地趋于 <eq> +0 </eq>。</p>
-<p><strong>柯西收敛原理</strong>　若 <eq> f(x) </eq> 在 <eq> x=a </eq> 有奇点，<eq> \int_a^b f(x)\,\mathrm{d}x </eq> 收敛的充要条件是：对任意给定的 <eq> \varepsilon&gt;0 </eq>，存在 <eq> \delta&gt;0 </eq>，当 <eq> 0&lt;\eta,\eta&#x27;&lt;\delta </eq> 时总有</p>
-<section><eqn> \left|\int_{a+\eta}^{a+\eta&#x27;}f(x)\,\mathrm{d}x\right|&lt;\varepsilon. </eqn></section><p><strong>柯西判别法</strong>　设 <eq> x=a </eq> 是 <eq> f(x) </eq> 的奇点，如果 <eq> |f(x)|\le\dfrac{c}{(x-a)^p}\ (c&gt;0) </eq>，<eq> p&lt;1 </eq>，那么 <eq> \int_a^b f(x)\,\mathrm{d}x </eq> 绝对收敛。</p>
-<p>如果 <eq> |f(x)|\ge\dfrac{c}{(x-a)^p}\ (c&gt;0) </eq>，<eq> p\ge 1 </eq>，那么 <eq> \int_a^b|f(x)|\,\mathrm{d}x </eq> 发散。</p>
-<p><strong>柯西判别法的极限形式</strong>　设</p>
-<section><eqn> \lim_{x\to a}(x-a)^p|f(x)|=k, </eqn></section><p>如果 <eq> 0\le k&lt;\infty </eq>，<eq> p&lt;1 </eq>，那么 <eq> \int_a^b f(x)\,\mathrm{d}x </eq> 为绝对收敛；</p>
-<p>如果 <eq> 0&lt;k\le\infty </eq>，<eq> p\ge 1 </eq>，那么 <eq> \int_a^b|f(x)|\,\mathrm{d}x </eq> 发散。</p>
-<p><strong>阿贝尔判别法</strong>　设 <eq> f(x) </eq> 在 <eq> x=a </eq> 有奇点，<eq> \int_a^b f(x)\,\mathrm{d}x </eq> 收敛，<eq> g(x) </eq> 单调有界，那么积分 <eq> \int_a^b f(x)g(x)\,\mathrm{d}x </eq> 收敛。</p>
-<p><strong>狄利克雷判别法</strong>　设 <eq> f(x) </eq> 在 <eq> x=a </eq> 有奇点，<eq> \int_{a+\eta}^b f(x)\,\mathrm{d}x </eq> 是 <eq> \eta </eq> 的有界函数，<eq> g(x) </eq> 单调且当 <eq> x\to a </eq> 时趋于零，那么积分 <eq> \int_a^b f(x)g(x)\,\mathrm{d}x </eq> 收敛。</p>
-<p>对 <eq> \int_{a+\eta}^{a+\eta&#x27;}f(x)g(x)\,\mathrm{d}x </eq> 应用第二中值定理可以证明上面的两个结论。</p>
-<p><strong>定义</strong>　设 <eq> f(x) </eq> 在 <eq> [a,b] </eq> 内无界，<eq> c </eq> 是唯一奇点，<eq> a&lt;c&lt;b </eq>，如果</p>
-<section><eqn> \lim_{\eta\to 0}\left[\int_a^{c-\eta}f(x)\,\mathrm{d}x+\int_{c+\eta}^b f(x)\,\mathrm{d}x\right] </eqn></section><p>存在（注意，<eq> c-\eta </eq> 与 <eq> c+\eta </eq> 中的 <eq> \eta </eq> 是同一个正数），就称此极限是反常积分 <eq> \int_a^b f(x)\,\mathrm{d}x </eq> 的柯西主值，记为</p>
-<section><eqn> \mathrm{P.V.}\int_a^b f(x)\,\mathrm{d}x=\lim_{\eta\to 0}\left[\int_a^{c-\eta}f(x)\,\mathrm{d}x+\int_{c+\eta}^b f(x)\,\mathrm{d}x\right]. </eqn></section><p><eq> \mathrm{P.V.} </eq> 是 Principal Value 的缩写。</p>
-<p>同样的，对于无穷限的反常积分，柯西主值为</p>
-<section><eqn> \mathrm{P.V.}\int_{-\infty}^{+\infty}f(x)\,\mathrm{d}x=\lim_{A\to+\infty}\int_{-A}^A f(x)\,\mathrm{d}x. </eqn></section><h3 id="例题-2">例题</h3>
-<p><strong>例 1</strong>　讨论积分 <eq> \int_a^b\dfrac{\mathrm{d}x}{(x-a)^p}\ (p&gt;0) </eq> 的收敛性。</p>
-<p>当 <eq> p&gt;0 </eq> 时，<eq> x=a </eq> 是 <eq> \dfrac{1}{(x-a)^p} </eq> 的奇点。</p>
-<p>当 <eq> p\ne 1 </eq> 时</p>
-<section><eqn> \int_{a+\eta}^b\frac{\mathrm{d}x}{(x-a)^p}=\frac{1}{1-p}(x-a)^{1-p}\Big|_{a+\eta}^b=\frac{1}{1-p}\left[(b-a)^{1-p}-\eta^{1-p}\right], </eqn></section><section><eqn> \lim_{\eta\to+0}\int_{a+\eta}^b\frac{\mathrm{d}x}{(x-a)^p}=\begin{cases}\dfrac{1}{1-p}(b-a)^{1-p}, &amp; p&lt;1,\\[2mm] +\infty, &amp; p&gt;1.\end{cases} </eqn></section><p>当 <eq> p=1 </eq> 时</p>
-<section><eqn> \int_{a+\eta}^b\frac{\mathrm{d}x}{x-a}=\ln(x-a)\Big|_{a+\eta}^b=\ln(b-a)-\ln\eta\to+\infty\qquad(\eta\to+0). </eqn></section><p>所以，当 <eq> p&lt;1 </eq> 时，积分 <eq> \int_a^b\dfrac{\mathrm{d}x}{(x-a)^p} </eq> 收敛于 <eq> \dfrac{1}{1-p}(b-a)^{1-p} </eq>，亦即</p>
-<section><eqn> \int_a^b\frac{\mathrm{d}x}{(x-a)^p}=\frac{1}{1-p}(b-a)^{1-p}; </eqn></section><p>当 <eq> p\ge 1 </eq> 时，积分发散。</p>
-<p>对于积分 <eq> \int_a^b\dfrac{\mathrm{d}x}{(b-x)^p} </eq> 的收敛性有相仿的结论。</p>
-<p>并由此不难获得 <eq> \int_a^b\dfrac{\mathrm{d}x}{(x-a)^p(b-x)^q}\ (p&gt;0,q&gt;0) </eq>，只有当 <eq> p&lt;1,q&lt;1 </eq> 时收敛，其他情形都发散。</p>
-<p><strong>例 2</strong>　讨论积分 <eq> \int_0^1\dfrac{\mathrm{d}x}{\sqrt{1-x^2}} </eq> 的收敛性。</p>
-<p><eq> x=1 </eq> 是被积函数的奇点。</p>
-<section><eqn> \int_0^{1-\eta}\frac{\mathrm{d}x}{\sqrt{1-x^2}}=\arcsin x\Big|_0^{1-\eta}=\arcsin(1-\eta)\to\frac{\pi}{2}\qquad(\eta\to 0). </eqn></section><p>所讨论的积分收敛，并且 <eq> \int_0^1\dfrac{\mathrm{d}x}{\sqrt{1-x^2}}=\dfrac{\pi}{2} </eq>。</p>
-<p><strong>例 3</strong>　讨论 <eq> \int_0^1\dfrac{\ln x}{\sqrt{x}}\,\mathrm{d}x </eq> 的收敛性。</p>
-<p>因为 <eq> \lim\limits_{x\to+0}x^{\frac{3}{4}}\dfrac{\ln x}{\sqrt{x}}=\lim\limits_{x\to+0}x^{\frac{1}{4}}\ln x=0 </eq>，所以 <eq> \int_0^1\dfrac{\ln x}{\sqrt{x}}\,\mathrm{d}x </eq> 收敛。</p>
-<p><strong>例 4</strong>　讨论积分 <eq> \int_0^{+\infty}\dfrac{\ln x\,\mathrm{d}x}{x^p|1-x|^q}\ (p&gt;0,\ q&gt;0) </eq> 的敛散性。</p>
-<p>将积分写为</p>
-<section><eqn> \begin{aligned}
-\int_0^{+\infty}\frac{\ln x\,\mathrm{d}x}{x^p|1-x|^q}&amp;=\left\{\int_0^{1/2}+\int_{1/2}^1+\int_1^2+\int_2^{+\infty}\right\}\frac{\ln x\,\mathrm{d}x}{x^p|1-x|^q}\\
-&amp;=I_1+I_2+I_3+I_4,
-\end{aligned} </eqn></section><p>在 <eq> I_1 </eq> 中 <eq> 0 </eq> 是奇点，在 <eq> I_2 </eq> 和 <eq> I_3 </eq> 中 <eq> 1 </eq> 是奇点，<eq> I_4 </eq> 是无穷限反常积分。</p>
-<p>讨论 <eq> I_1 </eq>，当 <eq> p\ge 1 </eq> 时 <eq> I_1 </eq> 发散。当 <eq> p&lt;1 </eq> 时，取 <eq> \alpha </eq> 使 <eq> p&lt;\alpha&lt;1 </eq>，有 <eq> \dfrac{\ln x}{x^p}=\dfrac{1}{x^\alpha}x^{\alpha-p}\ln x </eq>，而 <eq> x^{\alpha-p}\ln x\to 0\ (x\to+0) </eq>，所以 <eq> \dfrac{\ln x}{x^p}&lt;\dfrac{1}{x^\alpha} </eq>，而 <eq> \int_0^{1/2}\dfrac{\mathrm{d}x}{x^\alpha} </eq> 收敛，故 <eq> p&lt;1 </eq> 时 <eq> I_1 </eq> 收敛。</p>
-<p>讨论 <eq> I_2 </eq>，因为 <eq> \ln x=\ln[1+(x-1)]\sim x-1\ (x\to 1) </eq>，所以 <eq> \dfrac{\ln x}{|x-1|^q}\sim\dfrac{-1}{|x-1|^{q-1}}\ (x\to 1-0) </eq>，于是当 <eq> q-1&lt;1 </eq> 即 <eq> q&lt;2 </eq> 时 <eq> I_2 </eq> 收敛，<eq> q\ge 2 </eq> 时 <eq> I_2 </eq> 发散。</p>
-<p>讨论 <eq> I_3 </eq>，和 <eq> I_2 </eq> 相同，当 <eq> q&lt;2 </eq> 时 <eq> I_3 </eq> 收敛，当 <eq> q\ge 2 </eq> 时 <eq> I_3 </eq> 发散。</p>
-<p>讨论 <eq> I_4 </eq>，因为 <eq> x^p|1-x|^q\sim x^{p+q}\ (x\to+\infty) </eq>，得 <eq> p+q&gt;1 </eq> 时 <eq> I_4 </eq> 收敛（这是因为对任何 <eq> \alpha&gt;0 </eq>，<eq> \ln x\ll x^{\alpha}\ (x\to+\infty) </eq>，与 <eq> x^{p+q} </eq> 相比，<eq> \ln x </eq> 可以不予考虑）。当 <eq> p+q\le 1 </eq> 时 <eq> I_4 </eq> 发散。</p>
-<p>概括起来，当 <eq> p&lt;1 </eq>，<eq> q&lt;2 </eq>，<eq> p+q&gt;1 </eq> 时积分收敛，其他情形积分发散。</p>
-<p><strong>例 5</strong>　讨论积分 <eq> \int_0^1\dfrac{\sin\dfrac{1}{x}}{x^r}\,\mathrm{d}x\ (0&lt;r\le 2) </eq> 的收敛情形。</p>
-<p>当 <eq> 0&lt;r&lt;1 </eq>，<eq> \left|\dfrac{\sin\dfrac{1}{x}}{x^r}\right|\le\dfrac{1}{x^r} </eq>，积分绝对收敛。</p>
-<p>又</p>
-<section><eqn> \left|\int_\eta^1\frac{1}{x^2}\sin\frac{1}{x}\,\mathrm{d}x\right|\le\left|\cos 1-\cos\frac{1}{\eta}\right|\le 2, </eqn></section><section><eqn> \int_0^1\frac{\sin\dfrac{1}{x}}{x^r}\,\mathrm{d}x=\int_0^1 x^{2-r}\cdot\frac{1}{x^2}\sin\frac{1}{x}\,\mathrm{d}x </eqn></section><p>当 <eq> 2-r&gt;0 </eq> 即 <eq> r&lt;2 </eq> 时，由狄利克雷判别法，从 <eq> x^{2-r} </eq> 单调趋向于零（<eq> x\to 0 </eq>）推知积分收敛。</p>
-<p>当 <eq> r=2 </eq> 时，<eq> \int_\eta^1\dfrac{1}{x^2}\sin\dfrac{1}{x}\,\mathrm{d}x=\cos\dfrac{1}{\eta}-\cos 1 </eq>，当 <eq> \eta\to 0 </eq> 时无极限，所以积分 <eq> \int_0^1\dfrac{\sin\dfrac{1}{x}}{x^2}\,\mathrm{d}x </eq> 发散。</p>
-<p><strong>例 6</strong>　设 <eq> a&lt;c&lt;b </eq>，求 <eq> \int_a^b\dfrac{\mathrm{d}x}{x-c} </eq> 的主值。</p>
-<p><strong>解</strong>　容易知道，这一反常积分是发散的，但</p>
-<section><eqn> \begin{aligned}
-\mathrm{P.V.}\int_a^b\frac{\mathrm{d}x}{x-c}&amp;=\lim_{\eta\to 0}\left[\int_a^{c-\eta}\frac{\mathrm{d}x}{x-c}+\int_{c+\eta}^b\frac{\mathrm{d}x}{x-c}\right]\\
-&amp;=\lim_{\eta\to 0}\left[\ln(c-x)\Big|_a^{c-\eta}+\ln(x-c)\Big|_{c+\eta}^b\right]\\
-&amp;=\ln\frac{b-c}{c-a}.
-\end{aligned} </eqn></section>]]></content>
-      <categories>
-        <category>Mathematics</category>
-        <category>数学分析</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>大一租房（图片太大传不上来）</title>
-    <url>/2026/10/13/freshman-year-renting/</url>
-    <content><![CDATA[<p>上面这几张图是第一套，洗衣机，床，各种架子和沙发套，桌布都是自己买的，但是洗澡水压太小，找了自来水公司的人和买增压喷头都没用，刚好又在网上看到第二套这个有人出租，所以违约了没要回来押金也搬走了（当时一次性付了一年房租，没住满只退了一部分）</p>
-<p>这是第二套，房间特别大，月租只要900，但是商用水电没有暖气。之前是办公室，没有床。搬过来的时候把洗衣机和床一起搬过来叫货拉拉还花了好几百。但是因为没有暖气，只有开电暖，房间又大，导致晚上睡觉特别冷，洗澡的卫生间也极冷。电暖还花的电费还特别贵，算下来每月水电会花200块（电暖只晚上开的情况下）。租了几个月后在今年4月搬回宿舍住了，洗衣机和床也没办法带走，只有200块卖了，最开始床是700买的洗衣机是800。</p>
-<p>这是上学期开学3月在附近租的，老板把这几个房间都租出去了，相当于合租，都是东大的学生，每个月800，但是房间靠马路晚上很吵，加上不太喜欢合租就走了，只住了2天（只是过来看看合不合适，合适就打算从第二套那里搬出来了，最后不喜欢所以还是接着租了第二套到四月）</p>
-<p>租房的时候什么都要自己干，加上总是碰到大大小小的问题，刚开始还觉得新鲜，一直改造房间，后来就只感觉累。加上我在学校本来也没什么朋友，住的地方还没人说话，太难受感觉要玉玉了，所以就搬回宿舍了，到现在感觉还行</p>
-]]></content>
-      <categories>
-        <category>Life</category>
-      </categories>
-      <tags>
-        <tag>Essay</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>龙利鱼和甲鱼粥</title>
-    <url>/2026/10/03/basa-and-turtle-congee/</url>
-    <content><![CDATA[<p>二食堂的孜然龙利鱼感觉是深圳蛇口甲鱼粥的下位替代。龙利鱼是配上小米粥，甲鱼粥是配上炸豆腐，都是一个炸的配上粥蘸着吃，且都有味道，不过一个主要在炸的东西上，一个主要在粥上。龙利鱼配小米粥刚开始几口特别好吃，吃饱了后就感觉腻了，而炸豆腐配甲鱼粥就算肚子饱了，嘴巴还是想吃，所以龙利鱼是甲鱼粥的下位替代。但这龙利鱼可能不是真的龙利鱼，毕竟半盘也就不到10块。</p>
-]]></content>
-      <categories>
-        <category>Life</category>
-      </categories>
-      <tags>
-        <tag>Musings</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>你好，世界</title>
     <url>/2026/09/29/hello-world/</url>
     <content><![CDATA[<h2 id="为什么要有这个博客">为什么要有这个博客</h2>
@@ -280,16 +51,216 @@
       </tags>
   </entry>
   <entry>
-    <title>全聚德</title>
-    <url>/2026/10/06/quanjude/</url>
-    <content><![CDATA[<p>结果还是去吃了，全聚德家的双人【东北超】套餐，160多，避雷了，配的菜全是容易腻的，有个炸茄子，有个老式锅包肉，有个乾隆白菜，乾隆白菜里有芥末真的呛，吃到后面锅包肉都下不了嘴，太腻了，烤鸭也很慢，说是现烤，吃起来也配不上现烤的，端上来盘子也没有加热的，吃了一会就有点凉了，更腻了，最猎奇的是鸭皮蘸白糖，太难吃了。以前没吃过全聚德，不知道是不是其他店也是这样还是就这家这样，感觉还没成都家旁边开的烤鸭店好吃</p>
-]]></content>
+    <title>数分笔记 · 第十一章 函数项级数与幂级数</title>
+    <url>/2026/11/01/analysis-11-series-of-functions/</url>
+    <content><![CDATA[<style>
+/* 数分笔记的排版微调：只在本页生效（样式内嵌在正文里，其他文章不受影响） */
+#article-container h2 {
+  margin-top: 3.2em;
+  margin-bottom: 1.2em;
+  padding-top: .7em;
+  border-top: 1px solid var(--hr-color, #C3E3D2);
+}
+#article-container h3 {
+  margin-top: 2.6em;
+  margin-bottom: 1.1em;
+}
+#article-container p {
+  margin-bottom: 1.2em;
+}
+#article-container .katex-display {
+  margin: .95em 0;
+}
+#article-container hr {
+  margin: 2.8em 0;
+}
+</style>
+<h2 id="§1-函数项级数的一致收敛">§1 函数项级数的一致收敛</h2>
+<h3 id="定义与定理">定义与定理</h3>
+<p><strong>一、函数项级数的概念</strong></p>
+<p>设 <eq> u_n(x)\ (n=1,2,3,\cdots) </eq> 是定义在实数集 <eq> X </eq> 上的函数，称</p>
+<section><eqn> \sum_{n=1}^{\infty}u_n(x)=u_1(x)+u_2(x)+\cdots+u_n(x)+\cdots </eqn></section><p>是函数项级数，并称</p>
+<section><eqn> S_n(x)=\sum_{k=1}^{n}u_k(x) </eqn></section><p>是这一级数的 <eq> n </eq> 次部分和。</p>
+<p>如果对 <eq> X </eq> 中的一点 <eq> x_0 </eq>，数项级数</p>
+<section><eqn> \sum_{n=1}^{\infty}u_n(x_0)=u_1(x_0)+u_2(x_0)+\cdots+u_n(x_0)+\cdots </eqn></section><p>收敛，就说函数项级数在 <eq> x_0 </eq> 点收敛，否则就说它在 <eq> x_0 </eq> 点发散。如果对 <eq> X </eq> 中任何一点 <eq> x </eq>，级数 <eq> \sum\limits_{n=1}^{\infty}u_n(x) </eq> 收敛，就说函数项级数 <eq> \sum\limits_{n=1}^{\infty}u_n(x) </eq> 在 <eq> X </eq> 上收敛（即在每一点都收敛）。这时，对每一点 <eq> x\in X </eq>，级数 <eq> \sum\limits_{n=1}^{\infty}u_n(x) </eq> 有和，记此和为 <eq> S(x) </eq>，即</p>
+<section><eqn> \sum_{n=1}^{\infty}u_n(x)=S(x), </eqn></section><p>可见，<eq> S(x) </eq> 是 <eq> X </eq> 上的函数。例如级数</p>
+<section><eqn> \sum_{n=0}^{\infty}x^n=1+x+x^2+\cdots </eqn></section><p>在 <eq> X=(-1,1) </eq> 内收敛，其和为 <eq> \dfrac{1}{1-x} </eq>。这就表明，函数项级数在某点 <eq> x </eq> 的收敛问题实质上是数项级数的收敛问题。因此，就可以应用已经学过的数项级数的有关知识来考察函数项级数的收敛问题。</p>
+<p>与数项级数一样，给定了函数项级数 <eq> \sum\limits_{n=1}^{\infty}u_n(x)\ (x\in X) </eq>，可以得到一个部分和序列 <eq> \{S_n(x)\} </eq>，它是一个定义在 <eq> X </eq> 上的函数序列。反过来，给定一个定义在 <eq> X </eq> 上的函数序列 <eq> \{f_n(x)\} </eq>，总可以作出一个函数项级数 <eq> \sum\limits_{n=1}^{\infty}u_n(x)\ (x\in X) </eq>，使得这一级数的部分和序列正好就是 <eq> \{f_n(x)\} </eq>。这样一来，就可以把对函数项级数的研究化为对函数序列的研究，这样做有时会方便些。</p>
+<p><strong>二、一致收敛的定义</strong></p>
+<p>先说明为什么要引进一致收敛的概念。我们知道，有限个连续函数的和仍为连续函数，有限个可导函数之和仍为可导函数，并且其和的导数等于每一个函数的导数之和。对于积分也有类似的性质。然而，现在遇到的不是有限个函数之和，而是函数项级数 <eq> \sum\limits_{n=1}^{\infty}u_n(x) </eq>。如果每一项 <eq> u_n(x) </eq> 在 <eq> X </eq> 上连续，并且级数在 <eq> X </eq> 上收敛，其和为 <eq> S(x) </eq>，现在要问：<eq> S(x) </eq> 是否也在 <eq> X </eq> 上连续？再如果每一项 <eq> u_n(x) </eq> 在 <eq> X </eq> 上可导，继续要问：<eq> S(x) </eq> 是否也在 <eq> X </eq> 上可导？以及如果 <eq> S(x) </eq> 可导，等式</p>
+<section><eqn> u_1&#x27;(x)+u_2&#x27;(x)+\cdots+u_n&#x27;(x)+\cdots=S&#x27;(x) </eqn></section><p>是否成立？又如果每一项 <eq> u_n(x) </eq> 在 <eq> X </eq> 内的一个区间 <eq> [a,b] </eq> 上可积，要问 <eq> S(x) </eq> 是否也在 <eq> [a,b] </eq> 上可积？是否等式</p>
+<section><eqn> \int_a^b u_1(x)\,\mathrm{d}x+\int_a^b u_2(x)\,\mathrm{d}x+\cdots+\int_a^b u_n(x)\,\mathrm{d}x+\cdots=\int_a^b S(x)\,\mathrm{d}x </eqn></section><p>仍旧成立？</p>
+<p>答案是：都不一定。</p>
+<p>这就提出了一个问题：设级数 <eq> \sum\limits_{n=1}^{\infty}u_n(x) </eq> 在 <eq> X </eq> 上收敛于 <eq> S(x) </eq>，又设级数的每一项 <eq> u_n(x) </eq> 在 <eq> X </eq> 上连续。我们要问：在什么条件下才可以保证其和 <eq> S(x) </eq> 也在 <eq> X </eq> 上连续？对于求导和求积，也有类似的问题。要回答这些问题，必须引进一个非常重要的概念——一致收敛。</p>
+<p>函数列 <eq> \{S_n(x)\} </eq>（可以把它看作函数项级数 <eq> \sum\limits_{n=1}^{\infty}u_n(x) </eq> 的部分和序列）在 <eq> X </eq> 上收敛于 <eq> S(x) </eq>，就是在 <eq> X </eq> 上每一点 <eq> x_0 </eq> 收敛于 <eq> S(x_0) </eq>。按数列极限的定义，也就是，对任给的 <eq> \varepsilon&gt;0 </eq>，在每一点 <eq> x_0 </eq> 都能找到正整数 <eq> N </eq>，使当 <eq> n&gt;N </eq> 时，恒有</p>
+<section><eqn> \left|S_n(x_0)-S(x_0)\right|&lt;\varepsilon </eqn></section><p>（对函数项级数，此式还可写为 <eq> \left|r_n(x_0)\right|=\left|\sum\limits_{k=n+1}^{\infty}u_k(x_0)\right|&lt;\varepsilon </eq>）。</p>
+<p>一般来说，这种 <eq> N </eq> 不仅依赖于 <eq> \varepsilon </eq>，并且也依赖于 <eq> x_0 </eq>，记它为 <eq> N(\varepsilon,x_0) </eq>。一致收敛要求能找到只依赖于 <eq> \varepsilon </eq> 而不依赖于 <eq> x_0 </eq> 的 <eq> N(\varepsilon) </eq>，也就是对 <eq> X </eq> 上每点都适用的公共的 <eq> N(\varepsilon) </eq>，于是可给出下面的定义。</p>
+<p><strong>定义 1</strong>　设有函数列 <eq> \{S_n(x)\} </eq>（或函数项级数 <eq> \sum\limits_{n=1}^{\infty}u_n(x) </eq> 的部分和序列）。若对任给的 <eq> \varepsilon&gt;0 </eq>，存在只依赖于 <eq> \varepsilon </eq> 的正整数 <eq> N(\varepsilon) </eq>，使 <eq> n&gt;N(\varepsilon) </eq> 时，不等式</p>
+<section><eqn> \left|S_n(x)-S(x)\right|&lt;\varepsilon </eqn></section><p>（对函数项级数，此式也可写为 <eq> \left|r_n(x)\right|=\left|\sum\limits_{k=n+1}^{\infty}u_k(x)\right|&lt;\varepsilon </eq>）对 <eq> X </eq> 上一切 <eq> x </eq> 都成立，则称 <eq> \{S_n(x)\}\ \left(\sum\limits_{n=1}^{\infty}u_n(x)\right) </eq> 在 <eq> X </eq> 上一致收敛于 <eq> S(x) </eq>。</p>
+<p>一致收敛的定义还可以用下面的方式来表述。</p>
+<p><strong>定义 2</strong>　设 <eq> \left\|S_n-S\right\|=\sup\limits_{x\in X}\left|S_n(x)-S(x)\right| </eq>，如果</p>
+<section><eqn> \lim_{n\to\infty}\left\|S_n-S\right\|=0, </eqn></section><p>就称 <eq> S_n(x) </eq> 在 <eq> X </eq> 上一致收敛于 <eq> S(x) </eq>。</p>
+<p>这两个定义的等价性请读者证明。</p>
+<p><strong>三、一致收敛级数的性质</strong></p>
+<p>有了一致收敛的概念，就可以回答上一段中所提出的问题。</p>
+<p><strong>定理 5（和的连续性）</strong>　若在 <eq> [a,b] </eq> 上级数 <eq> \sum\limits_{n=1}^{\infty}u_n(x) </eq> 的每项 <eq> u_n(x) </eq> 都连续，并且 <eq> \sum\limits_{n=1}^{\infty}u_n(x) </eq> 一致收敛于 <eq> S(x) </eq>，则 <eq> S(x) </eq> 也在 <eq> [a,b] </eq> 上连续。</p>
+<p><strong>定理 6（逐项求积）</strong>　设 <eq> \sum\limits_{n=1}^{\infty}u_n(x) </eq> 在 <eq> [a,b] </eq> 上一致收敛于 <eq> S(x) </eq>，并且每一 <eq> u_n(x) </eq> 都在 <eq> [a,b] </eq> 上连续，则</p>
+<section><eqn> \sum_{n=1}^{\infty}\int_a^b u_n(x)\,\mathrm{d}x=\int_a^b S(x)\,\mathrm{d}x=\int_a^b \sum_{n=1}^{\infty}u_n(x)\,\mathrm{d}x, </eqn></section><p>亦即和号可以与积分号交换。又在 <eq> [a,b] </eq> 上，函数项级数 <eq> \sum\limits_{n=1}^{\infty}\int_a^x u_n(t)\,\mathrm{d}t </eq> 也一致收敛于 <eq> \int_a^x S(t)\,\mathrm{d}t </eq>。</p>
+<p><strong>定理 7（逐项求导）</strong>　若在 <eq> [a,b] </eq> 上，<eq> \sum\limits_{n=1}^{\infty}u_n(x) </eq> 的每一项都具有连续导数 <eq> u_n&#x27;(x) </eq>，并且 <eq> \sum\limits_{n=1}^{\infty}u_n&#x27;(x) </eq> 一致收敛于 <eq> \sigma(x) </eq>，又 <eq> \sum\limits_{n=1}^{\infty}u_n(x) </eq> 收敛于 <eq> S(x) </eq>，则 <eq> S&#x27;(x)=\sigma(x) </eq>，亦即</p>
+<section><eqn> \frac{\mathrm{d}}{\mathrm{d}x}\sum_{n=1}^{\infty}u_n(x)=\sum_{n=1}^{\infty}\frac{\mathrm{d}}{\mathrm{d}x}u_n(x) </eqn></section><p>且 <eq> \sum\limits_{n=1}^{\infty}u_n(x) </eq> 一致收敛于 <eq> S(x) </eq>。</p>
+<p>这定理说明了和号与求导运算可以交换，但要注意的是，仅仅在条件「<eq> \sum\limits_{n=1}^{\infty}u_n(x) </eq> 一致收敛」之下，即使 <eq> u&#x27;(x) </eq> 存在且连续，也不能保证和号与求导数号可以交换（参见本节习题 13）。</p>
+<p><strong>四、一致收敛级数的判别法</strong></p>
+<p>如何判别一个级数是不是一致收敛呢？这里引进一个最常用的重要判别法：魏尔斯特拉斯判别法。</p>
+<p><strong>定理 8（魏尔斯特拉斯判别法）</strong>　若对充分大的 <eq> n </eq>，存在实数 <eq> a_n </eq>，使得</p>
+<section><eqn> \left|u_n(x)\right|\le a_n </eqn></section><p>对 <eq> X </eq> 上任意的 <eq> x </eq> 都成立，并且数项级数 <eq> \sum\limits_{n=1}^{\infty}a_n </eq> 收敛，则 <eq> \sum\limits_{n=1}^{\infty}u_n(x) </eq> 在 <eq> X </eq> 上一致收敛。</p>
+<p><strong>证明</strong>　由 <eq> \sum\limits_{n=1}^{\infty}a_n </eq> 的收敛性，对任给的 <eq> \varepsilon&gt;0 </eq>，可得 <eq> N(\varepsilon) </eq>，使 <eq> n&gt;N(\varepsilon) </eq> 时</p>
+<section><eqn> a_{n+1}+a_{n+2}+\cdots+a_{n+p}&lt;\varepsilon\qquad(p=1,2,\cdots), </eqn></section><p>对 <eq> X </eq> 上一切的 <eq> x </eq> 有</p>
+<section><eqn> \left|u_{n+1}(x)+\cdots+u_{n+p}(x)\right|\le\left|u_{n+1}(x)\right|+\cdots+\left|u_{n+p}(x)\right| </eqn></section><section><eqn> \le a_{n+1}+\cdots+a_{n+p}&lt;\varepsilon, </eqn></section><p>由一致收敛的柯西充要条件即得定理的结论。</p>
+<p>由定理的证明还可以看到满足定理条件的级数 <eq> \sum\limits_{n=1}^{\infty}u_n(x) </eq> 在 <eq> X </eq> 上是绝对收敛的，亦即函数项级数 <eq> \sum\limits_{n=1}^{\infty}\left|u_n(x)\right| </eq> 是收敛的。</p>
+<p><strong>定理 9（阿贝尔判别法）</strong>　若在 <eq> X </eq> 上 <eq> \sum\limits_{n=1}^{\infty}b_n(x) </eq> 一致收敛，又对 <eq> X </eq> 中每一固定的 <eq> x </eq>，数列 <eq> a_n(x) </eq> 单调。而对任意的 <eq> n </eq> 和 <eq> X </eq> 中每个 <eq> x </eq>，有 <eq> \left|a_n(x)\right|\le L </eq>（<eq> L </eq> 不依赖于 <eq> x </eq> 和 <eq> n </eq> 的定数），那么 <eq> \sum\limits_{n=1}^{\infty}a_n(x)b_n(x) </eq> 在 <eq> X </eq> 上一致收敛。</p>
+<p>这个定理与数项级数的阿贝尔定理相似，其证明也大体相同，只要利用阿贝尔引理即可。事实上，由 <eq> \sum\limits_{n=1}^{\infty}b_n(x) </eq> 的一致收敛性，对任意给定的 <eq> \varepsilon&gt;0 </eq>，可得 <eq> N(\varepsilon) </eq>，使 <eq> n&gt;N(\varepsilon) </eq> 时恒有</p>
+<section><eqn> \left|b_{n+1}(x)+\cdots+b_{n+p}(x)\right|&lt;\varepsilon\qquad(p=1,2,\cdots), </eqn></section><p>固定 <eq> x </eq>，由上式及 <eq> a_n(x) </eq> 的单调性，利用阿贝尔引理得到</p>
+<section><eqn> \left|a_{n+1}(x)b_{n+1}(x)+\cdots+a_{n+p}(x)b_{n+p}(x)\right| </eqn></section><section><eqn> &lt;\varepsilon\left(\left|a_{n+1}(x)\right|+2\left|a_{n+p}(x)\right|\right) </eqn></section><section><eqn> \le 3L\varepsilon\qquad\left(n&gt;N(\varepsilon);\ p=1,2,\cdots\right). </eqn></section><p>再从一致收敛的柯西充要条件即得。</p>
+<p>在定理中，条件「对任意的 <eq> n </eq> 和 <eq> X </eq> 中的每一个 <eq> x </eq>，<eq> \left|a_n(x)\right|\le L </eq>」称为函数列 <eq> \{a_n(x)\} </eq> 在 <eq> X </eq> 上一致有界，需要注意的是：由函数列的每一项 <eq> a_n(x) </eq> 在 <eq> X </eq> 上有界不能推出 <eq> \{a_n(x)\} </eq> 在 <eq> X </eq> 上一致有界，事实上，<eq> \left|a_n(x)\right| </eq> 在 <eq> X </eq> 上的上确界 <eq> M_n </eq> 是随 <eq> n </eq> 而变的，可能 <eq> \{M_n\} </eq> 是一个无界的数列，例如</p>
+<section><eqn> a_n(x)=nx </eqn></section><p>在任意的有限区间 <eq> [a,b] </eq> 上有界，但 <eq> \{a_n(x)\} </eq> 非一致有界。</p>
+<p><strong>定理 10（狄利克雷判别法）</strong>　设 <eq> \sum\limits_{n=1}^{\infty}b_n(x) </eq> 的部分和</p>
+<section><eqn> B_n(x)=\sum_{i=1}^{n}b_i(x) </eqn></section><p>在 <eq> X </eq> 上一致有界，又对 <eq> X </eq> 内每一 <eq> x </eq>，数列 <eq> a_n(x) </eq> 单调，并且函数列 <eq> \{a_n(x)\} </eq> 在 <eq> X </eq> 上一致收敛于零，则 <eq> \sum\limits_{n=1}^{\infty}a_n(x)b_n(x) </eq> 在 <eq> X </eq> 上一致收敛。</p>
+<p><strong>证明</strong>　设 <eq> \left|\sum\limits_{i=1}^{n}b_i(x)\right|\le L </eq>（不依赖于 <eq> n </eq> 和 <eq> x </eq> 的定数），那么对 <eq> X </eq> 上任意的 <eq> x </eq> 和任意的正整数 <eq> p </eq> 恒有</p>
+<section><eqn> \left|\sum_{i=n+1}^{n+p}b_i(x)\right|\le\left|\sum_{i=1}^{n+p}b_i(x)\right|+\left|\sum_{i=1}^{n}b_i(x)\right|\le 2L. </eqn></section><p>因此，利用阿贝尔引理</p>
+<section><eqn> \left|\sum_{i=n+1}^{n+p}a_i(x)b_i(x)\right|\le 2L\left(\left|a_{n+1}(x)\right|+2\left|a_{n+p}(x)\right|\right), </eqn></section><p>再由 <eq> a_n(x) </eq> 一致收敛于零即得。</p>
+<p>在历史上曾经有一段时间，人们认为连续函数可能除个别点外都是可导的，甚至一些大数学家也这样认为。可是后来，魏尔斯特拉斯首先利用函数项级数构造出一个和函数，它在 <eq> (-\infty,+\infty) </eq> 连续，但在任何点都不可导。</p>
+<h3 id="例题">例题</h3>
+<p><strong>例 1</strong>　<eq> \sum\limits_{n=1}^{\infty}u_n(x)=x+(x^2-x)+(x^3-x^2)+\cdots </eq>，它的每一项在 <eq> 0\le x\le 1 </eq> 上都连续，其 <eq> n </eq> 次部分和为 <eq> S_n(x)=x^n </eq>。很明显有</p>
+<section><eqn> \lim_{n\to\infty}S_n(x)=S(x)=\begin{cases}0, &amp; 0\le x&lt;1,\\ 1, &amp; x=1,\end{cases} </eqn></section><p>级数的和 <eq> S(x) </eq> 在 <eq> x=1 </eq> 不连续，因此，它不是 <eq> [0,1] </eq> 上的连续函数。这个例子还进一步表明，上述级数的每一项都在 <eq> [0,1] </eq> 上可导，但它的和函数 <eq> S(x) </eq> 在 <eq> x=1 </eq> 不可导。</p>
+<p><strong>例 2</strong>　考察函数序列 <eq> \{S_n(x)\} </eq>，其中 <eq> S_n(x)=2n^2x\mathrm{e}^{-n^2x^2} </eq>。对任何 <eq> x </eq></p>
+<section><eqn> \lim_{n\to\infty}S_n(x)=S(x)=0, </eqn></section><p>故</p>
+<section><eqn> \int_0^1 S(x)\,\mathrm{d}x=0. </eqn></section><p>但</p>
+<section><eqn> \int_0^1 S_n(x)\,\mathrm{d}x=1-\mathrm{e}^{-n^2}\to 1\qquad(n\to\infty), </eqn></section><p>这表明：在本例中，虽然</p>
+<section><eqn> \lim_{n\to\infty}S_n(x)=S(x), </eqn></section><p>但</p>
+<section><eqn> \lim_{n\to\infty}\int_0^1 S_n(x)\,\mathrm{d}x\ne\int_0^1 S(x)\,\mathrm{d}x. </eqn></section><p><strong>例 3</strong>　<eq> S_n(x)=\dfrac{x}{1+n^2x^2} </eq> 在 <eq> X=(-\infty,+\infty) </eq> 一致收敛。</p>
+<p><strong>解</strong>　显然 <eq> S(x)=0 </eq>，现在来看能否找到定义 1 中的 <eq> N(\varepsilon) </eq>，由于</p>
+<section><eqn> \left|S_n(x)-S(x)\right|=\frac{|x|}{1+n^2x^2}=\frac{1}{2n}\cdot\frac{2n|x|}{1+n^2x^2}\le\frac{1}{2n}, </eqn></section><p>因此对任意 <eq> \varepsilon&gt;0 </eq>，只要取 <eq> N(\varepsilon)=\left[\dfrac{1}{2\varepsilon}\right] </eq> 便证明了结论。</p>
+<p>这个函数列的图形为图 11-1，由图可知，只要 <eq> N </eq> 相当大时，从第 <eq> N </eq> 项以后，在 <eq> (-\infty,+\infty) </eq> 内每一条曲线 <eq> y=S_n(x) </eq> 整个位于曲线 <eq> y=S(x)+\varepsilon </eq> 和 <eq> y=S(x)-\varepsilon </eq> 之间，这也是一般的一致收敛函数列或一致收敛级数的几何解释（如图 11-2）。</p>
+<p>也可以用定义 2 来考察例 3 中函数列的一致收敛性。</p>
+<section><eqn> \left\|S_n-S\right\|=\sup_{x\in(-\infty,+\infty)}\left|S_n(x)-S(x)\right|=\sup_{x\in(-\infty,+\infty)}\left|\frac{x}{1+n^2x^2}\right|, </eqn></section><p>利用求极值的方法可以求得 <eq> \left|S_n(x)\right| </eq> 的最大值是 <eq> \dfrac{1}{2n} </eq>，于是有</p>
+<section><eqn> \left\|S_n-S\right\|=\frac{1}{2n}\to 0\qquad(n\to\infty), </eqn></section><p>故</p>
+<section><eqn> S_n(x)=\frac{x}{1+n^2x^2} </eqn></section><p>在 <eq> (-\infty,+\infty) </eq> 内一致收敛于零。</p>
+<p><strong>例 4</strong>　讨论</p>
+<section><eqn> S_n(x)=\frac{nx}{1+n^2x^2} </eqn></section><p>在 <eq> X=[0,1] </eq> 的一致收敛性。</p>
+<p><strong>解</strong>　由于 <eq> S(x)=0 </eq>，故</p>
+<section><eqn> \left\|S_n-S\right\|=\max_{0\le x\le 1}\left|S_n(x)\right|=\left|S_n\left(\frac{1}{n}\right)\right|=\frac{1}{2}, </eqn></section><p>不收敛于零，故在 <eq> [0,1] </eq> 上非一致收敛（如图 11-3）。</p>
+<p><strong>例 5</strong>　以例 1 的函数列</p>
+<section><eqn> S_n(x)=x^n,\quad X=[0,1] </eqn></section><p>为例，因为</p>
+<section><eqn> \left|S_n(x)-S(x)\right|=\begin{cases}x^n, &amp; 0\le x&lt;1,\\ 0, &amp; x=1,\end{cases} </eqn></section><p>故 <eq> \sup\limits_x\left|S_n(x)-S(x)\right|=1 </eq>，亦即 <eq> \left\|S_n-S\right\|=1 </eq>，因此 <eq> \{x^n\} </eq> 在 <eq> [0,1] </eq> 上不一致收敛。</p>
+<p>还可看到 <eq> S_n(x)=x^n </eq> 在 <eq> (0,1) </eq> 也不是一致收敛的，但它在任意一个区间 <eq> [0,c] </eq>（<eq> c </eq> 是小于 <eq> 1 </eq> 的任一正数）却是一致收敛的，这是因为</p>
+<section><eqn> \sup_{0\le x\le c}\left|S_n(x)-S(x)\right|=\sup_{0\le x\le c}x^n=c^n\to 0\qquad(\text{当 } n\to\infty \text{ 时}). </eqn></section><p>同理可知 <eq> S_n(x)=\dfrac{nx}{1+n^2x^2} </eq> 在任一区间 <eq> [c,1] </eq>（<eq> c </eq> 为小于 <eq> 1 </eq> 的任一正数）一致收敛，但在 <eq> (0,1) </eq> 非一致收敛。这说明了一致收敛性与所讨论的区间有关，当 <eq> S_n(x) </eq> 在某一区间一致收敛时，它当然在含于这区间内的任一区间一致收敛。另一方面，这两个例子也说明了 <eq> \{S_n(x)\} </eq> 虽然在 <eq> (a,b) </eq> 内的任一闭区间上一致收敛，但 <eq> S_n(x) </eq> 在区间 <eq> (a,b) </eq> 却不一定一致收敛。当 <eq> S_n(x) </eq> 在 <eq> (a,b) </eq> 内任一闭区间上一致收敛时，称 <eq> S_n(x) </eq> 在区间 <eq> (a,b) </eq> 内闭一致收敛。因此在 <eq> (a,b) </eq> 一致收敛一定内闭一致收敛，但反之不然。但从 <eq> S_n(x) </eq> 在 <eq> (a,b) </eq> 内闭收敛，却可得到它在区间 <eq> (a,b) </eq> 也收敛，这是因为对 <eq> (a,b) </eq> 上每一点，总可取 <eq> (a,b) </eq> 内的一个闭区间包含这个点，于是从 <eq> S_n(x) </eq> 在这闭区间上的收敛性就得到它在这个点收敛。这正是由于一致收敛是整体性质而收敛是局部性质的缘故。</p>
+<p><strong>例 6</strong>　<eq> S_n(x)=2n^2x\mathrm{e}^{-n^2x^2} </eq> 在 <eq> (0,1) </eq> 非一致收敛。</p>
+<p><strong>解</strong>　事实上，<eq> S_n(x)\to S(x)=0 </eq>，若取 <eq> x_n=\dfrac{1}{n} </eq>，则</p>
+<section><eqn> \left\|S_n-S\right\|\ge\left|S_n(x_n)-S(x_n)\right|=2n\mathrm{e}^{-1}\to\infty, </eqn></section><p>但 <eq> S_n(x) </eq> 在 <eq> (0,1) </eq> 内闭一致收敛于零。</p>
+<p><strong>例 7</strong>　若 <eq> \sum\limits_{n=1}^{\infty}a_n </eq> 绝对收敛，则 <eq> \sum\limits_{n=1}^{\infty}a_n\sin nx </eq> 和 <eq> \sum\limits_{n=1}^{\infty}a_n\cos nx </eq> 在 <eq> (-\infty,+\infty) </eq> 内都是绝对收敛和一致收敛的级数。</p>
+<p><strong>解</strong>　事实上，</p>
+<section><eqn> \left|a_n\sin nx\right|\le\left|a_n\right|,\qquad\left|a_n\cos nx\right|\le\left|a_n\right|, </eqn></section><p>由魏尔斯特拉斯判别法即可得证。</p>
+<p><strong>例 8</strong>　若 <eq> \sum\limits_{n=1}^{\infty}a_n </eq> 收敛，则 <eq> \sum\limits_{n=1}^{\infty}a_nx^n </eq> 在 <eq> [0,1] </eq> 上一致收敛。</p>
+<p><strong>解</strong>　事实上，<eq> b_n(x)=x^n </eq> 对每一固定的 <eq> x </eq>，<eq> x^n </eq> 单调，又对任意的 <eq> x </eq> 和 <eq> n </eq>，<eq> \left|b_n(x)\right|\le 1\ (0\le x\le 1) </eq>，应用阿贝尔判别法即得。</p>
+<p><strong>例 9</strong>　若 <eq> a_n </eq> 单调地趋于零，则 <eq> \sum\limits_{n=1}^{\infty}a_n\sin nx </eq> 在 <eq> [\delta,2\pi-\delta] </eq> 上一致收敛，这里 <eq> \delta </eq> 是小于 <eq> \pi </eq> 的任一正数。</p>
+<p><strong>解</strong>　事实上，当 <eq> x\in[\delta,2\pi-\delta] </eq> 时</p>
+<section><eqn> \left|\sum_{k=1}^{n}\sin kx\right|=\left|\frac{\cos\dfrac{1}{2}x-\cos\left(n+\dfrac{1}{2}\right)x}{2\sin\dfrac{1}{2}x}\right| </eqn></section><section><eqn> \le\frac{1}{\left|\sin\dfrac{1}{2}x\right|}\le\frac{1}{\sin\dfrac{1}{2}\delta}, </eqn></section><p>故满足定理 10 的条件。</p>
+<hr>
+<h2 id="§2-幂级数">§2 幂级数</h2>
+<h3 id="定义与定理-2">定义与定理</h3>
+<p><strong>一、收敛半径</strong></p>
+<p>形如</p>
+<section><eqn> \sum_{n=0}^{\infty}a_n(x-x_0)^n=a_0+a_1(x-x_0)+a_2(x-x_0)^2+\cdots </eqn></section><p>的函数项级数称为幂级数。它的部分和是多项式，它的一般项为 <eq> a_n(x-x_0)^n\ (n=0,1,2,\cdots) </eq>。它是一种比较简单的函数项级数，因而具有一些特殊的性质。</p>
+<p>根据柯西判别法，如果级数 <eq> \sum\limits_{n=1}^{\infty}u_n(x) </eq> 在某个 <eq> x </eq> 处有</p>
+<section><eqn> \varlimsup_{n\to\infty}\sqrt[n]{\left|u_n(x)\right|}&lt;1, </eqn></section><p>那么它在 <eq> x </eq> 处绝对收敛，而当 <eq> \varlimsup\limits_{n\to\infty}\sqrt[n]{\left|u_n(x)\right|}&gt;1 </eq> 时，它发散。对一般的函数项级数来说，解这个不等式不是很容易的，但对幂级数来说，却容易多了，它取决于</p>
+<section><eqn> \varlimsup_{n\to\infty}\sqrt[n]{\left|a_n(x-x_0)^n\right|}=|x-x_0|\varlimsup_{n\to\infty}\sqrt[n]{\left|a_n\right|} </eqn></section><p>小于 <eq> 1 </eq> 或大于 <eq> 1 </eq>。也就是，当 <eq> |x-x_0|&lt;\dfrac{1}{\varlimsup\limits_{n\to\infty}\sqrt[n]{\left|a_n\right|}} </eq> 时幂级数绝对收敛，而当 <eq> |x-x_0|&gt;\dfrac{1}{\varlimsup\limits_{n\to\infty}\sqrt[n]{\left|a_n\right|}} </eq> 时发散。又当 <eq> \varlimsup\limits_{n\to\infty}\sqrt[n]{\left|a_n\right|}=0 </eq> 时，幂级数在每点都绝对收敛。当 <eq> \varlimsup\limits_{n\to\infty}\sqrt[n]{\left|a_n\right|}=\infty </eq> 时，除点 <eq> x_0 </eq> 外，它在每点都发散。假若规定</p>
+<section><eqn> R=\begin{cases}\dfrac{1}{\varlimsup\limits_{n\to\infty}\sqrt[n]{\left|a_n\right|}}, &amp; 0&lt;\varlimsup\limits_{n\to\infty}\sqrt[n]{\left|a_n\right|}&lt;+\infty,\\[2mm] \infty, &amp; \varlimsup\limits_{n\to\infty}\sqrt[n]{\left|a_n\right|}=0,\\[2mm] 0, &amp; \varlimsup\limits_{n\to\infty}\sqrt[n]{\left|a_n\right|}=\infty,\end{cases} </eqn></section><p>那么可把上述结果归结为下面的定理。</p>
+<p><strong>定理 1（柯西-阿达马(Hadamard)定理）</strong>　幂级数</p>
+<section><eqn> \sum_{n=0}^{\infty}a_n(x-x_0)^n </eqn></section><p>在 <eq> |x-x_0|&lt;R </eq> 内绝对收敛，在 <eq> |x-x_0|&gt;R </eq> 内发散。</p>
+<p>由此可见，对任何一个幂级数，都存在一个以 <eq> x_0 </eq> 为中心，以 <eq> R </eq> 为半径的区间，在这个区间内幂级数绝对收敛，而在区间外，幂级数发散。在区间的端点 <eq> x=x_0-R </eq> 和 <eq> x=x_0+R </eq> 处，幂级数的敛散性尚需作进一步的判别。称此 <eq> R </eq> 是幂级数的收敛半径。</p>
+<p>由定理 1 即可得到下面的结论。</p>
+<p><strong>定理 2（阿贝尔第一定理）</strong>　若 <eq> \sum\limits_{n=0}^{\infty}a_n(x-x_0)^n </eq> 在点 <eq> x=\xi </eq> 收敛，那么它必在 <eq> |x-x_0|&lt;|\xi-x_0| </eq> 内绝对收敛，又若 <eq> \sum\limits_{n=0}^{\infty}a_n(x-x_0)^n </eq> 在 <eq> x=\xi </eq> 发散，则它必在 <eq> |x-x_0|&gt;|\xi-x_0| </eq> 也发散。</p>
+<p>事实上，在前一情况下，<eq> |\xi-x_0|\le R </eq>，而在后一情况下，<eq> |\xi-x_0|\ge R </eq>。这里加上等号是因为在区间 <eq> (x_0-R,x_0+R) </eq> 的端点，幂级数可能收敛也可能发散。</p>
+<p><strong>定理 3（阿贝尔第二定理）</strong>　若 <eq> \sum\limits_{n=0}^{\infty}a_n(x-x_0)^n </eq> 的收敛半径为 <eq> R </eq>，则此级数在 <eq> (x_0-R,x_0+R) </eq> 内的任一个闭区间 <eq> [a,b] </eq> 上一致收敛，也就是在 <eq> (x_0-R,x_0+R) </eq> 内闭一致收敛；又若级数在 <eq> x_0+R </eq> 点收敛，则它必在 <eq> [a,x_0+R] </eq> 一致收敛。同理，当级数在 <eq> x_0-R </eq> 收敛时可得类似结论。</p>
+<p><strong>证明</strong>　不妨就 <eq> \sum\limits_{n=0}^{\infty}a_nx^n </eq> 的情形来证明，这不过是把上面的 <eq> x-x_0 </eq> 作为这里的 <eq> x </eq>。</p>
+<p>设 <eq> \xi=\max\{|a|,|b|\} </eq>，由于在 <eq> [a,b] </eq> 上任一点 <eq> x </eq>，恒有</p>
+<section><eqn> \left|a_nx^n\right|\le\left|a_n\xi^n\right|, </eqn></section><p>而 <eq> \sum\limits_{n=0}^{\infty}a_n\xi^n </eq> 绝对收敛，按魏尔斯特拉斯判别法即得定理的第一部分。</p>
+<p>现若 <eq> \sum\limits_{n=0}^{\infty}a_nR^n </eq> 收敛，先证明级数在 <eq> [0,R] </eq> 上一致收敛。由</p>
+<section><eqn> \sum_{n=0}^{\infty}a_nx^n=\sum_{n=0}^{\infty}\frac{x^n}{R^n}a_nR^n </eqn></section><p>及 <eq> \dfrac{x^n}{R^n} </eq> 在 <eq> [0,R] </eq> 上一致有界，且对每一 <eq> x </eq>，<eq> \dfrac{x^n}{R^n} </eq> 单调，按函数项级数的阿贝尔判别法，<eq> \sum\limits_{n=0}^{\infty}a_nx^n </eq> 在 <eq> [0,R] </eq> 上一致收敛，因此若 <eq> a&gt;0 </eq>，级数在 <eq> [a,R] </eq> 上也一致收敛，再考虑 <eq> -R&lt;a&lt;0 </eq> 的情形，利用上面已证得的结果：<eq> \sum\limits_{n=0}^{\infty}a_nx^n </eq> 在 <eq> [a,0] </eq> 一致收敛，故级数在 <eq> [a,R] </eq> 上一致收敛。</p>
+<p><strong>三、函数的幂级数展开</strong></p>
+<p>幂级数不仅形式简单，而且有很多特殊的性质，这就使我们想到，能否把一个函数表示为幂级数来进行研究。首先，假若函数 <eq> f(x) </eq> 在某点 <eq> x_0 </eq> 及其某一邻域 <eq> (x_0-\delta,x_0+\delta) </eq> 内能表示为幂级数，也就是在 <eq> (x_0-\delta,x_0+\delta) </eq> 内恒有</p>
+<section><eqn> f(x)=a_0+a_1(x-x_0)+a_2(x-x_0)^2+\cdots, </eqn></section><p>那么，它在这个邻域内必有任意阶的导数，并且</p>
+<section><eqn> f^{(n)}(x)=n!a_n+\frac{(n+1)!}{1!}a_{n+1}(x-x_0)+\cdots\qquad(n=0,1,2,\cdots). </eqn></section><p>在此式两端令 <eq> x=x_0 </eq>，即得</p>
+<section><eqn> f(x_0)=a_0,\quad f&#x27;(x_0)=1!a_1,\quad f&#x27;&#x27;(x_0)=2!a_2,\cdots </eqn></section><p>这说明了函数 <eq> f(x) </eq> 在 <eq> x_0 </eq> 点的幂级数展开式的系数为</p>
+<section><eqn> a_0=f(x_0),\quad a_1=\frac{f&#x27;(x_0)}{1!},\quad a_2=\frac{f&#x27;&#x27;(x_0)}{2!},\cdots </eqn></section><p>这时</p>
+<section><eqn> f(x)=f(x_0)+f&#x27;(x_0)(x-x_0)+\frac{f&#x27;&#x27;(x_0)}{2!}(x-x_0)^2+\cdots+\frac{f^{(n)}(x_0)}{n!}(x-x_0)^n+\cdots. </eqn></section><p>要注意的是：在假定 <eq> f(x) </eq> 可以表示为幂级数的前提下，才获得上述结果的。现在要问：如果 <eq> f(x) </eq> 在 <eq> x_0 </eq> 点的某个邻域 <eq> (x_0-\delta,x_0+\delta) </eq> 内有任意阶的导数，是否成立</p>
+<section><eqn> f(x)=f(x_0)+f&#x27;(x_0)(x-x_0)+\frac{f&#x27;&#x27;(x_0)}{2!}(x-x_0)^2+\cdots+\frac{f^{(n)}(x_0)}{n!}(x-x_0)^n+\cdots? </eqn></section><p>回答是否定的。例如</p>
+<section><eqn> f(x)=\begin{cases}\mathrm{e}^{-\frac{1}{x^2}}, &amp; x\ne 0,\\ 0, &amp; x=0,\end{cases} </eqn></section><p>可以验证它在原点的任何一个邻域内有任意阶导数，并且对任何 <eq> n </eq>，<eq> f^{(n)}(0)=0 </eq>。将它代入上述表示式的右端</p>
+<section><eqn> f(0)+f&#x27;(0)x+\cdots+\frac{f^{(n)}(0)}{n!}x^n+\cdots </eqn></section><p>中得到系数全为零的幂级数，因而整个右端为零，但当 <eq> x\ne 0 </eq> 时，它显然不等于 <eq> f(x) </eq>。那么，在怎样的条件下，一个任意阶可导的函数能够表示为一个幂级数呢？</p>
+<p>设</p>
+<section><eqn> R_n(x)=f(x)-\left[f(x_0)+f&#x27;(x_0)(x-x_0)+\cdots+\frac{f^{(n)}(x_0)}{n!}(x-x_0)^n\right], </eqn></section><p>由级数收敛的概念知道，如果在某个区间 <eq> (x_0-R,x_0+R) </eq> 内 <eq> R_n(x)\to 0\ (n\to\infty) </eq>，那么</p>
+<section><eqn> f(x)=f(x_0)+f&#x27;(x_0)(x-x_0)+\cdots+\frac{f^{(n)}(x_0)}{n!}(x-x_0)^n+\cdots, </eqn></section><p>这就是函数 <eq> f(x) </eq> 的幂级数展开，上式右端的幂级数称为 <eq> f(x) </eq> 的泰勒级数。因此，一个函数在某个区间内是否可以展开成幂级数，关键在于考察余项 <eq> R_n(x) </eq> 在这一区间内是否趋于零。</p>
+<p>在本书上册（第六章 §2）中曾经给出了 <eq> R_n(x) </eq> 的拉格朗日形式</p>
+<section><eqn> R_n(x)=\frac{f^{(n+1)}(\xi)}{(n+1)!}(x-x_0)^{n+1}, </eqn></section><p>其中 <eq> \xi </eq> 是介于 <eq> x_0 </eq> 和 <eq> x </eq> 之间的一个数。</p>
+<p>在实际应用中，为了简单起见，往往取 <eq> x_0=0 </eq>，这时的泰勒级数</p>
+<section><eqn> f(0)+\frac{f&#x27;(0)}{1!}x+\frac{f&#x27;&#x27;(0)}{2!}x^2+\cdots </eqn></section><p>称为麦克劳林级数。</p>
+<p>1）<eq> \mathrm{e}^x </eq> 的展开式</p>
+<p>由于 <eq> \mathrm{e}^x </eq> 在 <eq> x=0 </eq> 的任意阶导数等于 <eq> 1 </eq>，因此</p>
+<section><eqn> \mathrm{e}^x=1+x+\frac{1}{2!}x^2+\cdots+\frac{1}{n!}x^n+R_n(x), </eqn></section><section><eqn> R_n(x)=\frac{\mathrm{e}^{\theta x}}{(n+1)!}x^{n+1}. </eqn></section><p>因为对任意固定的 <eq> x </eq>，<eq> \mathrm{e}^{\theta x} </eq> 在 <eq> 1 </eq> 与 <eq> \mathrm{e}^x </eq> 之间变动，从而 <eq> n\to\infty </eq> 时，<eq> \mathrm{e}^{\theta x} </eq> 保持有界。另一方面，当 <eq> n\to\infty </eq> 时，<eq> \dfrac{x^{n+1}}{(n+1)!}\to 0 </eq>，因此</p>
+<section><eqn> \lim_{n\to\infty}R_n(x)=\lim_{n\to\infty}\frac{\mathrm{e}^{\theta x}}{(n+1)!}x^{n+1}=0, </eqn></section><p>这就证明了</p>
+<section><eqn> \mathrm{e}^x=1+x+\frac{x^2}{2!}+\frac{x^3}{3!}+\cdots\qquad(-\infty&lt;x&lt;+\infty). </eqn></section><p>2）<eq> \sin x </eq> 和 <eq> \cos x </eq> 的展开式</p>
+<p>对于 <eq> f(x)=\sin x </eq>，显然有</p>
+<section><eqn> f^{(n)}(x)=\sin\left(\frac{n\pi}{2}+x\right), </eqn></section><p>因此</p>
+<section><eqn> f(0)=0,\quad f&#x27;(0)=1,\quad f&#x27;&#x27;(0)=0,\quad f&#x27;&#x27;&#x27;(0)=-1,\cdots, </eqn></section><section><eqn> f^{(2m)}(0)=0,\quad f^{(2m+1)}(0)=(-1)^m, </eqn></section><p>取 <eq> n=2k+2 </eq>，因为</p>
+<section><eqn> f^{(2k+2)}(0)=0,\quad f^{(2k+3)}(x)=\sin\left(\frac{2k+3}{2}\pi+x\right), </eqn></section><p>故</p>
+<section><eqn> \sin x=x-\frac{x^3}{3!}+\frac{x^5}{5!}-\frac{x^7}{7!}+\cdots+(-1)^k\frac{x^{2k+1}}{(2k+1)!}+R_{2k+2}(x) </eqn></section><section><eqn> R_{2k+2}(x)=\sin\left(\frac{2k+3}{2}\pi+\theta x\right)\frac{x^{2k+3}}{(2k+3)!}, </eqn></section><p>但对任一 <eq> x </eq>，由于正弦函数的有界性，得到</p>
+<section><eqn> \lim_{k\to\infty}R_{2k+2}(x)=\lim_{n\to\infty}\sin\left(\frac{2k+3}{2}\pi+\theta x\right)\frac{x^{2k+3}}{(2k+3)!}=0, </eqn></section><p>从而</p>
+<section><eqn> \sin x=x-\frac{x^3}{3!}+\frac{x^5}{5!}-\frac{x^7}{7!}+\cdots\qquad(-\infty&lt;x&lt;+\infty), </eqn></section><p>同理</p>
+<section><eqn> \cos x=1-\frac{x^2}{2!}+\frac{x^4}{4!}-\frac{x^6}{6!}+\cdots\qquad(-\infty&lt;x&lt;+\infty), </eqn></section><p>也可以将 <eq> \sin x </eq> 的展开式逐项微分，获得 <eq> \cos x </eq> 的展开式。</p>
+<p>3）<eq> \ln(1+x)=x-\dfrac{x^2}{2}+\dfrac{x^3}{3}-\dfrac{x^4}{4}+\cdots\quad(-1&lt;x\le 1) </eq>，</p>
+<p>这在例 5 中已经给出了这一展开式。</p>
+<p>4）<eq> \arctan x </eq> 的展开式</p>
+<p>由于</p>
+<section><eqn> \frac{1}{1+x^2}=1-x^2+x^4-x^6+\cdots\qquad(-1&lt;x&lt;1), </eqn></section><p>两边求积分即得</p>
+<section><eqn> \arctan x=x-\frac{x^3}{3}+\frac{x^5}{5}-\frac{x^7}{7}+\cdots\qquad(-1\le x\le 1), </eqn></section><p>上面加上了区间的端点，是由于右边的幂级数在 <eq> x=\pm 1 </eq> 时也是收敛的，再由阿贝尔第二定理和 <eq> \arctan x </eq> 的连续性即得。</p>
+<p>下面举两个例子说明幂级数在近似计算中的应用。</p>
+<h3 id="例题-2">例题</h3>
+<p><strong>例 1</strong>　判断 <eq> \sum\limits_{n=1}^{\infty}\dfrac{x^n}{n} </eq> 的敛散性。</p>
+<p><strong>解</strong>　由于 <eq> \lim\limits_{n\to\infty}n^{\frac{1}{n}}=1 </eq>，故</p>
+<section><eqn> R=\frac{1}{\varlimsup\limits_{n\to\infty}\sqrt[n]{\dfrac{1}{n}}}=\frac{1}{\lim\limits_{n\to\infty}\dfrac{1}{n^{\frac{1}{n}}}}=1, </eqn></section><p>于是级数在 <eq> |x|&lt;1 </eq> 内绝对收敛，在 <eq> |x|&gt;1 </eq> 内发散。在端点处，级数在一个端点 <eq> x=-1 </eq> 收敛，而在另一端点 <eq> x=1 </eq> 发散。</p>
+<p><strong>例 2</strong>　<eq> \sum\limits_{n=1}^{\infty}n^nx^n </eq> 在不等于零的点都发散。</p>
+<p><strong>解</strong>　事实上，</p>
+<section><eqn> R=\frac{1}{\varlimsup\limits_{n\to\infty}\sqrt[n]{n^n}}=\frac{1}{\lim\limits_{n\to\infty}n}=0. </eqn></section><p><strong>例 3</strong>　<eq> \sum\limits_{n=0}^{\infty}\dfrac{x^n}{n!} </eq> 在任何点绝对收敛。</p>
+<p><strong>解</strong>　对这种情况，用达朗贝尔判别法较好，因为对任一 <eq> x </eq>，有</p>
+<section><eqn> \lim_{n\to\infty}\left|\frac{u_{n+1}}{u_n}\right|=\lim_{n\to\infty}\frac{|x|}{n+1}=0, </eqn></section><p>所以 <eq> \sum\limits_{n=0}^{\infty}\dfrac{x^n}{n!} </eq> 在任何点绝对收敛。</p>
+<p>例 3 告诉我们这样一个事实：对幂级数 <eq> \sum\limits_{n=0}^{\infty}a_n(x-x_0)^n </eq>，如果 <eq> \lim\limits_{n\to\infty}\left|\dfrac{a_{n+1}}{a_n}\right| </eq> 存在，则此级数的收敛半径 <eq> R </eq> 是</p>
+<section><eqn> R=\frac{1}{\lim\limits_{n\to\infty}\left|\dfrac{a_{n+1}}{a_n}\right|}=\lim_{n\to\infty}\left|\frac{a_n}{a_{n+1}}\right|. </eqn></section><p>又若 <eq> \lim\limits_{n\to\infty}\left|\dfrac{a_{n+1}}{a_n}\right|=0 </eq>，则 <eq> R=+\infty </eq>，若 <eq> \lim\limits_{n\to\infty}\left|\dfrac{a_{n+1}}{a_n}\right|=\infty </eq>，则 <eq> R=0 </eq>。其证明与利用柯西判别法导出收敛半径相仿，只不过这里是利用达朗贝尔判别法。</p>
+<p><strong>例 4</strong>　<eq> \sum\limits_{n=0}^{\infty}\left(3+(-1)^n\right)^nx^n </eq> 在 <eq> \left(-\dfrac{1}{4},\dfrac{1}{4}\right) </eq> 绝对收敛，在其他点发散。</p>
+<p><strong>解</strong>　事实上，</p>
+<section><eqn> \varlimsup_{n\to\infty}\sqrt[n]{\left|a_n\right|}=\varlimsup_{n\to\infty}\left[3+(-1)^n\right]=4, </eqn></section><p>因此 <eq> R=\dfrac{1}{4} </eq>。又当 <eq> x=\pm\dfrac{1}{4} </eq> 时，级数的一般项不趋于零，因此在收敛区间的两个端点上，级数发散。</p>
+<p><strong>例 5</strong>　由于在 <eq> (-1,1) </eq> 内</p>
+<section><eqn> 1-x+x^2-x^3+\cdots=\frac{1}{1+x}, </eqn></section><p>故在此区间内逐项积分得</p>
+<section><eqn> x-\frac{x^2}{2}+\frac{x^3}{3}-\frac{x^4}{4}+\cdots=\ln(1+x). </eqn></section><p>又由于左边的级数在 <eq> x=1 </eq> 也是收敛的，因此它的和 <eq> S(x) </eq> 在这点左连续，故</p>
+<section><eqn> S(1)=1-\frac{1}{2}+\frac{1}{3}-\frac{1}{4}+\cdots </eqn></section><section><eqn> =\lim_{x\to 1-0}S(x)=\lim_{x\to 1-0}\ln(1+x)=\ln 2. </eqn></section><p><strong>例 6</strong>　求级数 <eq> \sum\limits_{n=1}^{\infty}\dfrac{2n-1}{2^n} </eq> 的和。</p>
+<p><strong>解</strong>　由于</p>
+<section><eqn> \sum_{n=1}^{\infty}\frac{2n-1}{2^n}=2\sum_{n=1}^{\infty}(n+1)\left(\frac{1}{2}\right)^n-3\sum_{n=1}^{\infty}\left(\frac{1}{2}\right)^n, </eqn></section><p>考虑幂级数</p>
+<section><eqn> 1+\sum_{n=1}^{\infty}x^n=\frac{1}{1-x} </eqn></section><p>的收敛半径为 <eq> 1 </eq>，在 <eq> (-1,1) </eq> 内逐项求导，得</p>
+<section><eqn> 1+\sum_{n=1}^{\infty}(n+1)x^n=\frac{1}{(1-x)^2}. </eqn></section><p>将 <eq> x=\dfrac{1}{2} </eq> 代入上面两个幂级数中，得</p>
+<section><eqn> \sum_{n=1}^{\infty}\left(\frac{1}{2}\right)^n=1,\qquad\sum_{n=1}^{\infty}(n+1)\left(\frac{1}{2}\right)^n=3, </eqn></section><p>所以</p>
+<section><eqn> \sum_{n=1}^{\infty}\frac{2n-1}{2^n}=3. </eqn></section><p><strong>例 7</strong>　求 <eq> \mathrm{e} </eq> 的近似值，精确到六位小数。</p>
+<p><strong>解</strong>　首先决定究竟取多少项才能达到所要的精确度。由于</p>
+<section><eqn> \mathrm{e}=1+1+\frac{1}{2!}+\frac{1}{3!}+\cdots, </eqn></section><p>故若一直取到 <eq> \dfrac{1}{n!} </eq>，则级数的余和</p>
+<section><eqn> r_n=\frac{1}{(n+1)!}+\frac{1}{(n+2)!}+\cdots </eqn></section><section><eqn> =\frac{1}{(n+1)!}\left[1+\frac{1}{(n+2)}+\frac{1}{(n+2)(n+3)}+\cdots\right] </eqn></section><section><eqn> &lt;\frac{1}{(n+1)!}\left[1+\frac{1}{n+1}+\frac{1}{(n+1)^2}+\cdots\right]=\frac{1}{n\cdot n!}, </eqn></section><p>经过计算知道，只要取 <eq> n=9 </eq>，并取七位小数进行计算，可得</p>
+<section><eqn> \mathrm{e}\approx 2.718281. </eqn></section><p><strong>例 8</strong>　计算 <eq> I=\int_0^1\mathrm{e}^{-x^2}\,\mathrm{d}x </eq>，精确到 <eq> 0.0001 </eq>。</p>
+<p><strong>解</strong>　在 <eq> \mathrm{e}^t </eq> 的展开式</p>
+<section><eqn> \mathrm{e}^t=1+\frac{t}{1!}+\frac{t^2}{2!}+\frac{t^3}{3!}+\cdots </eqn></section><p>中，令 <eq> t=-x^2 </eq>，得 <eq> \mathrm{e}^{-x^2} </eq> 的展开式</p>
+<section><eqn> \mathrm{e}^{-x^2}=1-\frac{x^2}{1!}+\frac{x^4}{2!}-\frac{x^6}{3!}+\cdots, </eqn></section><p>从 <eq> 0 </eq> 到 <eq> 1 </eq> 积分，得到</p>
+<section><eqn> I=1-\frac{1}{3}+\frac{1}{10}-\frac{1}{42}+\frac{1}{216}-\frac{1}{1320}+\frac{1}{9360}-\frac{1}{75600}+\cdots, </eqn></section><p>这是交错级数，它的余和的绝对值小于余和第一项的绝对值，现由于 <eq> \dfrac{1}{75600}&lt;1.5\times 10^{-5} </eq>，故取前七项即可，经计算可得</p>
+<section><eqn> I\approx 0.7468. </eqn></section>]]></content>
       <categories>
-        <category>Life</category>
+        <category>Mathematics</category>
+        <category>数学分析</category>
       </categories>
-      <tags>
-        <tag>Musings</tag>
-      </tags>
   </entry>
   <entry>
     <title>数分笔记 · 第九章 数项级数</title>
@@ -546,8 +517,32 @@
       </tags>
   </entry>
   <entry>
-    <title>数分笔记 · 第十一章 函数项级数与幂级数</title>
-    <url>/2026/11/01/analysis-11-series-of-functions/</url>
+    <title>龙利鱼和甲鱼粥</title>
+    <url>/2026/10/03/basa-and-turtle-congee/</url>
+    <content><![CDATA[<p>二食堂的孜然龙利鱼感觉是深圳蛇口甲鱼粥的下位替代。龙利鱼是配上小米粥，甲鱼粥是配上炸豆腐，都是一个炸的配上粥蘸着吃，且都有味道，不过一个主要在炸的东西上，一个主要在粥上。龙利鱼配小米粥刚开始几口特别好吃，吃饱了后就感觉腻了，而炸豆腐配甲鱼粥就算肚子饱了，嘴巴还是想吃，所以龙利鱼是甲鱼粥的下位替代。但这龙利鱼可能不是真的龙利鱼，毕竟半盘也就不到10块。</p>
+]]></content>
+      <categories>
+        <category>Life</category>
+      </categories>
+      <tags>
+        <tag>Musings</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>全聚德</title>
+    <url>/2026/10/06/quanjude/</url>
+    <content><![CDATA[<p>结果还是去吃了，全聚德家的双人【东北超】套餐，160多，避雷了，配的菜全是容易腻的，有个炸茄子，有个老式锅包肉，有个乾隆白菜，乾隆白菜里有芥末真的呛，吃到后面锅包肉都下不了嘴，太腻了，烤鸭也很慢，说是现烤，吃起来也配不上现烤的，端上来盘子也没有加热的，吃了一会就有点凉了，更腻了，最猎奇的是鸭皮蘸白糖，太难吃了。以前没吃过全聚德，不知道是不是其他店也是这样还是就这家这样，感觉还没成都家旁边开的烤鸭店好吃</p>
+]]></content>
+      <categories>
+        <category>Life</category>
+      </categories>
+      <tags>
+        <tag>Musings</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数分笔记 · 第十章 反常积分</title>
+    <url>/2026/11/01/analysis-10-improper-integrals/</url>
     <content><![CDATA[<style>
 /* 数分笔记的排版微调：只在本页生效（样式内嵌在正文里，其他文章不受影响） */
 #article-container h2 {
@@ -570,188 +565,317 @@
   margin: 2.8em 0;
 }
 </style>
-<h2 id="§1-函数项级数的一致收敛">§1 函数项级数的一致收敛</h2>
+<h2 id="§1-无穷限的反常积分">§1 无穷限的反常积分</h2>
 <h3 id="定义与定理">定义与定理</h3>
-<p><strong>一、函数项级数的概念</strong></p>
-<p>设 <eq> u_n(x)\ (n=1,2,3,\cdots) </eq> 是定义在实数集 <eq> X </eq> 上的函数，称</p>
-<section><eqn> \sum_{n=1}^{\infty}u_n(x)=u_1(x)+u_2(x)+\cdots+u_n(x)+\cdots </eqn></section><p>是函数项级数，并称</p>
-<section><eqn> S_n(x)=\sum_{k=1}^{n}u_k(x) </eqn></section><p>是这一级数的 <eq> n </eq> 次部分和。</p>
-<p>如果对 <eq> X </eq> 中的一点 <eq> x_0 </eq>，数项级数</p>
-<section><eqn> \sum_{n=1}^{\infty}u_n(x_0)=u_1(x_0)+u_2(x_0)+\cdots+u_n(x_0)+\cdots </eqn></section><p>收敛，就说函数项级数在 <eq> x_0 </eq> 点收敛，否则就说它在 <eq> x_0 </eq> 点发散。如果对 <eq> X </eq> 中任何一点 <eq> x </eq>，级数 <eq> \sum\limits_{n=1}^{\infty}u_n(x) </eq> 收敛，就说函数项级数 <eq> \sum\limits_{n=1}^{\infty}u_n(x) </eq> 在 <eq> X </eq> 上收敛（即在每一点都收敛）。这时，对每一点 <eq> x\in X </eq>，级数 <eq> \sum\limits_{n=1}^{\infty}u_n(x) </eq> 有和，记此和为 <eq> S(x) </eq>，即</p>
-<section><eqn> \sum_{n=1}^{\infty}u_n(x)=S(x), </eqn></section><p>可见，<eq> S(x) </eq> 是 <eq> X </eq> 上的函数。例如级数</p>
-<section><eqn> \sum_{n=0}^{\infty}x^n=1+x+x^2+\cdots </eqn></section><p>在 <eq> X=(-1,1) </eq> 内收敛，其和为 <eq> \dfrac{1}{1-x} </eq>。这就表明，函数项级数在某点 <eq> x </eq> 的收敛问题实质上是数项级数的收敛问题。因此，就可以应用已经学过的数项级数的有关知识来考察函数项级数的收敛问题。</p>
-<p>与数项级数一样，给定了函数项级数 <eq> \sum\limits_{n=1}^{\infty}u_n(x)\ (x\in X) </eq>，可以得到一个部分和序列 <eq> \{S_n(x)\} </eq>，它是一个定义在 <eq> X </eq> 上的函数序列。反过来，给定一个定义在 <eq> X </eq> 上的函数序列 <eq> \{f_n(x)\} </eq>，总可以作出一个函数项级数 <eq> \sum\limits_{n=1}^{\infty}u_n(x)\ (x\in X) </eq>，使得这一级数的部分和序列正好就是 <eq> \{f_n(x)\} </eq>。这样一来，就可以把对函数项级数的研究化为对函数序列的研究，这样做有时会方便些。</p>
-<p><strong>二、一致收敛的定义</strong></p>
-<p>先说明为什么要引进一致收敛的概念。我们知道，有限个连续函数的和仍为连续函数，有限个可导函数之和仍为可导函数，并且其和的导数等于每一个函数的导数之和。对于积分也有类似的性质。然而，现在遇到的不是有限个函数之和，而是函数项级数 <eq> \sum\limits_{n=1}^{\infty}u_n(x) </eq>。如果每一项 <eq> u_n(x) </eq> 在 <eq> X </eq> 上连续，并且级数在 <eq> X </eq> 上收敛，其和为 <eq> S(x) </eq>，现在要问：<eq> S(x) </eq> 是否也在 <eq> X </eq> 上连续？再如果每一项 <eq> u_n(x) </eq> 在 <eq> X </eq> 上可导，继续要问：<eq> S(x) </eq> 是否也在 <eq> X </eq> 上可导？以及如果 <eq> S(x) </eq> 可导，等式</p>
-<section><eqn> u_1&#x27;(x)+u_2&#x27;(x)+\cdots+u_n&#x27;(x)+\cdots=S&#x27;(x) </eqn></section><p>是否成立？又如果每一项 <eq> u_n(x) </eq> 在 <eq> X </eq> 内的一个区间 <eq> [a,b] </eq> 上可积，要问 <eq> S(x) </eq> 是否也在 <eq> [a,b] </eq> 上可积？是否等式</p>
-<section><eqn> \int_a^b u_1(x)\,\mathrm{d}x+\int_a^b u_2(x)\,\mathrm{d}x+\cdots+\int_a^b u_n(x)\,\mathrm{d}x+\cdots=\int_a^b S(x)\,\mathrm{d}x </eqn></section><p>仍旧成立？</p>
-<p>答案是：都不一定。</p>
-<p>这就提出了一个问题：设级数 <eq> \sum\limits_{n=1}^{\infty}u_n(x) </eq> 在 <eq> X </eq> 上收敛于 <eq> S(x) </eq>，又设级数的每一项 <eq> u_n(x) </eq> 在 <eq> X </eq> 上连续。我们要问：在什么条件下才可以保证其和 <eq> S(x) </eq> 也在 <eq> X </eq> 上连续？对于求导和求积，也有类似的问题。要回答这些问题，必须引进一个非常重要的概念——一致收敛。</p>
-<p>函数列 <eq> \{S_n(x)\} </eq>（可以把它看作函数项级数 <eq> \sum\limits_{n=1}^{\infty}u_n(x) </eq> 的部分和序列）在 <eq> X </eq> 上收敛于 <eq> S(x) </eq>，就是在 <eq> X </eq> 上每一点 <eq> x_0 </eq> 收敛于 <eq> S(x_0) </eq>。按数列极限的定义，也就是，对任给的 <eq> \varepsilon&gt;0 </eq>，在每一点 <eq> x_0 </eq> 都能找到正整数 <eq> N </eq>，使当 <eq> n&gt;N </eq> 时，恒有</p>
-<section><eqn> \left|S_n(x_0)-S(x_0)\right|&lt;\varepsilon </eqn></section><p>（对函数项级数，此式还可写为 <eq> \left|r_n(x_0)\right|=\left|\sum\limits_{k=n+1}^{\infty}u_k(x_0)\right|&lt;\varepsilon </eq>）。</p>
-<p>一般来说，这种 <eq> N </eq> 不仅依赖于 <eq> \varepsilon </eq>，并且也依赖于 <eq> x_0 </eq>，记它为 <eq> N(\varepsilon,x_0) </eq>。一致收敛要求能找到只依赖于 <eq> \varepsilon </eq> 而不依赖于 <eq> x_0 </eq> 的 <eq> N(\varepsilon) </eq>，也就是对 <eq> X </eq> 上每点都适用的公共的 <eq> N(\varepsilon) </eq>，于是可给出下面的定义。</p>
-<p><strong>定义 1</strong>　设有函数列 <eq> \{S_n(x)\} </eq>（或函数项级数 <eq> \sum\limits_{n=1}^{\infty}u_n(x) </eq> 的部分和序列）。若对任给的 <eq> \varepsilon&gt;0 </eq>，存在只依赖于 <eq> \varepsilon </eq> 的正整数 <eq> N(\varepsilon) </eq>，使 <eq> n&gt;N(\varepsilon) </eq> 时，不等式</p>
-<section><eqn> \left|S_n(x)-S(x)\right|&lt;\varepsilon </eqn></section><p>（对函数项级数，此式也可写为 <eq> \left|r_n(x)\right|=\left|\sum\limits_{k=n+1}^{\infty}u_k(x)\right|&lt;\varepsilon </eq>）对 <eq> X </eq> 上一切 <eq> x </eq> 都成立，则称 <eq> \{S_n(x)\}\ \left(\sum\limits_{n=1}^{\infty}u_n(x)\right) </eq> 在 <eq> X </eq> 上一致收敛于 <eq> S(x) </eq>。</p>
-<p>一致收敛的定义还可以用下面的方式来表述。</p>
-<p><strong>定义 2</strong>　设 <eq> \left\|S_n-S\right\|=\sup\limits_{x\in X}\left|S_n(x)-S(x)\right| </eq>，如果</p>
-<section><eqn> \lim_{n\to\infty}\left\|S_n-S\right\|=0, </eqn></section><p>就称 <eq> S_n(x) </eq> 在 <eq> X </eq> 上一致收敛于 <eq> S(x) </eq>。</p>
-<p>这两个定义的等价性请读者证明。</p>
-<p><strong>三、一致收敛级数的性质</strong></p>
-<p>有了一致收敛的概念，就可以回答上一段中所提出的问题。</p>
-<p><strong>定理 5（和的连续性）</strong>　若在 <eq> [a,b] </eq> 上级数 <eq> \sum\limits_{n=1}^{\infty}u_n(x) </eq> 的每项 <eq> u_n(x) </eq> 都连续，并且 <eq> \sum\limits_{n=1}^{\infty}u_n(x) </eq> 一致收敛于 <eq> S(x) </eq>，则 <eq> S(x) </eq> 也在 <eq> [a,b] </eq> 上连续。</p>
-<p><strong>定理 6（逐项求积）</strong>　设 <eq> \sum\limits_{n=1}^{\infty}u_n(x) </eq> 在 <eq> [a,b] </eq> 上一致收敛于 <eq> S(x) </eq>，并且每一 <eq> u_n(x) </eq> 都在 <eq> [a,b] </eq> 上连续，则</p>
-<section><eqn> \sum_{n=1}^{\infty}\int_a^b u_n(x)\,\mathrm{d}x=\int_a^b S(x)\,\mathrm{d}x=\int_a^b \sum_{n=1}^{\infty}u_n(x)\,\mathrm{d}x, </eqn></section><p>亦即和号可以与积分号交换。又在 <eq> [a,b] </eq> 上，函数项级数 <eq> \sum\limits_{n=1}^{\infty}\int_a^x u_n(t)\,\mathrm{d}t </eq> 也一致收敛于 <eq> \int_a^x S(t)\,\mathrm{d}t </eq>。</p>
-<p><strong>定理 7（逐项求导）</strong>　若在 <eq> [a,b] </eq> 上，<eq> \sum\limits_{n=1}^{\infty}u_n(x) </eq> 的每一项都具有连续导数 <eq> u_n&#x27;(x) </eq>，并且 <eq> \sum\limits_{n=1}^{\infty}u_n&#x27;(x) </eq> 一致收敛于 <eq> \sigma(x) </eq>，又 <eq> \sum\limits_{n=1}^{\infty}u_n(x) </eq> 收敛于 <eq> S(x) </eq>，则 <eq> S&#x27;(x)=\sigma(x) </eq>，亦即</p>
-<section><eqn> \frac{\mathrm{d}}{\mathrm{d}x}\sum_{n=1}^{\infty}u_n(x)=\sum_{n=1}^{\infty}\frac{\mathrm{d}}{\mathrm{d}x}u_n(x) </eqn></section><p>且 <eq> \sum\limits_{n=1}^{\infty}u_n(x) </eq> 一致收敛于 <eq> S(x) </eq>。</p>
-<p>这定理说明了和号与求导运算可以交换，但要注意的是，仅仅在条件「<eq> \sum\limits_{n=1}^{\infty}u_n(x) </eq> 一致收敛」之下，即使 <eq> u&#x27;(x) </eq> 存在且连续，也不能保证和号与求导数号可以交换（参见本节习题 13）。</p>
-<p><strong>四、一致收敛级数的判别法</strong></p>
-<p>如何判别一个级数是不是一致收敛呢？这里引进一个最常用的重要判别法：魏尔斯特拉斯判别法。</p>
-<p><strong>定理 8（魏尔斯特拉斯判别法）</strong>　若对充分大的 <eq> n </eq>，存在实数 <eq> a_n </eq>，使得</p>
-<section><eqn> \left|u_n(x)\right|\le a_n </eqn></section><p>对 <eq> X </eq> 上任意的 <eq> x </eq> 都成立，并且数项级数 <eq> \sum\limits_{n=1}^{\infty}a_n </eq> 收敛，则 <eq> \sum\limits_{n=1}^{\infty}u_n(x) </eq> 在 <eq> X </eq> 上一致收敛。</p>
-<p><strong>证明</strong>　由 <eq> \sum\limits_{n=1}^{\infty}a_n </eq> 的收敛性，对任给的 <eq> \varepsilon&gt;0 </eq>，可得 <eq> N(\varepsilon) </eq>，使 <eq> n&gt;N(\varepsilon) </eq> 时</p>
-<section><eqn> a_{n+1}+a_{n+2}+\cdots+a_{n+p}&lt;\varepsilon\qquad(p=1,2,\cdots), </eqn></section><p>对 <eq> X </eq> 上一切的 <eq> x </eq> 有</p>
-<section><eqn> \left|u_{n+1}(x)+\cdots+u_{n+p}(x)\right|\le\left|u_{n+1}(x)\right|+\cdots+\left|u_{n+p}(x)\right| </eqn></section><section><eqn> \le a_{n+1}+\cdots+a_{n+p}&lt;\varepsilon, </eqn></section><p>由一致收敛的柯西充要条件即得定理的结论。</p>
-<p>由定理的证明还可以看到满足定理条件的级数 <eq> \sum\limits_{n=1}^{\infty}u_n(x) </eq> 在 <eq> X </eq> 上是绝对收敛的，亦即函数项级数 <eq> \sum\limits_{n=1}^{\infty}\left|u_n(x)\right| </eq> 是收敛的。</p>
-<p><strong>定理 9（阿贝尔判别法）</strong>　若在 <eq> X </eq> 上 <eq> \sum\limits_{n=1}^{\infty}b_n(x) </eq> 一致收敛，又对 <eq> X </eq> 中每一固定的 <eq> x </eq>，数列 <eq> a_n(x) </eq> 单调。而对任意的 <eq> n </eq> 和 <eq> X </eq> 中每个 <eq> x </eq>，有 <eq> \left|a_n(x)\right|\le L </eq>（<eq> L </eq> 不依赖于 <eq> x </eq> 和 <eq> n </eq> 的定数），那么 <eq> \sum\limits_{n=1}^{\infty}a_n(x)b_n(x) </eq> 在 <eq> X </eq> 上一致收敛。</p>
-<p>这个定理与数项级数的阿贝尔定理相似，其证明也大体相同，只要利用阿贝尔引理即可。事实上，由 <eq> \sum\limits_{n=1}^{\infty}b_n(x) </eq> 的一致收敛性，对任意给定的 <eq> \varepsilon&gt;0 </eq>，可得 <eq> N(\varepsilon) </eq>，使 <eq> n&gt;N(\varepsilon) </eq> 时恒有</p>
-<section><eqn> \left|b_{n+1}(x)+\cdots+b_{n+p}(x)\right|&lt;\varepsilon\qquad(p=1,2,\cdots), </eqn></section><p>固定 <eq> x </eq>，由上式及 <eq> a_n(x) </eq> 的单调性，利用阿贝尔引理得到</p>
-<section><eqn> \left|a_{n+1}(x)b_{n+1}(x)+\cdots+a_{n+p}(x)b_{n+p}(x)\right| </eqn></section><section><eqn> &lt;\varepsilon\left(\left|a_{n+1}(x)\right|+2\left|a_{n+p}(x)\right|\right) </eqn></section><section><eqn> \le 3L\varepsilon\qquad\left(n&gt;N(\varepsilon);\ p=1,2,\cdots\right). </eqn></section><p>再从一致收敛的柯西充要条件即得。</p>
-<p>在定理中，条件「对任意的 <eq> n </eq> 和 <eq> X </eq> 中的每一个 <eq> x </eq>，<eq> \left|a_n(x)\right|\le L </eq>」称为函数列 <eq> \{a_n(x)\} </eq> 在 <eq> X </eq> 上一致有界，需要注意的是：由函数列的每一项 <eq> a_n(x) </eq> 在 <eq> X </eq> 上有界不能推出 <eq> \{a_n(x)\} </eq> 在 <eq> X </eq> 上一致有界，事实上，<eq> \left|a_n(x)\right| </eq> 在 <eq> X </eq> 上的上确界 <eq> M_n </eq> 是随 <eq> n </eq> 而变的，可能 <eq> \{M_n\} </eq> 是一个无界的数列，例如</p>
-<section><eqn> a_n(x)=nx </eqn></section><p>在任意的有限区间 <eq> [a,b] </eq> 上有界，但 <eq> \{a_n(x)\} </eq> 非一致有界。</p>
-<p><strong>定理 10（狄利克雷判别法）</strong>　设 <eq> \sum\limits_{n=1}^{\infty}b_n(x) </eq> 的部分和</p>
-<section><eqn> B_n(x)=\sum_{i=1}^{n}b_i(x) </eqn></section><p>在 <eq> X </eq> 上一致有界，又对 <eq> X </eq> 内每一 <eq> x </eq>，数列 <eq> a_n(x) </eq> 单调，并且函数列 <eq> \{a_n(x)\} </eq> 在 <eq> X </eq> 上一致收敛于零，则 <eq> \sum\limits_{n=1}^{\infty}a_n(x)b_n(x) </eq> 在 <eq> X </eq> 上一致收敛。</p>
-<p><strong>证明</strong>　设 <eq> \left|\sum\limits_{i=1}^{n}b_i(x)\right|\le L </eq>（不依赖于 <eq> n </eq> 和 <eq> x </eq> 的定数），那么对 <eq> X </eq> 上任意的 <eq> x </eq> 和任意的正整数 <eq> p </eq> 恒有</p>
-<section><eqn> \left|\sum_{i=n+1}^{n+p}b_i(x)\right|\le\left|\sum_{i=1}^{n+p}b_i(x)\right|+\left|\sum_{i=1}^{n}b_i(x)\right|\le 2L. </eqn></section><p>因此，利用阿贝尔引理</p>
-<section><eqn> \left|\sum_{i=n+1}^{n+p}a_i(x)b_i(x)\right|\le 2L\left(\left|a_{n+1}(x)\right|+2\left|a_{n+p}(x)\right|\right), </eqn></section><p>再由 <eq> a_n(x) </eq> 一致收敛于零即得。</p>
-<p>在历史上曾经有一段时间，人们认为连续函数可能除个别点外都是可导的，甚至一些大数学家也这样认为。可是后来，魏尔斯特拉斯首先利用函数项级数构造出一个和函数，它在 <eq> (-\infty,+\infty) </eq> 连续，但在任何点都不可导。</p>
+<p><strong>定义</strong>　设函数 <eq> f(x) </eq> 在 <eq> [a,+\infty) </eq> 有定义，并且对于任意的 <eq> A\ (A&gt;a) </eq> 在区间 <eq> [a,A] </eq> 上可积。当极限</p>
+<section><eqn> \lim_{A\to+\infty}\int_a^A f(x)\,\mathrm{d}x </eqn></section><p>存在时，称这极限值为 <eq> f(x) </eq> 在区间 <eq> [a,+\infty) </eq> 上（或是从 <eq> a </eq> 到 <eq> +\infty </eq>）的反常积分的积分值，记作</p>
+<section><eqn> \int_a^{+\infty}f(x)\,\mathrm{d}x=\lim_{A\to+\infty}\int_a^A f(x)\,\mathrm{d}x, </eqn></section><p>这时也称积分 <eq> \int_a^{+\infty}f(x)\,\mathrm{d}x </eq> 是收敛的，它的值就是上述极限值。有时又称函数 <eq> f(x) </eq> 在 <eq> [a,+\infty) </eq> 可积。如果上述的极限不存在，称积分 <eq> \int_a^{+\infty}f(x)\,\mathrm{d}x </eq> 是发散的。</p>
+<p>类似地可定义反常积分 <eq> \int_{-\infty}^b f(x)\,\mathrm{d}x </eq> 的收敛和发散。</p>
+<p>对反常积分 <eq> \int_{-\infty}^{+\infty}f(x)\,\mathrm{d}x </eq>，当 <eq> \int_a^{+\infty}f(x)\,\mathrm{d}x </eq> 和 <eq> \int_{-\infty}^a f(x)\,\mathrm{d}x </eq> 都收敛时（<eq> a </eq> 是一个任意固定的数），就说 <eq> \int_{-\infty}^{+\infty}f(x)\,\mathrm{d}x </eq> 收敛，并且有</p>
+<section><eqn> \int_{-\infty}^{+\infty}f(x)\,\mathrm{d}x=\int_{-\infty}^a f(x)\,\mathrm{d}x+\int_a^{+\infty}f(x)\,\mathrm{d}x, </eqn></section><p>这时，显然有</p>
+<section><eqn> \int_{-\infty}^{+\infty}f(x)\,\mathrm{d}x=\lim_{\substack{A\to+\infty\\ A&#x27;\to-\infty}}\int_{A&#x27;}^{A}f(x)\,\mathrm{d}x. </eqn></section><p>必须注意的是：这里 <eq> A\to+\infty </eq> 和 <eq> A&#x27;\to-\infty </eq> 两者之间是独立变化的。如果上式右边的极限不存在，就称 <eq> \int_{-\infty}^{+\infty}f(x)\,\mathrm{d}x </eq> 发散。</p>
+<p>由定义不难知道，如果 <eq> f(x) </eq> 在 <eq> [a,+\infty) </eq> 连续，<eq> F(x) </eq> 是 <eq> f(x) </eq> 的原函数，并且 <eq> F(+\infty)=\lim\limits_{A\to+\infty}F(A) </eq> 存在，那么</p>
+<section><eqn> \int_a^{+\infty}f(x)\,\mathrm{d}x=F(+\infty)-F(a). </eqn></section><p>对 <eq> \int_{-\infty}^a f(x)\,\mathrm{d}x </eq> 和 <eq> \int_{-\infty}^{+\infty}f(x)\,\mathrm{d}x </eq> 也有相仿的结论。</p>
+<p>由于 <eq> \int_a^{+\infty}f(x)\,\mathrm{d}x </eq> 的收敛问题就是函数 <eq> I(A)=\int_a^A f(x)\,\mathrm{d}x </eq> 当 <eq> A\to+\infty </eq> 的收敛问题，所以根据函数极限存在的充要条件就可以得到反常积分收敛的充要条件如下：</p>
+<p><strong>柯西收敛原理</strong>　<eq> \int_a^{+\infty}f(x)\,\mathrm{d}x </eq> 收敛的充要条件是：对任意给定的 <eq> \varepsilon&gt;0 </eq>，存在 <eq> A&gt;0 </eq>，当 <eq> A&#x27;,A&#x27;&#x27;&gt;A </eq> 时，总有</p>
+<section><eqn> \left|\int_{A&#x27;}^{A&#x27;&#x27;}f(x)\,\mathrm{d}x\right|&lt;\varepsilon. </eqn></section><p><strong>定义</strong>　和无穷级数相仿，在反常积分中也有绝对收敛和条件收敛的概念：设对任何 <eq> A&gt;a </eq>，<eq> f(x) </eq> 在 <eq> [a,A] </eq> 上可积，并且 <eq> \int_a^{+\infty}|f(x)|\,\mathrm{d}x </eq> 收敛，就称 <eq> \int_a^{+\infty}f(x)\,\mathrm{d}x </eq> 绝对收敛。收敛但不绝对收敛的反常积分称为条件收敛。</p>
+<p><strong>比较判别法</strong>　如果对充分大的 <eq> x </eq>（亦即存在 <eq> x_0 </eq>，当 <eq> x\ge x_0 </eq> 时）有 <eq> |f(x)|\le\varphi(x) </eq>，而积分 <eq> \int_a^{+\infty}\varphi(x)\,\mathrm{d}x </eq> 收敛，那么积分 <eq> \int_a^{+\infty}f(x)\,\mathrm{d}x </eq> 绝对收敛；又如果对充分大的 <eq> x </eq> 有 <eq> |f(x)|\ge\varphi(x)\ge 0 </eq>，而积分 <eq> \int_a^{+\infty}\varphi(x)\,\mathrm{d}x </eq> 发散，那么积分 <eq> \int_a^{+\infty}|f(x)|\,\mathrm{d}x </eq> 发散。</p>
+<p>这个判别法可直接从收敛性定义推出，同时它有下面的极限形式。</p>
+<p><strong>比较判别法的极限形式</strong>　如果</p>
+<section><eqn> \lim_{x\to+\infty}\frac{|f(x)|}{\varphi(x)}=l,\qquad 0\le l&lt;+\infty, </eqn></section><p>且 <eq> \int_a^{+\infty}\varphi(x)\,\mathrm{d}x </eq> 收敛，那么积分 <eq> \int_a^{+\infty}f(x)\,\mathrm{d}x </eq> 绝对收敛。</p>
+<p>如果</p>
+<section><eqn> \lim_{x\to+\infty}\frac{|f(x)|}{\varphi(x)}=l,\qquad 0&lt;l\le+\infty, </eqn></section><p>且 <eq> \int_a^{+\infty}\varphi(x)\,\mathrm{d}x </eq> 发散，那么积分 <eq> \int_a^{+\infty}|f(x)|\,\mathrm{d}x </eq> 发散。</p>
+<p><strong>证明</strong>　如果 <eq> \lim\limits_{x\to+\infty}\dfrac{|f(x)|}{\varphi(x)}=l\ne 0 </eq>，那么对于 <eq> \varepsilon </eq>（使 <eq> l-\varepsilon&gt;0 </eq>），存在 <eq> x_0 </eq>，当 <eq> x\ge x_0 </eq> 时</p>
+<section><eqn> 0&lt;l-\varepsilon&lt;\frac{|f(x)|}{\varphi(x)}&lt;l+\varepsilon, </eqn></section><p>即</p>
+<section><eqn> (l-\varepsilon)\varphi(x)&lt;|f(x)|&lt;(l+\varepsilon)\varphi(x) </eqn></section><p>成立，显然 <eq> \int_a^{+\infty}\varphi(x)\,\mathrm{d}x </eq> 与 <eq> \int_a^{+\infty}|f(x)|\,\mathrm{d}x </eq> 同时收敛或发散。</p>
+<p>在 <eq> l=0 </eq>，<eq> l=\infty </eq> 时可以类似地证明。</p>
+<p>在上面的比较判别法中，取 <eq> \varphi(x)=\dfrac{c}{x^p}\ (c&gt;0) </eq>，就得到柯西判别法：</p>
+<p><strong>柯西判别法</strong>　如果 <eq> |f(x)|\le\dfrac{c}{x^p} </eq>，<eq> p&gt;1 </eq>，那么 <eq> \int_a^{+\infty}f(x)\,\mathrm{d}x </eq> 绝对收敛。</p>
+<p>如果 <eq> |f(x)|\ge\dfrac{c}{x^p} </eq>，<eq> p\le 1 </eq>，那么积分 <eq> \int_a^{+\infty}|f(x)|\,\mathrm{d}x </eq> 发散。</p>
+<p><strong>柯西判别法的极限形式</strong>　如果</p>
+<section><eqn> \lim_{x\to+\infty}\frac{|f(x)|}{\dfrac{1}{x^p}}=\lim_{x\to+\infty}x^p|f(x)|=l\qquad(0\le l&lt;+\infty,\ p&gt;1), </eqn></section><p>那么积分 <eq> \int_a^{+\infty}f(x)\,\mathrm{d}x </eq> 绝对收敛。</p>
+<p>如果 <eq> \lim\limits_{x\to+\infty}x^p|f(x)|=l </eq>，而 <eq> 0&lt;l\le+\infty </eq>，<eq> p\le 1 </eq>，那么 <eq> \int_a^{+\infty}|f(x)|\,\mathrm{d}x </eq> 发散。</p>
+<p><strong>第二中值定理</strong>　设 <eq> f(x) </eq> 在 <eq> [a,b] </eq> 上可积，而 <eq> g(x) </eq> 在 <eq> [a,b] </eq> 上单调，那么在 <eq> [a,b] </eq> 上存在 <eq> \xi </eq>，使</p>
+<section><eqn> \int_a^b f(x)g(x)\,\mathrm{d}x=g(a)\int_a^\xi f(x)\,\mathrm{d}x+g(b)\int_\xi^b f(x)\,\mathrm{d}x. \tag{1} </eqn></section><p>特别，如果 <eq> g(x) </eq> 单调增加并且 <eq> g(a)\ge 0 </eq>，那么有 <eq> \xi </eq>，使</p>
+<section><eqn> \int_a^b f(x)g(x)\,\mathrm{d}x=g(b)\int_\xi^b f(x)\,\mathrm{d}x; \tag{2} </eqn></section><p>如果 <eq> g(x) </eq> 单调减少并且 <eq> g(b)\ge 0 </eq>，那么有 <eq> \xi </eq>，使</p>
+<section><eqn> \int_a^b f(x)g(x)\,\mathrm{d}x=g(a)\int_a^\xi f(x)\,\mathrm{d}x. \tag{3} </eqn></section><p><strong>证明</strong>　由假定，<eq> f(x),g(x) </eq> 在区间 <eq> [a,b] </eq> 上都是可积的，因而 <eq> f(x)g(x) </eq> 可积。我们先在 <eq> g(x) </eq> 非负、单调增加的假定下证明（2），然后再推出一般情形的公式（1）。</p>
+<p>在 <eq> [a,b] </eq> 上取一列分点 <eq> a=x_0&lt;x_1&lt;\cdots&lt;x_{i-1}&lt;x_i&lt;\cdots&lt;x_n=b </eq>，记 <eq> \Delta x_i=x_i-x_{i-1} </eq>，<eq> \omega_i </eq> 是 <eq> g(x) </eq> 在 <eq> [x_{i-1},x_i] </eq> 上的振幅，即 <eq> \omega_i=g(x_i)-g(x_{i-1}) </eq>，把所讨论的积分作如下改变：</p>
+<section><eqn> \begin{aligned}
+\int_a^b f(x)g(x)\,\mathrm{d}x&amp;=\sum_{i=1}^{n}\int_{x_{i-1}}^{x_i}f(x)g(x)\,\mathrm{d}x\\
+&amp;=\sum_{i=1}^{n}g(x_i)\int_{x_{i-1}}^{x_i}f(x)\,\mathrm{d}x+\sum_{i=1}^{n}\int_{x_{i-1}}^{x_i}f(x)\left[g(x)-g(x_i)\right]\mathrm{d}x,
+\end{aligned} </eqn></section><p>记上式右端的和为 <eq> \sigma+\rho </eq>，因为 <eq> f(x) </eq> 在 <eq> [a,b] </eq> 上有界：<eq> |f(x)|\le L </eq>。估计</p>
+<section><eqn> \begin{aligned}
+|\rho|&amp;=\left|\sum_{i=1}^{n}\int_{x_{i-1}}^{x_i}f(x)\left[g(x)-g(x_i)\right]\mathrm{d}x\right|\\
+&amp;\le\sum_{i=1}^{n}\int_{x_{i-1}}^{x_i}|f(x)|\,|g(x)-g(x_i)|\,\mathrm{d}x\\
+&amp;\le L\sum_{i=1}^{n}\int_{x_{i-1}}^{x_i}\omega_i\,\mathrm{d}x=L\sum_{i=1}^{n}\omega_i\Delta x_i,
+\end{aligned} </eqn></section><p>由于 <eq> g(x) </eq> 可积，所以当 <eq> \lambda=\max\Delta x_i\to 0 </eq> 时，<eq> \sum\limits_{i=1}^{n}\omega_i\Delta x_i\to 0 </eq>；因此，<eq> \lim\limits_{\lambda\to 0}\rho=0 </eq>，从而</p>
+<section><eqn> \int_a^b f(x)g(x)\,\mathrm{d}x=\lim_{\lambda\to 0}\sigma=\lim_{\lambda\to 0}\sum_{i=1}^{n}g(x_i)\int_{x_{i-1}}^{x_i}f(x)\,\mathrm{d}x. </eqn></section><p>记 <eq> F(x)=\int_x^b f(x)\,\mathrm{d}x </eq>，那么 <eq> F(x) </eq> 是 <eq> [a,b] </eq> 上的连续函数，有最大值 <eq> M </eq> 和最小值 <eq> m </eq>，<eq> m\le F(x)\le M </eq>，显然有</p>
+<section><eqn> \int_{x_{i-1}}^{x_i}f(x)\,\mathrm{d}x=F(x_{i-1})-F(x_i),\qquad F(x_n)=F(b)=0, </eqn></section><p>从而</p>
+<section><eqn> \begin{aligned}
+\sigma&amp;=\sum_{i=1}^{n}g(x_i)\left[F(x_{i-1})-F(x_i)\right]\\
+&amp;=\sum_{i=1}^{n}g(x_i)F(x_{i-1})-\sum_{i=1}^{n}g(x_i)F(x_i)\\
+&amp;=g(x_1)F(x_0)+\sum_{i=2}^{n}g(x_i)F(x_{i-1})-\sum_{i=1}^{n-1}g(x_i)F(x_i)\\
+&amp;=g(x_1)F(x_0)+\sum_{i=1}^{n-1}\left[g(x_{i+1})-g(x_i)\right]F(x_i).
+\end{aligned} </eqn></section><p>因为 <eq> g(x_1)\ge g(x_0)=g(a)\ge 0 </eq>，<eq> g(x_{i+1})-g(x_i)\ge 0 </eq>，所以</p>
+<section><eqn> \begin{aligned}
+&amp;m\left\{g(x_1)+\sum_{i=1}^{n-1}\left(g(x_{i+1})-g(x_i)\right)\right\}\\
+&amp;\qquad\le\sigma\le M\left\{g(x_1)+\sum_{i=1}^{n-1}\left(g(x_{i+1})-g(x_i)\right)\right\},
+\end{aligned} </eqn></section><section><eqn> mg(b)\le\sigma\le Mg(b), </eqn></section><p>因此 <eq> \lim\limits_{\lambda\to 0}\sigma=\mu g(b) </eq>，而 <eq> \mu </eq> 在 <eq> m,M </eq> 之间。因为 <eq> F(x) </eq> 连续，在 <eq> [a,b] </eq> 内必存在 <eq> \xi </eq>，使 <eq> \mu=F(\xi)=\int_\xi^b f(x)\,\mathrm{d}x </eq>，从而公式（2）</p>
+<section><eqn> \int_a^b f(x)g(x)\,\mathrm{d}x=g(b)\int_\xi^b f(x)\,\mathrm{d}x </eqn></section><p>得到证明。对 <eq> g(x) </eq> 单调减少且 <eq> g(b)\ge 0 </eq> 情形的公式（3）的证明是相仿的。</p>
+<p>在 <eq> g(x) </eq> 是一般的单调增加情形，作 <eq> \psi(x)=g(x)-g(a) </eq>，<eq> \psi(x) </eq> 为单调增加且 <eq> \psi(a)\ge 0 </eq>，公式（2）对 <eq> \psi(x) </eq> 成立，即有 <eq> \xi </eq>，使</p>
+<section><eqn> \int_a^b f(x)\left[g(x)-g(a)\right]\mathrm{d}x=\left[g(b)-g(a)\right]\int_\xi^b f(x)\,\mathrm{d}x </eqn></section><p>成立，这就是公式（1）</p>
+<section><eqn> \int_a^b f(x)g(x)\,\mathrm{d}x=g(a)\int_a^\xi f(x)\,\mathrm{d}x+g(b)\int_\xi^b f(x)\,\mathrm{d}x, </eqn></section><p>当 <eq> g(x) </eq> 是一般的单调减少情形，这时应用公式（3），同样可得公式（1）。</p>
+<p><strong>阿贝尔判别法</strong>　如果 <eq> f(x) </eq> 在 <eq> [a,+\infty) </eq> 上可积，<eq> g(x) </eq> 单调有界，那么积分 <eq> \int_a^{+\infty}f(x)g(x)\,\mathrm{d}x </eq> 收敛。</p>
+<p><strong>证明</strong>　依假定，可以利用第二中值定理，在任何 <eq> [A,A&#x27;] </eq> 上，存在 <eq> \xi </eq>，使</p>
+<section><eqn> \int_A^{A&#x27;}f(x)g(x)\,\mathrm{d}x=g(A)\int_A^\xi f(x)\,\mathrm{d}x+g(A&#x27;)\int_\xi^{A&#x27;}f(x)\,\mathrm{d}x, </eqn></section><p>因为 <eq> \int_a^{+\infty}f(x)\,\mathrm{d}x </eq> 收敛，所以对于任何 <eq> \varepsilon&gt;0 </eq>，存在 <eq> A_0\ge a </eq>，使得当 <eq> A&#x27;,A\ge A_0 </eq> 时，成立</p>
+<section><eqn> \left|\int_A^\xi f(x)\,\mathrm{d}x\right|&lt;\varepsilon,\qquad\left|\int_\xi^{A&#x27;}f(x)\,\mathrm{d}x\right|&lt;\varepsilon, </eqn></section><p>又 <eq> g(x) </eq> 有界，设 <eq> |g(x)|&lt;L </eq>，所以当 <eq> A&#x27;,A\ge A_0 </eq> 时，有</p>
+<section><eqn> \begin{aligned}
+\left|\int_A^{A&#x27;}f(x)g(x)\,\mathrm{d}x\right|&amp;\le|g(A)|\left|\int_A^\xi f(x)\,\mathrm{d}x\right|+|g(A&#x27;)|\left|\int_\xi^{A&#x27;}f(x)\,\mathrm{d}x\right|\\
+&amp;\le 2L\varepsilon,
+\end{aligned} </eqn></section><p>根据柯西收敛原理推知积分 <eq> \int_a^{+\infty}f(x)g(x)\,\mathrm{d}x </eq> 收敛。</p>
+<p><strong>狄利克雷判别法</strong>　如果对任何 <eq> A&gt;a </eq>，<eq> F(A)=\int_a^A f(x)\,\mathrm{d}x </eq> 有界：<eq> \left|\int_a^A f(x)\,\mathrm{d}x\right|\le K </eq>，<eq> g(x) </eq> 单调且当 <eq> x\to+\infty </eq> 时趋向于零，那么积分 <eq> \int_a^{+\infty}f(x)g(x)\,\mathrm{d}x </eq> 收敛。</p>
+<p><strong>证明</strong>　因为 <eq> g(x)\to 0\ (x\to+\infty) </eq>，故对任何 <eq> \varepsilon&gt;0 </eq>，有 <eq> A_0 </eq>，当 <eq> A&#x27;&gt;A\ge A_0 </eq> 时，<eq> |g(A)|&lt;\varepsilon </eq>，<eq> |g(A&#x27;)|&lt;\varepsilon </eq>。又因 <eq> \left|\int_a^A f(x)\,\mathrm{d}x\right|\le K </eq>，所以</p>
+<section><eqn> \left|\int_A^\xi f(x)\,\mathrm{d}x\right|=\left|\int_a^\xi f(x)\,\mathrm{d}x-\int_a^A f(x)\,\mathrm{d}x\right|\le 2K, </eqn></section><p>同样有</p>
+<section><eqn> \left|\int_\xi^{A&#x27;}f(x)\,\mathrm{d}x\right|\le 2K, </eqn></section><p>利用第二中值定理，得到只要 <eq> A&#x27;,A\ge A_0 </eq>，就有</p>
+<section><eqn> \begin{aligned}
+\left|\int_A^{A&#x27;}f(x)g(x)\,\mathrm{d}x\right|&amp;\le|g(A)|\left|\int_A^\xi f(x)\,\mathrm{d}x\right|+|g(A&#x27;)|\left|\int_\xi^{A&#x27;}f(x)\,\mathrm{d}x\right|\\
+&amp;\le 4K\varepsilon,
+\end{aligned} </eqn></section><p>所以积分 <eq> \int_a^{+\infty}f(x)g(x)\,\mathrm{d}x </eq> 收敛。</p>
 <h3 id="例题">例题</h3>
-<p><strong>例 1</strong>　<eq> \sum\limits_{n=1}^{\infty}u_n(x)=x+(x^2-x)+(x^3-x^2)+\cdots </eq>，它的每一项在 <eq> 0\le x\le 1 </eq> 上都连续，其 <eq> n </eq> 次部分和为 <eq> S_n(x)=x^n </eq>。很明显有</p>
-<section><eqn> \lim_{n\to\infty}S_n(x)=S(x)=\begin{cases}0, &amp; 0\le x&lt;1,\\ 1, &amp; x=1,\end{cases} </eqn></section><p>级数的和 <eq> S(x) </eq> 在 <eq> x=1 </eq> 不连续，因此，它不是 <eq> [0,1] </eq> 上的连续函数。这个例子还进一步表明，上述级数的每一项都在 <eq> [0,1] </eq> 上可导，但它的和函数 <eq> S(x) </eq> 在 <eq> x=1 </eq> 不可导。</p>
-<p><strong>例 2</strong>　考察函数序列 <eq> \{S_n(x)\} </eq>，其中 <eq> S_n(x)=2n^2x\mathrm{e}^{-n^2x^2} </eq>。对任何 <eq> x </eq></p>
-<section><eqn> \lim_{n\to\infty}S_n(x)=S(x)=0, </eqn></section><p>故</p>
-<section><eqn> \int_0^1 S(x)\,\mathrm{d}x=0. </eqn></section><p>但</p>
-<section><eqn> \int_0^1 S_n(x)\,\mathrm{d}x=1-\mathrm{e}^{-n^2}\to 1\qquad(n\to\infty), </eqn></section><p>这表明：在本例中，虽然</p>
-<section><eqn> \lim_{n\to\infty}S_n(x)=S(x), </eqn></section><p>但</p>
-<section><eqn> \lim_{n\to\infty}\int_0^1 S_n(x)\,\mathrm{d}x\ne\int_0^1 S(x)\,\mathrm{d}x. </eqn></section><p><strong>例 3</strong>　<eq> S_n(x)=\dfrac{x}{1+n^2x^2} </eq> 在 <eq> X=(-\infty,+\infty) </eq> 一致收敛。</p>
-<p><strong>解</strong>　显然 <eq> S(x)=0 </eq>，现在来看能否找到定义 1 中的 <eq> N(\varepsilon) </eq>，由于</p>
-<section><eqn> \left|S_n(x)-S(x)\right|=\frac{|x|}{1+n^2x^2}=\frac{1}{2n}\cdot\frac{2n|x|}{1+n^2x^2}\le\frac{1}{2n}, </eqn></section><p>因此对任意 <eq> \varepsilon&gt;0 </eq>，只要取 <eq> N(\varepsilon)=\left[\dfrac{1}{2\varepsilon}\right] </eq> 便证明了结论。</p>
-<p>这个函数列的图形为图 11-1，由图可知，只要 <eq> N </eq> 相当大时，从第 <eq> N </eq> 项以后，在 <eq> (-\infty,+\infty) </eq> 内每一条曲线 <eq> y=S_n(x) </eq> 整个位于曲线 <eq> y=S(x)+\varepsilon </eq> 和 <eq> y=S(x)-\varepsilon </eq> 之间，这也是一般的一致收敛函数列或一致收敛级数的几何解释（如图 11-2）。</p>
-<p>也可以用定义 2 来考察例 3 中函数列的一致收敛性。</p>
-<section><eqn> \left\|S_n-S\right\|=\sup_{x\in(-\infty,+\infty)}\left|S_n(x)-S(x)\right|=\sup_{x\in(-\infty,+\infty)}\left|\frac{x}{1+n^2x^2}\right|, </eqn></section><p>利用求极值的方法可以求得 <eq> \left|S_n(x)\right| </eq> 的最大值是 <eq> \dfrac{1}{2n} </eq>，于是有</p>
-<section><eqn> \left\|S_n-S\right\|=\frac{1}{2n}\to 0\qquad(n\to\infty), </eqn></section><p>故</p>
-<section><eqn> S_n(x)=\frac{x}{1+n^2x^2} </eqn></section><p>在 <eq> (-\infty,+\infty) </eq> 内一致收敛于零。</p>
-<p><strong>例 4</strong>　讨论</p>
-<section><eqn> S_n(x)=\frac{nx}{1+n^2x^2} </eqn></section><p>在 <eq> X=[0,1] </eq> 的一致收敛性。</p>
-<p><strong>解</strong>　由于 <eq> S(x)=0 </eq>，故</p>
-<section><eqn> \left\|S_n-S\right\|=\max_{0\le x\le 1}\left|S_n(x)\right|=\left|S_n\left(\frac{1}{n}\right)\right|=\frac{1}{2}, </eqn></section><p>不收敛于零，故在 <eq> [0,1] </eq> 上非一致收敛（如图 11-3）。</p>
-<p><strong>例 5</strong>　以例 1 的函数列</p>
-<section><eqn> S_n(x)=x^n,\quad X=[0,1] </eqn></section><p>为例，因为</p>
-<section><eqn> \left|S_n(x)-S(x)\right|=\begin{cases}x^n, &amp; 0\le x&lt;1,\\ 0, &amp; x=1,\end{cases} </eqn></section><p>故 <eq> \sup\limits_x\left|S_n(x)-S(x)\right|=1 </eq>，亦即 <eq> \left\|S_n-S\right\|=1 </eq>，因此 <eq> \{x^n\} </eq> 在 <eq> [0,1] </eq> 上不一致收敛。</p>
-<p>还可看到 <eq> S_n(x)=x^n </eq> 在 <eq> (0,1) </eq> 也不是一致收敛的，但它在任意一个区间 <eq> [0,c] </eq>（<eq> c </eq> 是小于 <eq> 1 </eq> 的任一正数）却是一致收敛的，这是因为</p>
-<section><eqn> \sup_{0\le x\le c}\left|S_n(x)-S(x)\right|=\sup_{0\le x\le c}x^n=c^n\to 0\qquad(\text{当 } n\to\infty \text{ 时}). </eqn></section><p>同理可知 <eq> S_n(x)=\dfrac{nx}{1+n^2x^2} </eq> 在任一区间 <eq> [c,1] </eq>（<eq> c </eq> 为小于 <eq> 1 </eq> 的任一正数）一致收敛，但在 <eq> (0,1) </eq> 非一致收敛。这说明了一致收敛性与所讨论的区间有关，当 <eq> S_n(x) </eq> 在某一区间一致收敛时，它当然在含于这区间内的任一区间一致收敛。另一方面，这两个例子也说明了 <eq> \{S_n(x)\} </eq> 虽然在 <eq> (a,b) </eq> 内的任一闭区间上一致收敛，但 <eq> S_n(x) </eq> 在区间 <eq> (a,b) </eq> 却不一定一致收敛。当 <eq> S_n(x) </eq> 在 <eq> (a,b) </eq> 内任一闭区间上一致收敛时，称 <eq> S_n(x) </eq> 在区间 <eq> (a,b) </eq> 内闭一致收敛。因此在 <eq> (a,b) </eq> 一致收敛一定内闭一致收敛，但反之不然。但从 <eq> S_n(x) </eq> 在 <eq> (a,b) </eq> 内闭收敛，却可得到它在区间 <eq> (a,b) </eq> 也收敛，这是因为对 <eq> (a,b) </eq> 上每一点，总可取 <eq> (a,b) </eq> 内的一个闭区间包含这个点，于是从 <eq> S_n(x) </eq> 在这闭区间上的收敛性就得到它在这个点收敛。这正是由于一致收敛是整体性质而收敛是局部性质的缘故。</p>
-<p><strong>例 6</strong>　<eq> S_n(x)=2n^2x\mathrm{e}^{-n^2x^2} </eq> 在 <eq> (0,1) </eq> 非一致收敛。</p>
-<p><strong>解</strong>　事实上，<eq> S_n(x)\to S(x)=0 </eq>，若取 <eq> x_n=\dfrac{1}{n} </eq>，则</p>
-<section><eqn> \left\|S_n-S\right\|\ge\left|S_n(x_n)-S(x_n)\right|=2n\mathrm{e}^{-1}\to\infty, </eqn></section><p>但 <eq> S_n(x) </eq> 在 <eq> (0,1) </eq> 内闭一致收敛于零。</p>
-<p><strong>例 7</strong>　若 <eq> \sum\limits_{n=1}^{\infty}a_n </eq> 绝对收敛，则 <eq> \sum\limits_{n=1}^{\infty}a_n\sin nx </eq> 和 <eq> \sum\limits_{n=1}^{\infty}a_n\cos nx </eq> 在 <eq> (-\infty,+\infty) </eq> 内都是绝对收敛和一致收敛的级数。</p>
-<p><strong>解</strong>　事实上，</p>
-<section><eqn> \left|a_n\sin nx\right|\le\left|a_n\right|,\qquad\left|a_n\cos nx\right|\le\left|a_n\right|, </eqn></section><p>由魏尔斯特拉斯判别法即可得证。</p>
-<p><strong>例 8</strong>　若 <eq> \sum\limits_{n=1}^{\infty}a_n </eq> 收敛，则 <eq> \sum\limits_{n=1}^{\infty}a_nx^n </eq> 在 <eq> [0,1] </eq> 上一致收敛。</p>
-<p><strong>解</strong>　事实上，<eq> b_n(x)=x^n </eq> 对每一固定的 <eq> x </eq>，<eq> x^n </eq> 单调，又对任意的 <eq> x </eq> 和 <eq> n </eq>，<eq> \left|b_n(x)\right|\le 1\ (0\le x\le 1) </eq>，应用阿贝尔判别法即得。</p>
-<p><strong>例 9</strong>　若 <eq> a_n </eq> 单调地趋于零，则 <eq> \sum\limits_{n=1}^{\infty}a_n\sin nx </eq> 在 <eq> [\delta,2\pi-\delta] </eq> 上一致收敛，这里 <eq> \delta </eq> 是小于 <eq> \pi </eq> 的任一正数。</p>
-<p><strong>解</strong>　事实上，当 <eq> x\in[\delta,2\pi-\delta] </eq> 时</p>
-<section><eqn> \left|\sum_{k=1}^{n}\sin kx\right|=\left|\frac{\cos\dfrac{1}{2}x-\cos\left(n+\dfrac{1}{2}\right)x}{2\sin\dfrac{1}{2}x}\right| </eqn></section><section><eqn> \le\frac{1}{\left|\sin\dfrac{1}{2}x\right|}\le\frac{1}{\sin\dfrac{1}{2}\delta}, </eqn></section><p>故满足定理 10 的条件。</p>
+<p><strong>例 1</strong>　讨论积分 <eq> \int_0^{+\infty}\dfrac{\mathrm{d}x}{1+x^2} </eq>，<eq> \int_{-\infty}^0\dfrac{\mathrm{d}x}{1+x^2} </eq>，<eq> \int_{-\infty}^{+\infty}\dfrac{\mathrm{d}x}{1+x^2} </eq> 的收敛性。</p>
+<p><strong>解</strong></p>
+<section><eqn> \int_0^A\frac{\mathrm{d}x}{1+x^2}=\arctan x\Big|_0^A=\arctan A-\arctan 0=\arctan A\to\frac{\pi}{2}\qquad(A\to+\infty), </eqn></section><p>所以积分 <eq> \int_0^{+\infty}\dfrac{\mathrm{d}x}{1+x^2} </eq> 收敛，数值等于 <eq> \dfrac{\pi}{2} </eq>。</p>
+<p>同样</p>
+<section><eqn> \int_{-\infty}^0\frac{\mathrm{d}x}{1+x^2}=\lim_{A&#x27;\to-\infty}(\arctan 0-\arctan A&#x27;)=-\left(-\frac{\pi}{2}\right)=\frac{\pi}{2}, </eqn></section><p>因此</p>
+<section><eqn> \int_{-\infty}^{+\infty}\frac{\mathrm{d}x}{1+x^2}=\int_{-\infty}^0\frac{\mathrm{d}x}{1+x^2}+\int_0^{+\infty}\frac{\mathrm{d}x}{1+x^2}=\frac{\pi}{2}+\frac{\pi}{2}=\pi. </eqn></section><p><strong>例 2</strong>　讨论 <eq> \int_a^{+\infty}\dfrac{\mathrm{d}x}{x^p}\ (a&gt;0) </eq> 的收敛情形，这里 <eq> p </eq> 是实数。</p>
+<p><strong>解</strong>　设 <eq> p\ne 1 </eq>，</p>
+<section><eqn> \int_a^A\frac{\mathrm{d}x}{x^p}=\frac{1}{1-p}x^{1-p}\Big|_a^A=\frac{1}{1-p}\left(A^{1-p}-a^{1-p}\right)=I_p(A), </eqn></section><p>可见</p>
+<section><eqn> \lim_{A\to+\infty}I_p(A)=\begin{cases}+\infty, &amp; p&lt;1,\\[2mm] \dfrac{1}{1-p}a^{1-p}, &amp; p&gt;1.\end{cases} </eqn></section><p>当 <eq> p=1 </eq> 时，<eq> \int_a^A\dfrac{\mathrm{d}x}{x}=\ln A-\ln a\to+\infty\ (A\to+\infty) </eq>，</p>
+<p>所以积分 <eq> \int_a^{+\infty}\dfrac{\mathrm{d}x}{x^p} </eq> 当 <eq> p&gt;1 </eq> 时收敛，并且有</p>
+<section><eqn> \int_a^{+\infty}\frac{\mathrm{d}x}{x^p}=\frac{1}{p-1}a^{1-p}, </eqn></section><p>当 <eq> p\le 1 </eq> 时积分发散。</p>
+<p><strong>例 3</strong>　<eq> \int_{-\infty}^{+\infty}\sin x\,\mathrm{d}x </eq> 是发散的积分。这是因为对任何 <eq> A </eq> 和 <eq> A&#x27; </eq>，</p>
+<section><eqn> \int_{A&#x27;}^A\sin x\,\mathrm{d}x=-\cos A+\cos A&#x27;, </eqn></section><p>当 <eq> A </eq> 与 <eq> A&#x27; </eq> 独立，并且 <eq> A\to+\infty </eq>，<eq> A&#x27;\to-\infty </eq> 时，上述极限显然不存在。</p>
+<p>但如果取 <eq> A&#x27;=-A </eq>，这时有</p>
+<section><eqn> \int_{-A}^A\sin x\,\mathrm{d}x=0, </eqn></section><p>从而又有</p>
+<section><eqn> \lim_{A\to+\infty}\int_{-A}^A\sin x\,\mathrm{d}x=0, </eqn></section><p>却不能断言 <eq> \int_{-\infty}^{+\infty}\sin x\,\mathrm{d}x </eq> 收敛。这是因为 <eq> A\to+\infty </eq> 和 <eq> A&#x27;\to-\infty </eq> 不是独立的。</p>
+<p><strong>例 4</strong>　判定 <eq> \int_1^{+\infty}\dfrac{\sin x}{x\sqrt{1+x^2}}\,\mathrm{d}x </eq> 的收敛性。</p>
+<p><strong>解</strong>　因为</p>
+<section><eqn> \left|\frac{\sin x}{x\sqrt{1+x^2}}\right|\le\frac{1}{x^{\frac{3}{2}}}, </eqn></section><p>所以积分绝对收敛。</p>
+<p><strong>例 5</strong>　对于任何 <eq> \alpha </eq>，<eq> \int_1^{+\infty}x^{\alpha}\mathrm{e}^{-x}\,\mathrm{d}x </eq> 收敛。</p>
+<p>因为对于任何固定的 <eq> \alpha </eq>，<eq> \lim\limits_{x\to+\infty}x^2\left(x^{\alpha}\mathrm{e}^{-x}\right)=0 </eq>，由柯西判别法的极限形式知积分收敛。</p>
+<p><strong>例 6</strong>　讨论积分 <eq> \int_2^{+\infty}\dfrac{\mathrm{d}x}{x^{\lambda}\ln x} </eq> 的收敛性。</p>
+<p><strong>解</strong>　当 <eq> \lambda&gt;1 </eq> 时，有 <eq> \dfrac{1}{x^{\lambda}\ln x}&lt;\dfrac{1}{x^{\lambda}} </eq>（其中 <eq> x&gt;\mathrm{e} </eq>），而 <eq> \int_2^{+\infty}\dfrac{\mathrm{d}x}{x^{\lambda}} </eq> 收敛，所以 <eq> \int_2^{+\infty}\dfrac{\mathrm{d}x}{x^{\lambda}\ln x} </eq> 收敛。</p>
+<p>当 <eq> \lambda&lt;1 </eq> 时，存在 <eq> \beta </eq> 满足 <eq> \lambda&lt;\beta&lt;1 </eq>，由 <eq> \lim\limits_{x\to+\infty}x^{\beta}\cdot\dfrac{1}{x^{\lambda}\ln x}=+\infty </eq>，得出 <eq> \int_2^{+\infty}\dfrac{\mathrm{d}x}{x^{\lambda}\ln x} </eq> 发散。</p>
+<p>当 <eq> \lambda=1 </eq> 时，<eq> \int_2^{+\infty}\dfrac{\mathrm{d}x}{x\ln x}=\ln\ln x\Big|_2^{+\infty}=+\infty </eq>，所以积分发散。综合起来，<eq> \int_2^{+\infty}\dfrac{\mathrm{d}x}{x^{\lambda}\ln x} </eq> 当 <eq> \lambda&gt;1 </eq> 时收敛，当 <eq> \lambda\le 1 </eq> 时发散。</p>
+<p><strong>例 7</strong>　积分 <eq> \int_1^{+\infty}\dfrac{\sin x}{x}\,\mathrm{d}x </eq> 收敛，而不绝对收敛。</p>
+<p>因为 <eq> \left|\int_1^A\sin x\,\mathrm{d}x\right|=|\cos A-\cos 1|\le 2 </eq>，又由 <eq> \dfrac{1}{x} </eq> 单调而且当 <eq> x\to+\infty </eq> 时趋于零，由狄利克雷判别法知 <eq> \int_1^{+\infty}\dfrac{\sin x}{x}\,\mathrm{d}x </eq> 收敛。但</p>
+<section><eqn> \left|\frac{\sin x}{x}\right|\ge\frac{\sin^2 x}{x}=\frac{1}{2x}-\frac{\cos 2x}{2x}, </eqn></section><p>考虑 <eq> \int_1^{+\infty}\dfrac{\cos 2x}{2x}\,\mathrm{d}x </eq>，因为 <eq> \left|\int_1^A\cos 2x\,\mathrm{d}x\right|=\dfrac{1}{2}|\sin 2A-\sin 2|\le 1 </eq> 以及 <eq> \dfrac{1}{2x}\to 0 </eq>（<eq> x\to+\infty </eq> 时，单调地趋于 <eq> 0 </eq>），应用狄利克雷判别法得 <eq> \int_1^{+\infty}\dfrac{\cos 2x}{2x}\,\mathrm{d}x </eq> 收敛，然而 <eq> \int_1^{+\infty}\dfrac{\mathrm{d}x}{2x} </eq> 发散，所以 <eq> \int_1^{+\infty}\dfrac{|\sin x|}{x}\,\mathrm{d}x </eq> 发散。</p>
+<p>作为习题，请读者证明 <eq> \int_1^{+\infty}\dfrac{\sin x}{x^{\lambda}}\,\mathrm{d}x </eq> 和 <eq> \int_1^{+\infty}\dfrac{\cos x}{x^{\lambda}}\,\mathrm{d}x </eq> 当 <eq> 0&lt;\lambda&lt;1 </eq> 时收敛，但非绝对收敛。</p>
+<p><strong>例 8</strong>　积分 <eq> \int_1^{+\infty}\dfrac{\sin x\cdot\arctan x}{x^{\lambda}}\,\mathrm{d}x\ (0&lt;\lambda\le 1) </eq> 收敛。</p>
+<p>因为 <eq> \int_1^{+\infty}\dfrac{\sin x}{x^{\lambda}}\,\mathrm{d}x </eq> 收敛，又 <eq> \arctan x </eq> 在 <eq> [1,+\infty) </eq> 上单调有界，由阿贝尔判别法知道所讨论的积分是收敛的。</p>
+<p><strong>例 9</strong>　积分 <eq> \int_0^{+\infty}\sin(x^2)\,\mathrm{d}x </eq> 和 <eq> \int_0^{+\infty}\cos(x^2)\,\mathrm{d}x </eq> 都收敛。</p>
+<p>考虑第一个积分。作代换 <eq> t=x^2 </eq>，</p>
+<section><eqn> \int_0^{+\infty}\sin(x^2)\,\mathrm{d}x=\frac{1}{2}\int_0^{+\infty}\frac{\sin t}{\sqrt{t}}\,\mathrm{d}t, </eqn></section><p>对任何 <eq> A&gt;0 </eq>，<eq> \left|\int_0^A\sin t\,\mathrm{d}t\right|\le 2 </eq>，并且 <eq> \dfrac{1}{\sqrt{t}} </eq> 在 <eq> [0,+\infty) </eq> 内单调，<eq> \dfrac{1}{\sqrt{t}}\to 0\ (t\to+\infty) </eq>，由狄利克雷判别法，得 <eq> \int_0^{+\infty}\dfrac{\sin t}{\sqrt{t}}\,\mathrm{d}t </eq> 收敛，所以 <eq> \int_0^{+\infty}\sin(x^2)\,\mathrm{d}x </eq> 也收敛。</p>
+<p>同样可以得到 <eq> \int_0^{+\infty}\cos(x^2)\,\mathrm{d}x </eq> 收敛。</p>
+<p>这个例子还表明一个事实：若 <eq> \int_0^{+\infty}f(x)\,\mathrm{d}x </eq> 收敛，但未必有 <eq> \lim\limits_{x\to+\infty}f(x)=0 </eq>。</p>
 <hr>
-<h2 id="§2-幂级数">§2 幂级数</h2>
+<h2 id="§2-无界函数的反常积分">§2 无界函数的反常积分</h2>
 <h3 id="定义与定理-2">定义与定理</h3>
-<p><strong>一、收敛半径</strong></p>
-<p>形如</p>
-<section><eqn> \sum_{n=0}^{\infty}a_n(x-x_0)^n=a_0+a_1(x-x_0)+a_2(x-x_0)^2+\cdots </eqn></section><p>的函数项级数称为幂级数。它的部分和是多项式，它的一般项为 <eq> a_n(x-x_0)^n\ (n=0,1,2,\cdots) </eq>。它是一种比较简单的函数项级数，因而具有一些特殊的性质。</p>
-<p>根据柯西判别法，如果级数 <eq> \sum\limits_{n=1}^{\infty}u_n(x) </eq> 在某个 <eq> x </eq> 处有</p>
-<section><eqn> \varlimsup_{n\to\infty}\sqrt[n]{\left|u_n(x)\right|}&lt;1, </eqn></section><p>那么它在 <eq> x </eq> 处绝对收敛，而当 <eq> \varlimsup\limits_{n\to\infty}\sqrt[n]{\left|u_n(x)\right|}&gt;1 </eq> 时，它发散。对一般的函数项级数来说，解这个不等式不是很容易的，但对幂级数来说，却容易多了，它取决于</p>
-<section><eqn> \varlimsup_{n\to\infty}\sqrt[n]{\left|a_n(x-x_0)^n\right|}=|x-x_0|\varlimsup_{n\to\infty}\sqrt[n]{\left|a_n\right|} </eqn></section><p>小于 <eq> 1 </eq> 或大于 <eq> 1 </eq>。也就是，当 <eq> |x-x_0|&lt;\dfrac{1}{\varlimsup\limits_{n\to\infty}\sqrt[n]{\left|a_n\right|}} </eq> 时幂级数绝对收敛，而当 <eq> |x-x_0|&gt;\dfrac{1}{\varlimsup\limits_{n\to\infty}\sqrt[n]{\left|a_n\right|}} </eq> 时发散。又当 <eq> \varlimsup\limits_{n\to\infty}\sqrt[n]{\left|a_n\right|}=0 </eq> 时，幂级数在每点都绝对收敛。当 <eq> \varlimsup\limits_{n\to\infty}\sqrt[n]{\left|a_n\right|}=\infty </eq> 时，除点 <eq> x_0 </eq> 外，它在每点都发散。假若规定</p>
-<section><eqn> R=\begin{cases}\dfrac{1}{\varlimsup\limits_{n\to\infty}\sqrt[n]{\left|a_n\right|}}, &amp; 0&lt;\varlimsup\limits_{n\to\infty}\sqrt[n]{\left|a_n\right|}&lt;+\infty,\\[2mm] \infty, &amp; \varlimsup\limits_{n\to\infty}\sqrt[n]{\left|a_n\right|}=0,\\[2mm] 0, &amp; \varlimsup\limits_{n\to\infty}\sqrt[n]{\left|a_n\right|}=\infty,\end{cases} </eqn></section><p>那么可把上述结果归结为下面的定理。</p>
-<p><strong>定理 1（柯西-阿达马(Hadamard)定理）</strong>　幂级数</p>
-<section><eqn> \sum_{n=0}^{\infty}a_n(x-x_0)^n </eqn></section><p>在 <eq> |x-x_0|&lt;R </eq> 内绝对收敛，在 <eq> |x-x_0|&gt;R </eq> 内发散。</p>
-<p>由此可见，对任何一个幂级数，都存在一个以 <eq> x_0 </eq> 为中心，以 <eq> R </eq> 为半径的区间，在这个区间内幂级数绝对收敛，而在区间外，幂级数发散。在区间的端点 <eq> x=x_0-R </eq> 和 <eq> x=x_0+R </eq> 处，幂级数的敛散性尚需作进一步的判别。称此 <eq> R </eq> 是幂级数的收敛半径。</p>
-<p>由定理 1 即可得到下面的结论。</p>
-<p><strong>定理 2（阿贝尔第一定理）</strong>　若 <eq> \sum\limits_{n=0}^{\infty}a_n(x-x_0)^n </eq> 在点 <eq> x=\xi </eq> 收敛，那么它必在 <eq> |x-x_0|&lt;|\xi-x_0| </eq> 内绝对收敛，又若 <eq> \sum\limits_{n=0}^{\infty}a_n(x-x_0)^n </eq> 在 <eq> x=\xi </eq> 发散，则它必在 <eq> |x-x_0|&gt;|\xi-x_0| </eq> 也发散。</p>
-<p>事实上，在前一情况下，<eq> |\xi-x_0|\le R </eq>，而在后一情况下，<eq> |\xi-x_0|\ge R </eq>。这里加上等号是因为在区间 <eq> (x_0-R,x_0+R) </eq> 的端点，幂级数可能收敛也可能发散。</p>
-<p><strong>定理 3（阿贝尔第二定理）</strong>　若 <eq> \sum\limits_{n=0}^{\infty}a_n(x-x_0)^n </eq> 的收敛半径为 <eq> R </eq>，则此级数在 <eq> (x_0-R,x_0+R) </eq> 内的任一个闭区间 <eq> [a,b] </eq> 上一致收敛，也就是在 <eq> (x_0-R,x_0+R) </eq> 内闭一致收敛；又若级数在 <eq> x_0+R </eq> 点收敛，则它必在 <eq> [a,x_0+R] </eq> 一致收敛。同理，当级数在 <eq> x_0-R </eq> 收敛时可得类似结论。</p>
-<p><strong>证明</strong>　不妨就 <eq> \sum\limits_{n=0}^{\infty}a_nx^n </eq> 的情形来证明，这不过是把上面的 <eq> x-x_0 </eq> 作为这里的 <eq> x </eq>。</p>
-<p>设 <eq> \xi=\max\{|a|,|b|\} </eq>，由于在 <eq> [a,b] </eq> 上任一点 <eq> x </eq>，恒有</p>
-<section><eqn> \left|a_nx^n\right|\le\left|a_n\xi^n\right|, </eqn></section><p>而 <eq> \sum\limits_{n=0}^{\infty}a_n\xi^n </eq> 绝对收敛，按魏尔斯特拉斯判别法即得定理的第一部分。</p>
-<p>现若 <eq> \sum\limits_{n=0}^{\infty}a_nR^n </eq> 收敛，先证明级数在 <eq> [0,R] </eq> 上一致收敛。由</p>
-<section><eqn> \sum_{n=0}^{\infty}a_nx^n=\sum_{n=0}^{\infty}\frac{x^n}{R^n}a_nR^n </eqn></section><p>及 <eq> \dfrac{x^n}{R^n} </eq> 在 <eq> [0,R] </eq> 上一致有界，且对每一 <eq> x </eq>，<eq> \dfrac{x^n}{R^n} </eq> 单调，按函数项级数的阿贝尔判别法，<eq> \sum\limits_{n=0}^{\infty}a_nx^n </eq> 在 <eq> [0,R] </eq> 上一致收敛，因此若 <eq> a&gt;0 </eq>，级数在 <eq> [a,R] </eq> 上也一致收敛，再考虑 <eq> -R&lt;a&lt;0 </eq> 的情形，利用上面已证得的结果：<eq> \sum\limits_{n=0}^{\infty}a_nx^n </eq> 在 <eq> [a,0] </eq> 一致收敛，故级数在 <eq> [a,R] </eq> 上一致收敛。</p>
-<p><strong>三、函数的幂级数展开</strong></p>
-<p>幂级数不仅形式简单，而且有很多特殊的性质，这就使我们想到，能否把一个函数表示为幂级数来进行研究。首先，假若函数 <eq> f(x) </eq> 在某点 <eq> x_0 </eq> 及其某一邻域 <eq> (x_0-\delta,x_0+\delta) </eq> 内能表示为幂级数，也就是在 <eq> (x_0-\delta,x_0+\delta) </eq> 内恒有</p>
-<section><eqn> f(x)=a_0+a_1(x-x_0)+a_2(x-x_0)^2+\cdots, </eqn></section><p>那么，它在这个邻域内必有任意阶的导数，并且</p>
-<section><eqn> f^{(n)}(x)=n!a_n+\frac{(n+1)!}{1!}a_{n+1}(x-x_0)+\cdots\qquad(n=0,1,2,\cdots). </eqn></section><p>在此式两端令 <eq> x=x_0 </eq>，即得</p>
-<section><eqn> f(x_0)=a_0,\quad f&#x27;(x_0)=1!a_1,\quad f&#x27;&#x27;(x_0)=2!a_2,\cdots </eqn></section><p>这说明了函数 <eq> f(x) </eq> 在 <eq> x_0 </eq> 点的幂级数展开式的系数为</p>
-<section><eqn> a_0=f(x_0),\quad a_1=\frac{f&#x27;(x_0)}{1!},\quad a_2=\frac{f&#x27;&#x27;(x_0)}{2!},\cdots </eqn></section><p>这时</p>
-<section><eqn> f(x)=f(x_0)+f&#x27;(x_0)(x-x_0)+\frac{f&#x27;&#x27;(x_0)}{2!}(x-x_0)^2+\cdots+\frac{f^{(n)}(x_0)}{n!}(x-x_0)^n+\cdots. </eqn></section><p>要注意的是：在假定 <eq> f(x) </eq> 可以表示为幂级数的前提下，才获得上述结果的。现在要问：如果 <eq> f(x) </eq> 在 <eq> x_0 </eq> 点的某个邻域 <eq> (x_0-\delta,x_0+\delta) </eq> 内有任意阶的导数，是否成立</p>
-<section><eqn> f(x)=f(x_0)+f&#x27;(x_0)(x-x_0)+\frac{f&#x27;&#x27;(x_0)}{2!}(x-x_0)^2+\cdots+\frac{f^{(n)}(x_0)}{n!}(x-x_0)^n+\cdots? </eqn></section><p>回答是否定的。例如</p>
-<section><eqn> f(x)=\begin{cases}\mathrm{e}^{-\frac{1}{x^2}}, &amp; x\ne 0,\\ 0, &amp; x=0,\end{cases} </eqn></section><p>可以验证它在原点的任何一个邻域内有任意阶导数，并且对任何 <eq> n </eq>，<eq> f^{(n)}(0)=0 </eq>。将它代入上述表示式的右端</p>
-<section><eqn> f(0)+f&#x27;(0)x+\cdots+\frac{f^{(n)}(0)}{n!}x^n+\cdots </eqn></section><p>中得到系数全为零的幂级数，因而整个右端为零，但当 <eq> x\ne 0 </eq> 时，它显然不等于 <eq> f(x) </eq>。那么，在怎样的条件下，一个任意阶可导的函数能够表示为一个幂级数呢？</p>
-<p>设</p>
-<section><eqn> R_n(x)=f(x)-\left[f(x_0)+f&#x27;(x_0)(x-x_0)+\cdots+\frac{f^{(n)}(x_0)}{n!}(x-x_0)^n\right], </eqn></section><p>由级数收敛的概念知道，如果在某个区间 <eq> (x_0-R,x_0+R) </eq> 内 <eq> R_n(x)\to 0\ (n\to\infty) </eq>，那么</p>
-<section><eqn> f(x)=f(x_0)+f&#x27;(x_0)(x-x_0)+\cdots+\frac{f^{(n)}(x_0)}{n!}(x-x_0)^n+\cdots, </eqn></section><p>这就是函数 <eq> f(x) </eq> 的幂级数展开，上式右端的幂级数称为 <eq> f(x) </eq> 的泰勒级数。因此，一个函数在某个区间内是否可以展开成幂级数，关键在于考察余项 <eq> R_n(x) </eq> 在这一区间内是否趋于零。</p>
-<p>在本书上册（第六章 §2）中曾经给出了 <eq> R_n(x) </eq> 的拉格朗日形式</p>
-<section><eqn> R_n(x)=\frac{f^{(n+1)}(\xi)}{(n+1)!}(x-x_0)^{n+1}, </eqn></section><p>其中 <eq> \xi </eq> 是介于 <eq> x_0 </eq> 和 <eq> x </eq> 之间的一个数。</p>
-<p>在实际应用中，为了简单起见，往往取 <eq> x_0=0 </eq>，这时的泰勒级数</p>
-<section><eqn> f(0)+\frac{f&#x27;(0)}{1!}x+\frac{f&#x27;&#x27;(0)}{2!}x^2+\cdots </eqn></section><p>称为麦克劳林级数。</p>
-<p>1）<eq> \mathrm{e}^x </eq> 的展开式</p>
-<p>由于 <eq> \mathrm{e}^x </eq> 在 <eq> x=0 </eq> 的任意阶导数等于 <eq> 1 </eq>，因此</p>
-<section><eqn> \mathrm{e}^x=1+x+\frac{1}{2!}x^2+\cdots+\frac{1}{n!}x^n+R_n(x), </eqn></section><section><eqn> R_n(x)=\frac{\mathrm{e}^{\theta x}}{(n+1)!}x^{n+1}. </eqn></section><p>因为对任意固定的 <eq> x </eq>，<eq> \mathrm{e}^{\theta x} </eq> 在 <eq> 1 </eq> 与 <eq> \mathrm{e}^x </eq> 之间变动，从而 <eq> n\to\infty </eq> 时，<eq> \mathrm{e}^{\theta x} </eq> 保持有界。另一方面，当 <eq> n\to\infty </eq> 时，<eq> \dfrac{x^{n+1}}{(n+1)!}\to 0 </eq>，因此</p>
-<section><eqn> \lim_{n\to\infty}R_n(x)=\lim_{n\to\infty}\frac{\mathrm{e}^{\theta x}}{(n+1)!}x^{n+1}=0, </eqn></section><p>这就证明了</p>
-<section><eqn> \mathrm{e}^x=1+x+\frac{x^2}{2!}+\frac{x^3}{3!}+\cdots\qquad(-\infty&lt;x&lt;+\infty). </eqn></section><p>2）<eq> \sin x </eq> 和 <eq> \cos x </eq> 的展开式</p>
-<p>对于 <eq> f(x)=\sin x </eq>，显然有</p>
-<section><eqn> f^{(n)}(x)=\sin\left(\frac{n\pi}{2}+x\right), </eqn></section><p>因此</p>
-<section><eqn> f(0)=0,\quad f&#x27;(0)=1,\quad f&#x27;&#x27;(0)=0,\quad f&#x27;&#x27;&#x27;(0)=-1,\cdots, </eqn></section><section><eqn> f^{(2m)}(0)=0,\quad f^{(2m+1)}(0)=(-1)^m, </eqn></section><p>取 <eq> n=2k+2 </eq>，因为</p>
-<section><eqn> f^{(2k+2)}(0)=0,\quad f^{(2k+3)}(x)=\sin\left(\frac{2k+3}{2}\pi+x\right), </eqn></section><p>故</p>
-<section><eqn> \sin x=x-\frac{x^3}{3!}+\frac{x^5}{5!}-\frac{x^7}{7!}+\cdots+(-1)^k\frac{x^{2k+1}}{(2k+1)!}+R_{2k+2}(x) </eqn></section><section><eqn> R_{2k+2}(x)=\sin\left(\frac{2k+3}{2}\pi+\theta x\right)\frac{x^{2k+3}}{(2k+3)!}, </eqn></section><p>但对任一 <eq> x </eq>，由于正弦函数的有界性，得到</p>
-<section><eqn> \lim_{k\to\infty}R_{2k+2}(x)=\lim_{n\to\infty}\sin\left(\frac{2k+3}{2}\pi+\theta x\right)\frac{x^{2k+3}}{(2k+3)!}=0, </eqn></section><p>从而</p>
-<section><eqn> \sin x=x-\frac{x^3}{3!}+\frac{x^5}{5!}-\frac{x^7}{7!}+\cdots\qquad(-\infty&lt;x&lt;+\infty), </eqn></section><p>同理</p>
-<section><eqn> \cos x=1-\frac{x^2}{2!}+\frac{x^4}{4!}-\frac{x^6}{6!}+\cdots\qquad(-\infty&lt;x&lt;+\infty), </eqn></section><p>也可以将 <eq> \sin x </eq> 的展开式逐项微分，获得 <eq> \cos x </eq> 的展开式。</p>
-<p>3）<eq> \ln(1+x)=x-\dfrac{x^2}{2}+\dfrac{x^3}{3}-\dfrac{x^4}{4}+\cdots\quad(-1&lt;x\le 1) </eq>，</p>
-<p>这在例 5 中已经给出了这一展开式。</p>
-<p>4）<eq> \arctan x </eq> 的展开式</p>
-<p>由于</p>
-<section><eqn> \frac{1}{1+x^2}=1-x^2+x^4-x^6+\cdots\qquad(-1&lt;x&lt;1), </eqn></section><p>两边求积分即得</p>
-<section><eqn> \arctan x=x-\frac{x^3}{3}+\frac{x^5}{5}-\frac{x^7}{7}+\cdots\qquad(-1\le x\le 1), </eqn></section><p>上面加上了区间的端点，是由于右边的幂级数在 <eq> x=\pm 1 </eq> 时也是收敛的，再由阿贝尔第二定理和 <eq> \arctan x </eq> 的连续性即得。</p>
-<p>下面举两个例子说明幂级数在近似计算中的应用。</p>
-<h3 id="例题-2">例题</h3>
-<p><strong>例 1</strong>　判断 <eq> \sum\limits_{n=1}^{\infty}\dfrac{x^n}{n} </eq> 的敛散性。</p>
-<p><strong>解</strong>　由于 <eq> \lim\limits_{n\to\infty}n^{\frac{1}{n}}=1 </eq>，故</p>
-<section><eqn> R=\frac{1}{\varlimsup\limits_{n\to\infty}\sqrt[n]{\dfrac{1}{n}}}=\frac{1}{\lim\limits_{n\to\infty}\dfrac{1}{n^{\frac{1}{n}}}}=1, </eqn></section><p>于是级数在 <eq> |x|&lt;1 </eq> 内绝对收敛，在 <eq> |x|&gt;1 </eq> 内发散。在端点处，级数在一个端点 <eq> x=-1 </eq> 收敛，而在另一端点 <eq> x=1 </eq> 发散。</p>
-<p><strong>例 2</strong>　<eq> \sum\limits_{n=1}^{\infty}n^nx^n </eq> 在不等于零的点都发散。</p>
-<p><strong>解</strong>　事实上，</p>
-<section><eqn> R=\frac{1}{\varlimsup\limits_{n\to\infty}\sqrt[n]{n^n}}=\frac{1}{\lim\limits_{n\to\infty}n}=0. </eqn></section><p><strong>例 3</strong>　<eq> \sum\limits_{n=0}^{\infty}\dfrac{x^n}{n!} </eq> 在任何点绝对收敛。</p>
-<p><strong>解</strong>　对这种情况，用达朗贝尔判别法较好，因为对任一 <eq> x </eq>，有</p>
-<section><eqn> \lim_{n\to\infty}\left|\frac{u_{n+1}}{u_n}\right|=\lim_{n\to\infty}\frac{|x|}{n+1}=0, </eqn></section><p>所以 <eq> \sum\limits_{n=0}^{\infty}\dfrac{x^n}{n!} </eq> 在任何点绝对收敛。</p>
-<p>例 3 告诉我们这样一个事实：对幂级数 <eq> \sum\limits_{n=0}^{\infty}a_n(x-x_0)^n </eq>，如果 <eq> \lim\limits_{n\to\infty}\left|\dfrac{a_{n+1}}{a_n}\right| </eq> 存在，则此级数的收敛半径 <eq> R </eq> 是</p>
-<section><eqn> R=\frac{1}{\lim\limits_{n\to\infty}\left|\dfrac{a_{n+1}}{a_n}\right|}=\lim_{n\to\infty}\left|\frac{a_n}{a_{n+1}}\right|. </eqn></section><p>又若 <eq> \lim\limits_{n\to\infty}\left|\dfrac{a_{n+1}}{a_n}\right|=0 </eq>，则 <eq> R=+\infty </eq>，若 <eq> \lim\limits_{n\to\infty}\left|\dfrac{a_{n+1}}{a_n}\right|=\infty </eq>，则 <eq> R=0 </eq>。其证明与利用柯西判别法导出收敛半径相仿，只不过这里是利用达朗贝尔判别法。</p>
-<p><strong>例 4</strong>　<eq> \sum\limits_{n=0}^{\infty}\left(3+(-1)^n\right)^nx^n </eq> 在 <eq> \left(-\dfrac{1}{4},\dfrac{1}{4}\right) </eq> 绝对收敛，在其他点发散。</p>
-<p><strong>解</strong>　事实上，</p>
-<section><eqn> \varlimsup_{n\to\infty}\sqrt[n]{\left|a_n\right|}=\varlimsup_{n\to\infty}\left[3+(-1)^n\right]=4, </eqn></section><p>因此 <eq> R=\dfrac{1}{4} </eq>。又当 <eq> x=\pm\dfrac{1}{4} </eq> 时，级数的一般项不趋于零，因此在收敛区间的两个端点上，级数发散。</p>
-<p><strong>例 5</strong>　由于在 <eq> (-1,1) </eq> 内</p>
-<section><eqn> 1-x+x^2-x^3+\cdots=\frac{1}{1+x}, </eqn></section><p>故在此区间内逐项积分得</p>
-<section><eqn> x-\frac{x^2}{2}+\frac{x^3}{3}-\frac{x^4}{4}+\cdots=\ln(1+x). </eqn></section><p>又由于左边的级数在 <eq> x=1 </eq> 也是收敛的，因此它的和 <eq> S(x) </eq> 在这点左连续，故</p>
-<section><eqn> S(1)=1-\frac{1}{2}+\frac{1}{3}-\frac{1}{4}+\cdots </eqn></section><section><eqn> =\lim_{x\to 1-0}S(x)=\lim_{x\to 1-0}\ln(1+x)=\ln 2. </eqn></section><p><strong>例 6</strong>　求级数 <eq> \sum\limits_{n=1}^{\infty}\dfrac{2n-1}{2^n} </eq> 的和。</p>
-<p><strong>解</strong>　由于</p>
-<section><eqn> \sum_{n=1}^{\infty}\frac{2n-1}{2^n}=2\sum_{n=1}^{\infty}(n+1)\left(\frac{1}{2}\right)^n-3\sum_{n=1}^{\infty}\left(\frac{1}{2}\right)^n, </eqn></section><p>考虑幂级数</p>
-<section><eqn> 1+\sum_{n=1}^{\infty}x^n=\frac{1}{1-x} </eqn></section><p>的收敛半径为 <eq> 1 </eq>，在 <eq> (-1,1) </eq> 内逐项求导，得</p>
-<section><eqn> 1+\sum_{n=1}^{\infty}(n+1)x^n=\frac{1}{(1-x)^2}. </eqn></section><p>将 <eq> x=\dfrac{1}{2} </eq> 代入上面两个幂级数中，得</p>
-<section><eqn> \sum_{n=1}^{\infty}\left(\frac{1}{2}\right)^n=1,\qquad\sum_{n=1}^{\infty}(n+1)\left(\frac{1}{2}\right)^n=3, </eqn></section><p>所以</p>
-<section><eqn> \sum_{n=1}^{\infty}\frac{2n-1}{2^n}=3. </eqn></section><p><strong>例 7</strong>　求 <eq> \mathrm{e} </eq> 的近似值，精确到六位小数。</p>
-<p><strong>解</strong>　首先决定究竟取多少项才能达到所要的精确度。由于</p>
-<section><eqn> \mathrm{e}=1+1+\frac{1}{2!}+\frac{1}{3!}+\cdots, </eqn></section><p>故若一直取到 <eq> \dfrac{1}{n!} </eq>，则级数的余和</p>
-<section><eqn> r_n=\frac{1}{(n+1)!}+\frac{1}{(n+2)!}+\cdots </eqn></section><section><eqn> =\frac{1}{(n+1)!}\left[1+\frac{1}{(n+2)}+\frac{1}{(n+2)(n+3)}+\cdots\right] </eqn></section><section><eqn> &lt;\frac{1}{(n+1)!}\left[1+\frac{1}{n+1}+\frac{1}{(n+1)^2}+\cdots\right]=\frac{1}{n\cdot n!}, </eqn></section><p>经过计算知道，只要取 <eq> n=9 </eq>，并取七位小数进行计算，可得</p>
-<section><eqn> \mathrm{e}\approx 2.718281. </eqn></section><p><strong>例 8</strong>　计算 <eq> I=\int_0^1\mathrm{e}^{-x^2}\,\mathrm{d}x </eq>，精确到 <eq> 0.0001 </eq>。</p>
-<p><strong>解</strong>　在 <eq> \mathrm{e}^t </eq> 的展开式</p>
-<section><eqn> \mathrm{e}^t=1+\frac{t}{1!}+\frac{t^2}{2!}+\frac{t^3}{3!}+\cdots </eqn></section><p>中，令 <eq> t=-x^2 </eq>，得 <eq> \mathrm{e}^{-x^2} </eq> 的展开式</p>
-<section><eqn> \mathrm{e}^{-x^2}=1-\frac{x^2}{1!}+\frac{x^4}{2!}-\frac{x^6}{3!}+\cdots, </eqn></section><p>从 <eq> 0 </eq> 到 <eq> 1 </eq> 积分，得到</p>
-<section><eqn> I=1-\frac{1}{3}+\frac{1}{10}-\frac{1}{42}+\frac{1}{216}-\frac{1}{1320}+\frac{1}{9360}-\frac{1}{75600}+\cdots, </eqn></section><p>这是交错级数，它的余和的绝对值小于余和第一项的绝对值，现由于 <eq> \dfrac{1}{75600}&lt;1.5\times 10^{-5} </eq>，故取前七项即可，经计算可得</p>
-<section><eqn> I\approx 0.7468. </eqn></section>]]></content>
+<p><strong>定义</strong>　设函数 <eq> f(x) </eq> 在 <eq> x=b </eq> 点的任一左邻域无界（称 <eq> b </eq> 点为 <eq> f(x) </eq> 的奇点），但对于任意充分小的正数 <eq> \eta </eq>，<eq> f(x) </eq> 在 <eq> [a,b-\eta] </eq> 上可积，则称积分</p>
+<section><eqn> \int_a^b f(x)\,\mathrm{d}x </eqn></section><p>是无界函数 <eq> f(x) </eq> 在 <eq> [a,b] </eq> 上的反常积分。这一积分是否存在，以及它的积分值是多少，现在讨论如下。令</p>
+<section><eqn> \phi(\eta)=\int_a^{b-\eta}f(x)\,\mathrm{d}x, </eqn></section><p>如果 <eq> \lim\limits_{\eta\to 0}\phi(\eta) </eq> 存在，则称此极限是上述反常积分的积分值，亦即</p>
+<section><eqn> \int_a^b f(x)\,\mathrm{d}x=\lim_{\eta\to 0}\int_a^{b-\eta}f(x)\,\mathrm{d}x. </eqn></section><p>并称无界函数 <eq> f(x) </eq> 在 <eq> [a,b] </eq> 上可积，又称反常积分 <eq> \int_a^b f(x)\,\mathrm{d}x </eq> 收敛。如果上述的极限不存在，就说积分 <eq> \int_a^b f(x)\,\mathrm{d}x </eq> 发散。</p>
+<p>如果 <eq> x=a </eq> 是 <eq> f(x) </eq> 的奇点，可以相仿地给出定义。另外，如果 <eq> f(x) </eq> 在 <eq> [a,b] </eq> 内部有一个奇点 <eq> c </eq>，<eq> a&lt;c&lt;b </eq>，就分别考察 <eq> \int_a^c f(x)\,\mathrm{d}x </eq> 和 <eq> \int_c^b f(x)\,\mathrm{d}x </eq>，如果后两者都收敛，就称 <eq> \int_a^b f(x)\,\mathrm{d}x </eq> 收敛，并且 <eq> \int_a^b f(x)\,\mathrm{d}x=\int_a^c f(x)\,\mathrm{d}x+\int_c^b f(x)\,\mathrm{d}x </eq>。即</p>
+<section><eqn> \int_a^b f(x)\,\mathrm{d}x=\lim_{\eta\to+0}\int_a^{c-\eta}f(x)\,\mathrm{d}x+\lim_{\eta&#x27;\to+0}\int_{c+\eta&#x27;}^b f(x)\,\mathrm{d}x, </eqn></section><p>其中 <eq> \eta </eq> 和 <eq> \eta&#x27; </eq> 是相互独立地趋于 <eq> +0 </eq>。</p>
+<p><strong>柯西收敛原理</strong>　若 <eq> f(x) </eq> 在 <eq> x=a </eq> 有奇点，<eq> \int_a^b f(x)\,\mathrm{d}x </eq> 收敛的充要条件是：对任意给定的 <eq> \varepsilon&gt;0 </eq>，存在 <eq> \delta&gt;0 </eq>，当 <eq> 0&lt;\eta,\eta&#x27;&lt;\delta </eq> 时总有</p>
+<section><eqn> \left|\int_{a+\eta}^{a+\eta&#x27;}f(x)\,\mathrm{d}x\right|&lt;\varepsilon. </eqn></section><p><strong>柯西判别法</strong>　设 <eq> x=a </eq> 是 <eq> f(x) </eq> 的奇点，如果 <eq> |f(x)|\le\dfrac{c}{(x-a)^p}\ (c&gt;0) </eq>，<eq> p&lt;1 </eq>，那么 <eq> \int_a^b f(x)\,\mathrm{d}x </eq> 绝对收敛。</p>
+<p>如果 <eq> |f(x)|\ge\dfrac{c}{(x-a)^p}\ (c&gt;0) </eq>，<eq> p\ge 1 </eq>，那么 <eq> \int_a^b|f(x)|\,\mathrm{d}x </eq> 发散。</p>
+<p><strong>柯西判别法的极限形式</strong>　设</p>
+<section><eqn> \lim_{x\to a}(x-a)^p|f(x)|=k, </eqn></section><p>如果 <eq> 0\le k&lt;\infty </eq>，<eq> p&lt;1 </eq>，那么 <eq> \int_a^b f(x)\,\mathrm{d}x </eq> 为绝对收敛；</p>
+<p>如果 <eq> 0&lt;k\le\infty </eq>，<eq> p\ge 1 </eq>，那么 <eq> \int_a^b|f(x)|\,\mathrm{d}x </eq> 发散。</p>
+<p><strong>阿贝尔判别法</strong>　设 <eq> f(x) </eq> 在 <eq> x=a </eq> 有奇点，<eq> \int_a^b f(x)\,\mathrm{d}x </eq> 收敛，<eq> g(x) </eq> 单调有界，那么积分 <eq> \int_a^b f(x)g(x)\,\mathrm{d}x </eq> 收敛。</p>
+<p><strong>狄利克雷判别法</strong>　设 <eq> f(x) </eq> 在 <eq> x=a </eq> 有奇点，<eq> \int_{a+\eta}^b f(x)\,\mathrm{d}x </eq> 是 <eq> \eta </eq> 的有界函数，<eq> g(x) </eq> 单调且当 <eq> x\to a </eq> 时趋于零，那么积分 <eq> \int_a^b f(x)g(x)\,\mathrm{d}x </eq> 收敛。</p>
+<p>对 <eq> \int_{a+\eta}^{a+\eta&#x27;}f(x)g(x)\,\mathrm{d}x </eq> 应用第二中值定理可以证明上面的两个结论。</p>
+<p><strong>定义</strong>　设 <eq> f(x) </eq> 在 <eq> [a,b] </eq> 内无界，<eq> c </eq> 是唯一奇点，<eq> a&lt;c&lt;b </eq>，如果</p>
+<section><eqn> \lim_{\eta\to 0}\left[\int_a^{c-\eta}f(x)\,\mathrm{d}x+\int_{c+\eta}^b f(x)\,\mathrm{d}x\right] </eqn></section><p>存在（注意，<eq> c-\eta </eq> 与 <eq> c+\eta </eq> 中的 <eq> \eta </eq> 是同一个正数），就称此极限是反常积分 <eq> \int_a^b f(x)\,\mathrm{d}x </eq> 的柯西主值，记为</p>
+<section><eqn> \mathrm{P.V.}\int_a^b f(x)\,\mathrm{d}x=\lim_{\eta\to 0}\left[\int_a^{c-\eta}f(x)\,\mathrm{d}x+\int_{c+\eta}^b f(x)\,\mathrm{d}x\right]. </eqn></section><p><eq> \mathrm{P.V.} </eq> 是 Principal Value 的缩写。</p>
+<p>同样的，对于无穷限的反常积分，柯西主值为</p>
+<section><eqn> \mathrm{P.V.}\int_{-\infty}^{+\infty}f(x)\,\mathrm{d}x=\lim_{A\to+\infty}\int_{-A}^A f(x)\,\mathrm{d}x. </eqn></section><h3 id="例题-2">例题</h3>
+<p><strong>例 1</strong>　讨论积分 <eq> \int_a^b\dfrac{\mathrm{d}x}{(x-a)^p}\ (p&gt;0) </eq> 的收敛性。</p>
+<p>当 <eq> p&gt;0 </eq> 时，<eq> x=a </eq> 是 <eq> \dfrac{1}{(x-a)^p} </eq> 的奇点。</p>
+<p>当 <eq> p\ne 1 </eq> 时</p>
+<section><eqn> \int_{a+\eta}^b\frac{\mathrm{d}x}{(x-a)^p}=\frac{1}{1-p}(x-a)^{1-p}\Big|_{a+\eta}^b=\frac{1}{1-p}\left[(b-a)^{1-p}-\eta^{1-p}\right], </eqn></section><section><eqn> \lim_{\eta\to+0}\int_{a+\eta}^b\frac{\mathrm{d}x}{(x-a)^p}=\begin{cases}\dfrac{1}{1-p}(b-a)^{1-p}, &amp; p&lt;1,\\[2mm] +\infty, &amp; p&gt;1.\end{cases} </eqn></section><p>当 <eq> p=1 </eq> 时</p>
+<section><eqn> \int_{a+\eta}^b\frac{\mathrm{d}x}{x-a}=\ln(x-a)\Big|_{a+\eta}^b=\ln(b-a)-\ln\eta\to+\infty\qquad(\eta\to+0). </eqn></section><p>所以，当 <eq> p&lt;1 </eq> 时，积分 <eq> \int_a^b\dfrac{\mathrm{d}x}{(x-a)^p} </eq> 收敛于 <eq> \dfrac{1}{1-p}(b-a)^{1-p} </eq>，亦即</p>
+<section><eqn> \int_a^b\frac{\mathrm{d}x}{(x-a)^p}=\frac{1}{1-p}(b-a)^{1-p}; </eqn></section><p>当 <eq> p\ge 1 </eq> 时，积分发散。</p>
+<p>对于积分 <eq> \int_a^b\dfrac{\mathrm{d}x}{(b-x)^p} </eq> 的收敛性有相仿的结论。</p>
+<p>并由此不难获得 <eq> \int_a^b\dfrac{\mathrm{d}x}{(x-a)^p(b-x)^q}\ (p&gt;0,q&gt;0) </eq>，只有当 <eq> p&lt;1,q&lt;1 </eq> 时收敛，其他情形都发散。</p>
+<p><strong>例 2</strong>　讨论积分 <eq> \int_0^1\dfrac{\mathrm{d}x}{\sqrt{1-x^2}} </eq> 的收敛性。</p>
+<p><eq> x=1 </eq> 是被积函数的奇点。</p>
+<section><eqn> \int_0^{1-\eta}\frac{\mathrm{d}x}{\sqrt{1-x^2}}=\arcsin x\Big|_0^{1-\eta}=\arcsin(1-\eta)\to\frac{\pi}{2}\qquad(\eta\to 0). </eqn></section><p>所讨论的积分收敛，并且 <eq> \int_0^1\dfrac{\mathrm{d}x}{\sqrt{1-x^2}}=\dfrac{\pi}{2} </eq>。</p>
+<p><strong>例 3</strong>　讨论 <eq> \int_0^1\dfrac{\ln x}{\sqrt{x}}\,\mathrm{d}x </eq> 的收敛性。</p>
+<p>因为 <eq> \lim\limits_{x\to+0}x^{\frac{3}{4}}\dfrac{\ln x}{\sqrt{x}}=\lim\limits_{x\to+0}x^{\frac{1}{4}}\ln x=0 </eq>，所以 <eq> \int_0^1\dfrac{\ln x}{\sqrt{x}}\,\mathrm{d}x </eq> 收敛。</p>
+<p><strong>例 4</strong>　讨论积分 <eq> \int_0^{+\infty}\dfrac{\ln x\,\mathrm{d}x}{x^p|1-x|^q}\ (p&gt;0,\ q&gt;0) </eq> 的敛散性。</p>
+<p>将积分写为</p>
+<section><eqn> \begin{aligned}
+\int_0^{+\infty}\frac{\ln x\,\mathrm{d}x}{x^p|1-x|^q}&amp;=\left\{\int_0^{1/2}+\int_{1/2}^1+\int_1^2+\int_2^{+\infty}\right\}\frac{\ln x\,\mathrm{d}x}{x^p|1-x|^q}\\
+&amp;=I_1+I_2+I_3+I_4,
+\end{aligned} </eqn></section><p>在 <eq> I_1 </eq> 中 <eq> 0 </eq> 是奇点，在 <eq> I_2 </eq> 和 <eq> I_3 </eq> 中 <eq> 1 </eq> 是奇点，<eq> I_4 </eq> 是无穷限反常积分。</p>
+<p>讨论 <eq> I_1 </eq>，当 <eq> p\ge 1 </eq> 时 <eq> I_1 </eq> 发散。当 <eq> p&lt;1 </eq> 时，取 <eq> \alpha </eq> 使 <eq> p&lt;\alpha&lt;1 </eq>，有 <eq> \dfrac{\ln x}{x^p}=\dfrac{1}{x^\alpha}x^{\alpha-p}\ln x </eq>，而 <eq> x^{\alpha-p}\ln x\to 0\ (x\to+0) </eq>，所以 <eq> \dfrac{\ln x}{x^p}&lt;\dfrac{1}{x^\alpha} </eq>，而 <eq> \int_0^{1/2}\dfrac{\mathrm{d}x}{x^\alpha} </eq> 收敛，故 <eq> p&lt;1 </eq> 时 <eq> I_1 </eq> 收敛。</p>
+<p>讨论 <eq> I_2 </eq>，因为 <eq> \ln x=\ln[1+(x-1)]\sim x-1\ (x\to 1) </eq>，所以 <eq> \dfrac{\ln x}{|x-1|^q}\sim\dfrac{-1}{|x-1|^{q-1}}\ (x\to 1-0) </eq>，于是当 <eq> q-1&lt;1 </eq> 即 <eq> q&lt;2 </eq> 时 <eq> I_2 </eq> 收敛，<eq> q\ge 2 </eq> 时 <eq> I_2 </eq> 发散。</p>
+<p>讨论 <eq> I_3 </eq>，和 <eq> I_2 </eq> 相同，当 <eq> q&lt;2 </eq> 时 <eq> I_3 </eq> 收敛，当 <eq> q\ge 2 </eq> 时 <eq> I_3 </eq> 发散。</p>
+<p>讨论 <eq> I_4 </eq>，因为 <eq> x^p|1-x|^q\sim x^{p+q}\ (x\to+\infty) </eq>，得 <eq> p+q&gt;1 </eq> 时 <eq> I_4 </eq> 收敛（这是因为对任何 <eq> \alpha&gt;0 </eq>，<eq> \ln x\ll x^{\alpha}\ (x\to+\infty) </eq>，与 <eq> x^{p+q} </eq> 相比，<eq> \ln x </eq> 可以不予考虑）。当 <eq> p+q\le 1 </eq> 时 <eq> I_4 </eq> 发散。</p>
+<p>概括起来，当 <eq> p&lt;1 </eq>，<eq> q&lt;2 </eq>，<eq> p+q&gt;1 </eq> 时积分收敛，其他情形积分发散。</p>
+<p><strong>例 5</strong>　讨论积分 <eq> \int_0^1\dfrac{\sin\dfrac{1}{x}}{x^r}\,\mathrm{d}x\ (0&lt;r\le 2) </eq> 的收敛情形。</p>
+<p>当 <eq> 0&lt;r&lt;1 </eq>，<eq> \left|\dfrac{\sin\dfrac{1}{x}}{x^r}\right|\le\dfrac{1}{x^r} </eq>，积分绝对收敛。</p>
+<p>又</p>
+<section><eqn> \left|\int_\eta^1\frac{1}{x^2}\sin\frac{1}{x}\,\mathrm{d}x\right|\le\left|\cos 1-\cos\frac{1}{\eta}\right|\le 2, </eqn></section><section><eqn> \int_0^1\frac{\sin\dfrac{1}{x}}{x^r}\,\mathrm{d}x=\int_0^1 x^{2-r}\cdot\frac{1}{x^2}\sin\frac{1}{x}\,\mathrm{d}x </eqn></section><p>当 <eq> 2-r&gt;0 </eq> 即 <eq> r&lt;2 </eq> 时，由狄利克雷判别法，从 <eq> x^{2-r} </eq> 单调趋向于零（<eq> x\to 0 </eq>）推知积分收敛。</p>
+<p>当 <eq> r=2 </eq> 时，<eq> \int_\eta^1\dfrac{1}{x^2}\sin\dfrac{1}{x}\,\mathrm{d}x=\cos\dfrac{1}{\eta}-\cos 1 </eq>，当 <eq> \eta\to 0 </eq> 时无极限，所以积分 <eq> \int_0^1\dfrac{\sin\dfrac{1}{x}}{x^2}\,\mathrm{d}x </eq> 发散。</p>
+<p><strong>例 6</strong>　设 <eq> a&lt;c&lt;b </eq>，求 <eq> \int_a^b\dfrac{\mathrm{d}x}{x-c} </eq> 的主值。</p>
+<p><strong>解</strong>　容易知道，这一反常积分是发散的，但</p>
+<section><eqn> \begin{aligned}
+\mathrm{P.V.}\int_a^b\frac{\mathrm{d}x}{x-c}&amp;=\lim_{\eta\to 0}\left[\int_a^{c-\eta}\frac{\mathrm{d}x}{x-c}+\int_{c+\eta}^b\frac{\mathrm{d}x}{x-c}\right]\\
+&amp;=\lim_{\eta\to 0}\left[\ln(c-x)\Big|_a^{c-\eta}+\ln(x-c)\Big|_{c+\eta}^b\right]\\
+&amp;=\ln\frac{b-c}{c-a}.
+\end{aligned} </eqn></section>]]></content>
+      <categories>
+        <category>Mathematics</category>
+        <category>数学分析</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>数分笔记 · 阿贝尔判别法与狄利克雷判别法总览</title>
+    <url>/2026/11/04/analysis-abel-dirichlet-overview/</url>
+    <content><![CDATA[<style>
+/* 数分笔记的排版微调：只在本页生效 */
+#article-container h2 { margin-top: 3.2em; margin-bottom: 1.2em; padding-top: .7em; border-top: 1px solid var(--hr-color, #C3E3D2); }
+#article-container h3 { margin-top: 2.6em; margin-bottom: 1.1em; }
+#article-container p { margin-bottom: 1.2em; }
+#article-container .katex-display { margin: .95em 0; }
+#article-container hr { margin: 2.8em 0; }
+#article-container table { margin: 1.2em 0; font-size: .92em; }
+#article-container table th { background: rgba(111,175,140,.14); }
+</style>
+<h2 id="一、一句话骨架">一、一句话骨架</h2>
+<p>所有阿贝尔、狄利克雷判别法都在回答同一个问题：</p>
+<blockquote>
+<p>一个<strong>振荡</strong>的因子乘上一个<strong>单调</strong>的因子，收敛性会不会被破坏？</p>
+</blockquote>
+<p>答案是<strong>不会</strong>。只要振荡因子的「部分和」（或「部分积分」）<strong>有界</strong>，而另一个因子<strong>单调</strong>，乘积仍然收敛 —— 单调性保证了振荡不会越积越多。</p>
+<h2 id="二、四个舞台，同一个骨架">二、四个舞台，同一个骨架</h2>
+<table>
+<thead>
+<tr>
+<th>舞台</th>
+<th>阿贝尔判别法</th>
+<th>狄利克雷判别法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>数项级数</strong><br><eq> \sum\limits_{n=1}^{\infty}a_n b_n </eq></td>
+<td>① <eq> \sum\limits_{n=1}^{\infty}b_n </eq> 收敛<br>② <eq> \{a_n\} </eq> 单调有界，<eq> \lvert a_n\rvert\le K </eq></td>
+<td>① <eq> \sum\limits_{n=1}^{\infty}b_n </eq> 的部分和 <eq> B_n </eq> 有界，<eq> \lvert B_n\rvert\le M </eq><br>② <eq> \{a_n\} </eq> 单调，且 <eq> a_n\to 0 </eq></td>
+</tr>
+<tr>
+<td><strong>无穷限反常积分</strong><br><eq> \int_a^{+\infty}f g\,\mathrm{d}x </eq></td>
+<td>① <eq> \int_a^{+\infty}f\,\mathrm{d}x </eq> 收敛<br>② <eq> g </eq> 单调有界</td>
+<td>① <eq> \left\lvert\int_a^A f\,\mathrm{d}x\right\rvert\le K </eq> 对一切 <eq> A&gt;a </eq> 成立<br>② <eq> g </eq> 单调，且 <eq> g\to 0\ (x\to+\infty) </eq></td>
+</tr>
+<tr>
+<td><strong>无界函数反常积分</strong><br><eq> \int_a^b f g\,\mathrm{d}x </eq>（<eq> a </eq> 为奇点）</td>
+<td>① <eq> \int_a^b f\,\mathrm{d}x </eq> 收敛<br>② <eq> g </eq> 单调有界</td>
+<td>① <eq> \int_{a+\eta}^b f\,\mathrm{d}x </eq> 是 <eq> \eta </eq> 的有界函数<br>② <eq> g </eq> 单调，且 <eq> g\to 0\ (x\to a) </eq></td>
+</tr>
+<tr>
+<td><strong>函数项级数</strong><br><eq> \sum\limits_{n=1}^{\infty}a_n(x)b_n(x) </eq> 在 <eq> X </eq> 上一致收敛</td>
+<td>① <eq> \sum\limits_{n=1}^{\infty}b_n(x) </eq> 在 <eq> X </eq> 上<strong>一致</strong>收敛<br>② 每个 <eq> x </eq> 上 <eq> \{a_n(x)\} </eq> 单调，且<strong>一致有界</strong> <eq> \lvert a_n(x)\rvert\le L </eq></td>
+<td>① <eq> \sum\limits_{n=1}^{\infty}b_n(x) </eq> 的部分和 <eq> B_n(x) </eq> 在 <eq> X </eq> 上<strong>一致</strong>有界<br>② 每个 <eq> x </eq> 上 <eq> \{a_n(x)\} </eq> 单调，且 <eq> \{a_n(x)\} </eq> <strong>一致</strong>收敛于零</td>
+</tr>
+</tbody>
+</table>
+<p><strong>读表诀窍</strong>：两条判别的差别只有一处 ——</p>
+<ul>
+<li><strong>阿贝尔</strong>：振荡因子<strong>本身收敛</strong> ＋ 单调因子<strong>单调有界</strong></li>
+<li><strong>狄利克雷</strong>：振荡因子<strong>部分和有界</strong>（本身可以不收敛）＋ 单调因子<strong>单调趋于零</strong></li>
+</ul>
+<p>所以先看振荡因子：它自己收敛就用阿贝尔，只是部分和有界（如 <eq> \sin x </eq>、<eq> (-1)^{n+1} </eq>）就用狄利克雷。</p>
+<p><strong>从数列到函数项级数，所有「有界 / 收敛」都要升级成「一致有界 / 一致收敛」</strong> —— 这是四个舞台里唯一需要额外小心的地方。</p>
+<h2 id="三、共同的引擎">三、共同的引擎</h2>
+<p>四种情形用的是同一个技术，只是「分部求和」在不同舞台上有不同外衣：</p>
+<table>
+<thead>
+<tr>
+<th>舞台</th>
+<th>引擎</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>数项级数、函数项级数</td>
+<td><strong>阿贝尔变换</strong> → <strong>阿贝尔引理</strong></td>
+</tr>
+<tr>
+<td>反常积分</td>
+<td><strong>第二中值定理</strong>（分部积分型）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>阿贝尔变换</strong>（分部求和）　记 <eq> B_i=b_1+b_2+\cdots+b_i </eq>，则</p>
+<section><eqn> \sum_{i=1}^{m}a_i b_i=\sum_{i=1}^{m-1}(a_i-a_{i+1})B_i+a_m B_m. </eqn></section><p>它把「逐项乘积」换成了「相邻差 × 部分和」。因为 <eq> \{a_i\} </eq> 单调，所有 <eq> a_i-a_{i+1} </eq> <strong>同号</strong>，于是差分的绝对值可以直接求和：</p>
+<p><strong>阿贝尔引理</strong>　若 <eq> \{a_i\} </eq> 单调，且 <eq> \lvert B_i\rvert\le M </eq>，则</p>
+<section><eqn> \left|\sum_{i=1}^{m}a_i b_i\right|\le M\left(\lvert a_1\rvert+2\lvert a_m\rvert\right). </eqn></section><p><strong>积分版的同一件事（第二中值定理）</strong>　<eq> g </eq> 单调时，在 <eq> [A,A&#x27;] </eq> 上存在 <eq> \xi </eq> 使</p>
+<section><eqn> \int_A^{A&#x27;}f(x)g(x)\,\mathrm{d}x=g(A)\int_A^{\xi}f(x)\,\mathrm{d}x+g(A&#x27;)\int_{\xi}^{A&#x27;}f(x)\,\mathrm{d}x. </eqn></section><p>两种引擎的输出完全平行：右端都是「<eq> f </eq> 的局部积分 / 部分和有多小」乘上「<eq> g </eq> 有多大」。剩下的只是用柯西收敛原理把 <eq> \varepsilon </eq> 收口。</p>
+<h2 id="四、四者的逻辑关系">四、四者的逻辑关系</h2>
+<section><eqn> \text{狄利克雷判别法}\ \Longrightarrow\ \text{阿贝尔判别法}\ \Longrightarrow\ \text{莱布尼茨定理} </eqn></section><p><strong>狄利克雷 ⟹ 阿贝尔</strong>　由阿贝尔的条件知 <eq> \{a_n\} </eq> 单调有界，故极限存在，记 <eq> a=\lim\limits_{n\to\infty}a_n </eq>。于是</p>
+<section><eqn> \sum_{n=1}^{\infty}a_n b_n=\sum_{n=1}^{\infty}(a_n-a)b_n+a\sum_{n=1}^{\infty}b_n . </eqn></section><p>右端两项：<eq> \{a_n-a\} </eq> 单调趋于零且 <eq> \sum b_n </eq> 的部分和有界，符合狄利克雷的条件；第二项是常数乘收敛级数。故和收敛。</p>
+<p><strong>狄利克雷 ⟹ 莱布尼茨</strong>　取 <eq> a_n=u_n </eq>（单调趋于零）、<eq> b_n=(-1)^{n+1} </eq>，其部分和只在 <eq> 1 </eq> 与 <eq> 0 </eq> 之间摆动，有界。狄利克雷条件成立，即得莱布尼茨定理。</p>
+<p>所以理论上只需记住狄利克雷一条。但实际做题时，阿贝尔和莱布尼茨的条件更好验证，用起来更直截了当。</p>
+<h2 id="五、使用时的一句话判断">五、使用时的一句话判断</h2>
+<table>
+<thead>
+<tr>
+<th>遇到</th>
+<th>选</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><eq> \sum a_n\sin nx </eq>、<eq> \sum a_n\cos nx </eq>，其中 <eq> a_n </eq> 单调趋于零</td>
+<td><strong>狄利克雷</strong>（<eq> \sum\sin nx </eq> 的部分和有界）</td>
+</tr>
+<tr>
+<td>已知 <eq> \sum u_n </eq> 收敛，问 <eq> \sum\dfrac{u_n}{n} </eq>、<eq> \sum\dfrac{u_n}{\sqrt{n}} </eq>、<eq> \sum\dfrac{nu_n}{n+1} </eq> 是否收敛</td>
+<td><strong>阿贝尔</strong>（<eq> \sum u_n </eq> 收敛 ＋ <eq> \left\{\frac1n\right\} </eq> 单调有界）</td>
+</tr>
+<tr>
+<td><eq> \sum(-1)^{n+1}u_n </eq>，<eq> u_n </eq> 单调趋于零</td>
+<td><strong>莱布尼茨</strong>（狄利克雷的特例）</td>
+</tr>
+<tr>
+<td><eq> \int_1^{+\infty}\dfrac{\sin x}{x}\,\mathrm{d}x </eq></td>
+<td><strong>狄利克雷</strong>（<eq> \int\sin x\,\mathrm{d}x </eq> 有界 ＋ <eq> \frac1x\searrow 0 </eq>）</td>
+</tr>
+<tr>
+<td><eq> \int_1^{+\infty}\dfrac{\sin x}{x^{\lambda}}\arctan x\,\mathrm{d}x </eq></td>
+<td><strong>阿贝尔</strong>（<eq> \int\frac{\sin x}{x^\lambda}\,\mathrm{d}x </eq> 收敛 ＋ <eq> \arctan x </eq> 单调有界）</td>
+</tr>
+<tr>
+<td>幂级数在端点 <eq> x=\pm R </eq> 处的一致收敛</td>
+<td><strong>阿贝尔</strong>（用于阿贝尔第二定理的证明）</td>
+</tr>
+</tbody>
+</table>
+<h2 id="六、同一家族但不算「判别法」：阿贝尔两条定理">六、同一家族但不算「判别法」：阿贝尔两条定理</h2>
+<p>第十一章幂级数部分还有两条以阿贝尔命名、但<strong>不是判别法</strong>的定理，一并列出以免混淆：</p>
+<p><strong>阿贝尔第一定理</strong>　若 <eq> \sum\limits_{n=0}^{\infty}a_n(x-x_0)^n </eq> 在点 <eq> x=\xi </eq> 收敛，那么它必在 <eq> \lvert x-x_0\rvert&lt;\lvert\xi-x_0\rvert </eq> 内绝对收敛；又若在 <eq> x=\xi </eq> 发散，则它必在 <eq> \lvert x-x_0\rvert&gt;\lvert\xi-x_0\rvert </eq> 也发散。</p>
+<blockquote>
+<p>作用：把「一个点的收敛性」传播成「一整段的收敛性」，从而定义收敛半径 <eq> R </eq>。</p>
+</blockquote>
+<p><strong>阿贝尔第二定理</strong>　若 <eq> \sum\limits_{n=0}^{\infty}a_n(x-x_0)^n </eq> 的收敛半径为 <eq> R </eq>，则此级数在 <eq> (x_0-R,x_0+R) </eq> 内的任一个闭区间 <eq> [a,b] </eq> 上一致收敛（即内闭一致收敛）；又若级数在 <eq> x_0+R </eq> 点收敛，则它必在 <eq> [a,x_0+R] </eq> 上一致收敛。同理，当级数在 <eq> x_0-R </eq> 收敛时可得类似结论。</p>
+<blockquote>
+<p>作用：把一致收敛延拓到端点，用来证明和函数在端点连续 —— 也就是「不必真的求和，就能断定 <eq> \arctan x </eq> 在 <eq> x=\pm1 </eq> 处仍等于幂级数」。</p>
+</blockquote>
+]]></content>
       <categories>
         <category>Mathematics</category>
         <category>数学分析</category>
@@ -771,6 +895,21 @@
       </categories>
       <tags>
         <tag>Diary</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>大一租房（图片太大传不上来）</title>
+    <url>/2026/10/13/freshman-year-renting/</url>
+    <content><![CDATA[<p>上面这几张图是第一套，洗衣机，床，各种架子和沙发套，桌布都是自己买的，但是洗澡水压太小，找了自来水公司的人和买增压喷头都没用，刚好又在网上看到第二套这个有人出租，所以违约了没要回来押金也搬走了（当时一次性付了一年房租，没住满只退了一部分）</p>
+<p>这是第二套，房间特别大，月租只要900，但是商用水电没有暖气。之前是办公室，没有床。搬过来的时候把洗衣机和床一起搬过来叫货拉拉还花了好几百。但是因为没有暖气，只有开电暖，房间又大，导致晚上睡觉特别冷，洗澡的卫生间也极冷。电暖还花的电费还特别贵，算下来每月水电会花200块（电暖只晚上开的情况下）。租了几个月后在今年4月搬回宿舍住了，洗衣机和床也没办法带走，只有200块卖了，最开始床是700买的洗衣机是800。</p>
+<p>这是上学期开学3月在附近租的，老板把这几个房间都租出去了，相当于合租，都是东大的学生，每个月800，但是房间靠马路晚上很吵，加上不太喜欢合租就走了，只住了2天（只是过来看看合不合适，合适就打算从第二套那里搬出来了，最后不喜欢所以还是接着租了第二套到四月）</p>
+<p>租房的时候什么都要自己干，加上总是碰到大大小小的问题，刚开始还觉得新鲜，一直改造房间，后来就只感觉累。加上我在学校本来也没什么朋友，住的地方还没人说话，太难受感觉要玉玉了，所以就搬回宿舍了，到现在感觉还行</p>
+]]></content>
+      <categories>
+        <category>Life</category>
+      </categories>
+      <tags>
+        <tag>Essay</tag>
       </tags>
   </entry>
 </search>
