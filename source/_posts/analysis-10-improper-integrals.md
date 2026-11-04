@@ -5,29 +5,8 @@ updated: 2026-11-01 22:52:33
 description: 第十章反常积分的复习提纲：无穷限的反常积分、无界函数的反常积分，柯西收敛原理与各种判别法、15 道例题。
 categories:
   - [Mathematics, 数学分析]
+mathnotes: true
 ---
-<style>
-/* 数分笔记的排版微调：只在本页生效（样式内嵌在正文里，其他文章不受影响） */
-#article-container h2 {
-  margin-top: 3.2em;
-  margin-bottom: 1.2em;
-  padding-top: .7em;
-  border-top: 1px solid var(--hr-color, #C3E3D2);
-}
-#article-container h3 {
-  margin-top: 2.6em;
-  margin-bottom: 1.1em;
-}
-#article-container p {
-  margin-bottom: 1.2em;
-}
-#article-container .katex-display {
-  margin: .95em 0;
-}
-#article-container hr {
-  margin: 2.8em 0;
-}
-</style>
 ## §1 无穷限的反常积分
 
 ### 定义与定理

@@ -5,17 +5,8 @@ updated: 2026-11-04 19:57:35
 description: 把数项级数、无穷限反常积分、无界函数反常积分、函数项级数四类对象上的阿贝尔与狄利克雷判别法放在一起对照，说明两条判别法的条件差别、所依据的工具，以及它们与莱布尼茨定理的逻辑关系。
 categories:
   - [Mathematics, 数学分析]
+mathnotes: true
 ---
-<style>
-/* 数分笔记的排版微调：只在本页生效 */
-#article-container h2 { margin-top: 3.2em; margin-bottom: 1.2em; padding-top: .7em; border-top: 1px solid var(--hr-color, #C3E3D2); }
-#article-container h3 { margin-top: 2.6em; margin-bottom: 1.1em; }
-#article-container p { margin-bottom: 1.2em; }
-#article-container .katex-display { margin: .95em 0; }
-#article-container hr { margin: 2.8em 0; }
-#article-container table { margin: 1.2em 0; font-size: .92em; }
-#article-container table th { background: rgba(111,175,140,.14); }
-</style>
 ## 一、结论
 
 数项级数、无穷限反常积分、无界函数反常积分、函数项级数四类对象上，阿贝尔判别法与狄利克雷判别法做的是同一件事：判断

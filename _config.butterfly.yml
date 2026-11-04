@@ -191,7 +191,10 @@ index_layout: 3
 # 3: auto_excerpt (default)
 # false: do not show the article introduction
 index_post_content:
-  method: 3
+  # 用 2 而不是 3：数学笔记的正文里有大量 LaTeX，自动截取会在卡片上显示成
+  # 「∑anbn或∫fg dx \sum a_n b_n ...」这种原始公式碎片。
+  # 2 = 有 description 就显示 description，没有才退回自动截取。
+  method: 2
   # If you set method to 2 or 3, the length need to config
   length: 500
 

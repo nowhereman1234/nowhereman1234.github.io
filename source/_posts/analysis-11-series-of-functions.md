@@ -5,29 +5,8 @@ updated: 2026-11-01 22:53:33
 description: 第十一章的复习提纲：函数项级数的一致收敛、魏尔斯特拉斯与阿贝尔、狄利克雷判别法、幂级数，17 道例题。
 categories:
   - [Mathematics, 数学分析]
+mathnotes: true
 ---
-<style>
-/* 数分笔记的排版微调：只在本页生效（样式内嵌在正文里，其他文章不受影响） */
-#article-container h2 {
-  margin-top: 3.2em;
-  margin-bottom: 1.2em;
-  padding-top: .7em;
-  border-top: 1px solid var(--hr-color, #C3E3D2);
-}
-#article-container h3 {
-  margin-top: 2.6em;
-  margin-bottom: 1.1em;
-}
-#article-container p {
-  margin-bottom: 1.2em;
-}
-#article-container .katex-display {
-  margin: .95em 0;
-}
-#article-container hr {
-  margin: 2.8em 0;
-}
-</style>
 ## §1 函数项级数的一致收敛
 
 ### 定义与定理
